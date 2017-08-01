@@ -28,12 +28,12 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :artist_email %>
+    <%= form.email_field :email, id: :artist_email %>
   </div>
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.text_field :password, id: :artist_password %>
+    <%= form.password_field :password, id: :artist_password %>
   </div>
 
   <div class="field">
@@ -58,17 +58,17 @@
 
   <div class="field">
     <%= form.label :website %>
-    <%= form.text_field :website, id: :artist_website %>
+    <%= form.url_field :website, id: :artist_website %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :sales %>
     <%= form.text_field :sales, id: :artist_sales %>
-  </div>
+  </div> -->
 
   <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :artist_phone %>
+    <%= form.label :phone_number %>
+    <%= form.telephone_field :phone, id: :artist_phone %>
   </div>
 
   <div class="actions">

@@ -1,15 +1,129 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+/* Colors */
+$dk-blue: #1E83AE;
+$blue: #3D5B94;
+$light-blue: #3DACDD;
+$green: #6dcd9a;
+$social-size: 1.2em;
+$social-width: 20%;
+
+html, body {
+  height: 100%;
+  font-family: Raleway, sans-serif;
+  background-color: #fff;
+}
+.carousel-inner > .carousel-item > img {
+    margin: 0 auto;
+}
+/*##### Global Classes #####*/
+* {margin: 0;padding: 0;}
+body { font-family: arial; font-size: 16px;}
+
+.clearfix {clear: both;}
+.center {text-align: center;}
+.left {text-align: left;}
+.right {text-align: right;}
+
+.clr1 {background: #FFFFFF; color: #333743;}
+.clr2 {background: #F1F3F5; color: #8F94A3;}
+.clr3 {background: #3E4352; color: #BDC3CF;}
+.clr4 {background: #636A7D; color: #E3E7F2;}
+
+a {color: #BDC3CF; text-decoration: none;}
+a:hover {color: #ffffff; text-decoration: underline;}
+a:visited{}
+
+/*##### Footer Structure #####*/
+.bo-wrap {clear:both; width: auto;}
+.bo-footer {
+  clear:both;
+  width: auto;
+  padding: 5px;
+  width: 960px;
+	margin: 0 auto;
+}
+
+.bo-footer-social {text-align: center; line-height: 1px;}
+
+.bo-footer-smap {
+	width: 300px;
+	float: left;
+	padding: 5px 10px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.bo-footer-uonline {
+	width: 300px; /* Account for margins + border values */
+	float: left;
+	padding: 5px 10px;
+  text-align: center;
+}
+
+.bo-footer-power {
+	width: 300px;
+	padding: 5px 10px;
+	float: left;
+  text-align: right;
+  font-size: 14px;
+  color: #636A7D;
+  vertical-align: middle;
+}
+
+.bo-footer-copyright {text-align: center; color: #BDC3CF}
+
+/*##### Footer Responsive #####*/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+
+	.bo-footer {
+		width: 95%;
+		padding: 1% 2%;
+	}
+	.bo-footer-smap {
+		width: 46%;
+		padding: 1% 2%;
+	}
+	.bo-footer-uonline {
+		width: 46%;
+		padding: 1% 2%;
+		float: right;
+    text-align: right;
+	}
+
+	.bo-footer-power {
+		clear: both;
+		padding: 1% 2%;
+		width: auto;
+		float: none;
+    text-align: center;
+	}
+}
+/* for 700px or less */
+@media screen and (max-width: 600px) {
+
+	.bo-footer-smap {
+		width: auto;
+		float: none;
+    text-align: center;
+	}
+
+	.bo-footer-uonline {
+		width: auto;
+		float: none;
+    text-align: center;
+	}
+
+	.bo-footer-power {
+		width: auto;
+		float: none;
+    text-align: center;
+	}
+
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+}

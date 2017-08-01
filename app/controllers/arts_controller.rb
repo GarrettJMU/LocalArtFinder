@@ -1,9 +1,12 @@
 class ArtsController < ApplicationController
   before_action :set_art, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /arts
   # GET /arts.json
   def index
+    @ability = Ability.new(current_user)
     @arts = Art.all
   end
 
