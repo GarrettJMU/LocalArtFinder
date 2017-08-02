@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get 'usertypes/index'
   get 'usertypes/route'
 
