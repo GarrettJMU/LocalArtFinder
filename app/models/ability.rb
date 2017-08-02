@@ -9,7 +9,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :artist
-      can :manage, Art, Gallery, Event
+      can :manage, :all
     elsif user.has_role? :customer
       can :read, :all, user_id: user.id
     end

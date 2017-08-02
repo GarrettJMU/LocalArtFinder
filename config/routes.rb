@@ -1,20 +1,15 @@
 Rails.application.routes.draw do
-  get 'admin/index'
 
-  get 'admin/update'
 
   get 'usertypes/index'
-
   get 'usertypes/route'
-  get "admin" => "admin#index"
-  put "admin/:id" => "admin#update"
-  patch "admin/:id" => "admin#update"
 
   resources :events
   resources :galleries
   resources :arts
   resources :customers
   resources :artists
+  resources :admin
 
 
   devise_for :users
