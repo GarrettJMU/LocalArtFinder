@@ -1,7 +1,4 @@
 @import "bootstrap";
-.carousel-inner > .carousel-item > img {
-    margin: 0 auto;
-}
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 /* Colors */
 $dk-blue: #1E83AE;

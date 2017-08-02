@@ -6,17 +6,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   </head>
 
   <body>
-    <p>
-      <%= if !current_user.nil?
-        current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
-        end
-      %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    </p>
-
+    <p>     <%= if !current_user.nil?
+     current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+       end
+    %>     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>   </p>
+    <%= render "layouts/header" %>
     <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>
