@@ -26,11 +26,11 @@
       <tr>
         <td><%= art.genre %></td>
         <td><%= art.description %></td>
-        <td><%= art.price %></td>
+        <td>$<%= art.price %></td>
         <td><%= art.length %></td>
         <td><%= art.width %></td>
         <td><%= art.medium %></td>
-        <td><%= art.artist %></td>
+        <td><%= art.artist.alias %></td>
         <td><%= link_to 'Show', art %></td>
         <td><%= link_to 'Edit', edit_art_path(art) %></td>
         <td><%= link_to 'Destroy', art, method: :delete, data: { confirm: 'Are you sure?' } %></td>
