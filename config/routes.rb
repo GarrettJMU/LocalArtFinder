@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
+
   get 'usertypes/index'
   get 'usertypes/route'
+
   resources :events
   resources :galleries
   resources :arts
   resources :customers
   resources :artists
   resources :admin
+
 
   devise_for :users
 
