@@ -13,7 +13,19 @@
     <p>     <%= if !current_user.nil?
      current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
        end
-    %>         </p>
+    %>    
+   <div class="search">
+     <form  action="galleries" method="get">
+       <input type="text" class="searchTerm"
+       name = "gallery" placeholder="Search Site">
+       <button type="submit"
+       class="searchButton"
+       name="button">Submit</button>
+     </form>
+   </div>
+</div> 
+  </p>
+       
     <%= render "layouts/header" %>
     <%= yield %>
     <%= render "layouts/footer" %>

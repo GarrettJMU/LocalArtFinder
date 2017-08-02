@@ -6,5 +6,5 @@ class ApplicationController < ActionController::Base
   #   else
   #     render 'artists/form'
   # end
-
+  
 end

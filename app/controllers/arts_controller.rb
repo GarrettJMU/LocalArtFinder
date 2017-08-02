@@ -7,7 +7,13 @@ class ArtsController < ApplicationController
   # GET /arts.json
   def index
     @ability = Ability.new(current_user)
-    @arts = Art.all
+    if params[:search].nil? || params[:search].empty?
+      @arts = Art.all
+      @results = Art.basic_search(params[:search])
+    else @arts = Art.basic_search(params[:search])
+      redirect_to "/arts/#{@results.first.id}"
+    end
+
   end
 
   # GET /arts/1
