@@ -1,0 +1,38 @@
+<nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= image_tag("logo.png", class: "navbar-brand nav-logo")%>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/events">Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/artists">Artist</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/arts">Art</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/about/index">About</a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+        </a>
+      </li>
+    </ul>
+    <div class="search">
+      <form class="form-inline my-2 my-lg-0" action="galleries" method="get">
+        <input type="text" class="searchTerm form-control mr-sm-2"
+        name = "gallery" placeholder="Search Site">
+        <button type="submit"
+        class="searchButton btn btn-outline-success my-2 my-sm-0"
+        name="button">Submit</button>
+      </form>
+    </div>
+  </div>
+</nav>

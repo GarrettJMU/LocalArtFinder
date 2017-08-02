@@ -6,29 +6,19 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    # @ability = Ability.new(current_user)
-    @artists = Artist.all
+    @ability = Ability.new(current_user)
+    if params[:search].nil? || params[:search].empty?
+      @artists = Artist.all
+      @results = Artist.basic_search(params[:search])
+    else @artists = Artist.basic_search(params[:search])
+      redirect_to "/artists/#{@results.first.id}"
+    end
   end
 
   # GET /artists/1
   # GET /artists/1.json
   def show
   end
-
-  # def search
-  #    @results = Artist.basic_search(art: params[:art])
-  #
-  #    if @results.size == 0
-  #      # handle instance when there aren't any results
-  #    end
-  #
-  #    redirect_to "/listings/#{@results.first.id}"
-  #  end
-  #
-  # def myartists
-  #   @user = current_user
-  # end
-
 
   # GET /artists/new
   def new
