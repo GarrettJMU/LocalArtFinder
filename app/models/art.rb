@@ -1,6 +1,6 @@
 class Art < ApplicationRecord
   belongs_to :artist
-  validates :user, presence: true
+  # validates :user, presence: true
   resourcify
 
 def self.search(search)

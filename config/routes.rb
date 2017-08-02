@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :customers
   resources :artists
   resources :admin
+  resources :charges
+
 
 
   devise_for :users
