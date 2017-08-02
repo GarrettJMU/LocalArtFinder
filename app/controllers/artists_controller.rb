@@ -8,6 +8,8 @@ class ArtistsController < ApplicationController
   def index
     @ability = Ability.new(current_user)
     @artists = Artist.all
+    @arts = Art.all
+
   end
 
   # GET /artists/1
