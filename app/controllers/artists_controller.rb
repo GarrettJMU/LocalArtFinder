@@ -1,12 +1,12 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  before_action :authenticate_user!
+  # load_and_authorize_resource
 
   # GET /artists
   # GET /artists.json
   def index
-    @ability = Ability.new(current_user)
+    # @ability = Ability.new(current_user)
     @artists = Artist.all
   end
 
@@ -24,11 +24,16 @@ class ArtistsController < ApplicationController
   #
   #    redirect_to "/listings/#{@results.first.id}"
   #  end
+  #
+  # def myartists
+  #   @user = current_user
+  # end
 
 
   # GET /artists/new
   def new
     @artist = Artist.new
+    # @artist = current_user.Artist.build
   end
 
   # GET /artists/1/edit
@@ -38,8 +43,9 @@ class ArtistsController < ApplicationController
   # POST /artists
   # POST /artists.json
   def create
+    # @user = current_user
+    # @artist = current_user.artists.build(artist_params)
     @artist = Artist.new(artist_params)
-
     respond_to do |format|
       if @artist.save
         format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
@@ -83,6 +89,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:alias, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone, :user_id)
+      params.require(:artist).permit(:alias, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone)
     end
 end
