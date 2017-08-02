@@ -8,14 +8,19 @@ class GalleriesController < ApplicationController
   # GET /galleries.json
   def index
     @ability = Ability.new(current_user)
-    @galleries = Gallery.all
+    if params[:search].nil? || params[:search].empty?
+      @galleries = Gallery.all
+      @results = Gallery.basic_search(params[:search])
+    else @galleries = Gallery.basic_search(params[:search])
+      redirect_to "/galleries/#{@results.first.id}"
+    end
   end
 
   # GET /galleries/1
   # GET /galleries/1.json
   def show
   end
-
+  
   # GET /galleries/new
   def new
     @gallery = Gallery.new

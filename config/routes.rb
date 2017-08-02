@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   get 'usertypes/index'
   get 'usertypes/route'
+  get 'artists/search'
+  get 'events/search'
+  get 'galleries/search'
+  
   resources :events
   resources :galleries
   resources :arts

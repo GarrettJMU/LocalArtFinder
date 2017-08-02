@@ -1,4 +1,7 @@
 class AdminController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authorize
+
   def index
     @users = User.all
   end
@@ -14,6 +17,8 @@ class AdminController < ApplicationController
     user.add_role(:artist)
     redirect_to '/admin'
   end
+
+  
 
   private
 
