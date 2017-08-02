@@ -15,6 +15,17 @@ class ArtistsController < ApplicationController
   def show
   end
 
+  # def search
+  #    @results = Artist.basic_search(art: params[:art])
+  #
+  #    if @results.size == 0
+  #      # handle instance when there aren't any results
+  #    end
+  #
+  #    redirect_to "/listings/#{@results.first.id}"
+  #  end
+
+
   # GET /artists/new
   def new
     @artist = Artist.new
@@ -72,6 +83,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:alias, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone)
+      params.require(:artist).permit(:alias, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone, :user_id)
     end
 end
