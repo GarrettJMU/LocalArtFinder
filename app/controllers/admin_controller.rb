@@ -14,6 +14,7 @@ class AdminController < ApplicationController
      if !current_user.has_role? :customer
        user.remove_role(:customer)
      end
+
     user.add_role(:artist)
     redirect_to '/admin'
   end
