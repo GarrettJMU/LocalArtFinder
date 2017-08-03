@@ -1,5 +1,5 @@
 class ArtsController < ApplicationController
-  # before_action :set_art, only: [:show, :edit, :update, :destroy]
+  before_action :set_art, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
   # load_and_authorize_resource
 
@@ -33,8 +33,9 @@ class ArtsController < ApplicationController
   # POST /arts
   # POST /arts.json
   def create
+    @user = current_user
+    @artist = @user.artists.first.id
     @art = Art.new(art_params)
-
     respond_to do |format|
       if @art.save
         format.html { redirect_to @art, notice: 'Art was successfully created.' }

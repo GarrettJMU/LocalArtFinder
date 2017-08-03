@@ -1,12 +1,12 @@
 class ArtistsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  # before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  before_action :set_artist, only: [:show, :edit, :update, :destroy]
   # load_and_authorize_resource
 
   # GET /artists
   # GET /artists.json
   def index
-    # @ability = Ability.new(current_user)
+    @ability = Ability.new(current_user)
     if params[:search].nil? || params[:search].empty?
       @artists = Artist.all
       @results = Artist.basic_search(params[:search])
@@ -33,7 +33,7 @@ class ArtistsController < ApplicationController
   # POST /artists
   # POST /artists.json
   def create
-    # @user = current_user
+    @user = current_user
     # @artist = current_user.artists.build(artist_params)
     @artist = Artist.new(artist_params)
     respond_to do |format|
@@ -79,6 +79,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:alias, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone)
+      params.require(:artist).permit(:alias, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone, :user_id)
     end
 end
