@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  root 'landing_page#index'
 
   get 'usertypes/index'
   get 'usertypes/route'
@@ -25,4 +24,6 @@ Rails.application.routes.draw do
       get 'devise/sessions/new', as: :unauthenticated_root
     end
   end
+    root 'landing_page#index'
+
 end
