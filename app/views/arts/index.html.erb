@@ -10,6 +10,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Genre</th>
       <th>Description</th>
       <th>Price</th>
@@ -24,6 +25,7 @@
   <tbody>
     <% @arts.each do |art| %>
       <tr>
+        <td><%= image_tag art.image.url(:small) %></td>
         <td><%= art.genre %></td>
         <td><%= art.description %></td>
         <td><%= art.price %></td>

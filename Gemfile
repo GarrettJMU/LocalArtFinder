@@ -31,7 +31,7 @@ gem 'cancancan'
 gem 'rolify'
 gem 'textacular'
 gem 'stripe'
-
+gem 'paperclip'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
