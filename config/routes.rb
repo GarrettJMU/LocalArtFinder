@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  root 'landing_page#index'
 
   get 'usertypes/index'
   get 'usertypes/route'
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_scope :user do
     authenticated :user do
@@ -25,4 +24,6 @@ Rails.application.routes.draw do
       get 'devise/sessions/new', as: :unauthenticated_root
     end
   end
+    root 'landing_page#index'
+
 end
