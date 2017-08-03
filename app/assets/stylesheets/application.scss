@@ -39,6 +39,14 @@ $social-width: 20%;
   width: 86px;
 }
 
+.land-header{
+  margin-bottom: 20px;
+}
+
+#carouselExampleIndicators {
+  margin-top: 20px;
+}
+
 .btn-outline-success {
     color: #fff;
     background-image: none;
@@ -53,6 +61,20 @@ $social-width: 20%;
     border-color: $salmon;
 }
 
+.btn {
+  color: #fff;
+  background-image: none;
+  background-color: transparent;
+  border: none;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: $salmon;
+  border-color: $salmon;
+}
+
+
 html, body {
   height: 100%;
   font-family: Raleway, sans-serif;
@@ -64,7 +86,7 @@ html, body {
 * {margin: 0;padding: 0;}
 /*##### Global Classes #####*/
 .footer_wrapper {
-  position: absolute;
+ position: relative;
  right: 0;
  bottom: 0;
  left: 0;
