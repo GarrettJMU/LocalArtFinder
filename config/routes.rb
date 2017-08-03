@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'usertypes/index'
   get 'usertypes/route'
   resources :events
@@ -16,11 +17,13 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'galleries#index', as: :authenticated_root
+      get 'galleries/index', as: :authenticated_root
     end
 
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      get 'devise/sessions/new', as: :unauthenticated_root
     end
   end
+    root 'landing_page#index'
+
 end
