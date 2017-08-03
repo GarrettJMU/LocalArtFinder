@@ -1,12 +1,12 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show, :index]
+  # before_action :set_artist, only: [:show, :edit, :update, :destroy]
   # load_and_authorize_resource
 
   # GET /artists
   # GET /artists.json
   def index
-    @ability = Ability.new(current_user)
+    # @ability = Ability.new(current_user)
     if params[:search].nil? || params[:search].empty?
       @artists = Artist.all
       @results = Artist.basic_search(params[:search])

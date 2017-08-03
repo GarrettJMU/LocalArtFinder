@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :arts
   has_many :artists
   def assign_default_role
-    add_role(:customer)
+    add_role(:artist)
   end
 end

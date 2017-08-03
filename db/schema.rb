@@ -64,8 +64,6 @@ ActiveRecord::Schema.define(version: 20170803164811) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -142,7 +140,6 @@ ActiveRecord::Schema.define(version: 20170803164811) do
   add_foreign_key "artists", "users"
   add_foreign_key "arts", "artists"
   add_foreign_key "arts", "users"
-  add_foreign_key "customers", "users"
   add_foreign_key "events", "artists"
   add_foreign_key "events", "arts"
   add_foreign_key "events", "galleries"

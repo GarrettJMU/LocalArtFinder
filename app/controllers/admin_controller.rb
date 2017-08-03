@@ -19,7 +19,7 @@ class AdminController < ApplicationController
     redirect_to '/admin'
   end
 
-  
+
 
   private
 
