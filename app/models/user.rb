@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :arts
-
+  has_many :artists
   def assign_default_role
     add_role(:customer)
   end
