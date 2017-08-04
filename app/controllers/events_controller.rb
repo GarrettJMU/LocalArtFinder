@@ -8,12 +8,11 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @ability = Ability.new(current_user)
-    if params[:search].nil? || params[:search].empty?
+    # if params[:search].nil? || params[:search].empty?
       @events = Event.all
-      @results = Event.basic_search(params[:search])
-    else @events = Event.basic_search(params[:search])
-      redirect_to "/events/#{@results.first.id}"
-    end
+    # else @events = Event.basic_search(params[:search])
+    #   render "/events/index.html"
+    # end
 
   end
 

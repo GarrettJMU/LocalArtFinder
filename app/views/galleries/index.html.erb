@@ -1,10 +1,5 @@
 <p id="notice"><%= notice %></p>
-<% form_tag galleries_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+
 <h1>Galleries</h1>
 
 <table>
