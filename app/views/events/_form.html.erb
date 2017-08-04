@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :event_date %>
+  </div>
+
+  <div class="field">
     <%= form.label :start %>
     <%= form.time_select :start, id: :event_start %>
   </div>

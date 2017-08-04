@@ -1,28 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<p>
   <strong>Start:</strong>
-  <%= @event.start %>
+  <%= @event.start.strftime("%H:%M") %>
 </p>
 
 <p>
   <strong>End:</strong>
-  <%= @event.end %>
+  <%= @event.end.strftime("%H:%M") %>
 </p>
 
 <p>
   <strong>Gallery:</strong>
-  <%= @event.gallery %>
+  <%= @event.gallery.name %>
 </p>
 
 <p>
   <strong>Artist:</strong>
-  <%= @event.artist %>
+  <%= @event.artist.alias %>
 </p>
 
 <p>
   <strong>Art:</strong>
-  <%= @event.art %>
+  <%= @event.art.description %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
