@@ -18,22 +18,22 @@
         <a class="nav-link" href="http://localhost:3000/arts">Art</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/about/index">About</a>
+        <a class="nav-link" href="http://localhost:3000/arts">Galleries</a>
       </li>
-      <li class="nav-item" >
-        <a class="nav-link" <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-        </a>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:3000/about/index">About</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#"><p><%= if   !current_user.nil?
-               current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
-                 end
-              %>
-
+            <a class="nav-link" href="http://localhost:3000/users/sign_in">Log In</a>
+            <a class="nav-link" <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
+            <a class="dropdown-item" href="#"><p><%= if   !current_user.nil?
+                 current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+                   end
+                %>
             </p></a>
         </div>
       </li>

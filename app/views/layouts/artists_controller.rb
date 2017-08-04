@@ -1,4 +1,7 @@
 class ArtistsController < ApplicationController
+  
+ # UPDATE THIS AND ESNURE THAT WE HAVE AN ARTISTS CONTROLLER STILL pls
+  
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   # load_and_authorize_resource

@@ -1,7 +1,7 @@
 class ArtsController < ApplicationController
   before_action :set_art, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  before_action :authenticate_user!, except: [:show, :index]
+  # load_and_authorize_resource
 
   # GET /arts
   # GET /arts.json
@@ -24,17 +24,22 @@ class ArtsController < ApplicationController
   # GET /arts/new
   def new
     @art = Art.new
+    @user = current_user
+    @artist = @user.artists.first.id
   end
 
   # GET /arts/1/edit
   def edit
+     @user = current_user
+     @artist = @user.artists.first.id
   end
 
   # POST /arts
   # POST /arts.json
   def create
+    @user = current_user
+    @artist = @user.artists.first.id
     @art = Art.new(art_params)
-
     respond_to do |format|
       if @art.save
         format.html { redirect_to @art, notice: 'Art was successfully created.' }
@@ -49,6 +54,8 @@ class ArtsController < ApplicationController
   # PATCH/PUT /arts/1
   # PATCH/PUT /arts/1.json
   def update
+    @user = current_user
+    @artist = @user.artists.first.id
     respond_to do |format|
       if @art.update(art_params)
         format.html { redirect_to @art, notice: 'Art was successfully updated.' }
@@ -63,6 +70,8 @@ class ArtsController < ApplicationController
   # DELETE /arts/1
   # DELETE /arts/1.json
   def destroy
+    @user = current_user
+    @artist = @user.artists.first.id
     @art.destroy
     respond_to do |format|
       format.html { redirect_to arts_url, notice: 'Art was successfully destroyed.' }
@@ -77,11 +86,13 @@ class ArtsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_art
+      @user = current_user
+      @artist = @user.artists.first.id
       @art = Art.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def art_params
-      params.require(:art).permit(:genre, :description, :price, :length, :width, :medium, :artist_id, :user_id)
+      params.require(:art).permit(:genre, :description, :price, :length, :width, :medium, :artist_id, :user_id, :image)
     end
 end

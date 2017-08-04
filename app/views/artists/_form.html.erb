@@ -27,13 +27,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email, id: :artist_email %>
+    <%= form.hidden_field :email, :value => @user.email %>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password, id: :artist_password %>
+  <%= form.hidden_field :password, :value => @user.password %>
+  </div>
+
+  <div class="field">
+  <%= form.hidden_field :user_id, :value => @user.id %>
   </div>
 
   <div class="field">
