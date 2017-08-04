@@ -24,10 +24,12 @@ class ArtsController < ApplicationController
   # GET /arts/new
   def new
     @art = Art.new
+    @user = current_user
   end
 
   # GET /arts/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /arts
@@ -50,6 +52,7 @@ class ArtsController < ApplicationController
   # PATCH/PUT /arts/1
   # PATCH/PUT /arts/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @art.update(art_params)
         format.html { redirect_to @art, notice: 'Art was successfully updated.' }
