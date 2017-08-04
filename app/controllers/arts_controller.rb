@@ -25,11 +25,13 @@ class ArtsController < ApplicationController
   def new
     @art = Art.new
     @user = current_user
+    @artist = @user.artists.first.id
   end
 
   # GET /arts/1/edit
   def edit
-    @user = current_user
+     @user = current_user
+     @artist = @user.artists.first.id
   end
 
   # POST /arts
@@ -53,6 +55,7 @@ class ArtsController < ApplicationController
   # PATCH/PUT /arts/1.json
   def update
     @user = current_user
+    @artist = @user.artists.first.id
     respond_to do |format|
       if @art.update(art_params)
         format.html { redirect_to @art, notice: 'Art was successfully updated.' }
@@ -67,6 +70,8 @@ class ArtsController < ApplicationController
   # DELETE /arts/1
   # DELETE /arts/1.json
   def destroy
+    @user = current_user
+    @artist = @user.artists.first.id
     @art.destroy
     respond_to do |format|
       format.html { redirect_to arts_url, notice: 'Art was successfully destroyed.' }
@@ -81,6 +86,8 @@ class ArtsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_art
+      @user = current_user
+      @artist = @user.artists.first.id
       @art = Art.find(params[:id])
     end
 
