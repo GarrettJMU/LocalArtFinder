@@ -20,6 +20,7 @@ class ArtistsController < ApplicationController
   def show
   end
 
+
   # GET /artists/new
   def new
     @artist = Artist.new
