@@ -11,19 +11,16 @@ Rails.application.routes.draw do
   resources :admin
   resources :charges
 
-
-
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_scope :user do
-    authenticated :user do
-      get 'galleries/index', as: :authenticated_root
+    authenticate :user do
+      get 'artists/index', as: :authenticated_root
     end
 
     unauthenticated do
-      get 'devise/sessions/new', as: :unauthenticated_root
+      get 'landing_page/index', as: :unauthenticated_root
     end
   end
-    root 'landing_page#index'
-
+  root 'landing_page#index'
 end

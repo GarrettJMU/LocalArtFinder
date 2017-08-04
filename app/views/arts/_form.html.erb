@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.file_field :image %>
-  </div>  
+  </div>
 
   <div class="field">
     <%= form.label :genre %>
@@ -41,14 +41,17 @@
   </div>
 
   <div class="field">
+    <%= form.hidden_field :user_id, :value => @user.id %>
+  </div>
+  <div class="field">
+    <%= form.hidden_field :artist_id, :value => @artist %>
+  </div>
+
+  <div class="field">
     <%= form.label :medium %>
     <%= form.text_field :medium, id: :art_medium %>
   </div>
 
-  <div class="field">
-    <%= form.label :artist_id %>
-    <%= form.text_field :artist_id, id: :art_artist_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

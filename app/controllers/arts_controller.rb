@@ -1,7 +1,7 @@
 class ArtsController < ApplicationController
   before_action :set_art, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  before_action :authenticate_user!, except: [:show, :index]
+  # load_and_authorize_resource
 
   # GET /arts
   # GET /arts.json
@@ -24,17 +24,20 @@ class ArtsController < ApplicationController
   # GET /arts/new
   def new
     @art = Art.new
+    @user = current_user
   end
 
   # GET /arts/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /arts
   # POST /arts.json
   def create
+    @user = current_user
+    @artist = @user.artists.first.id
     @art = Art.new(art_params)
-
     respond_to do |format|
       if @art.save
         format.html { redirect_to @art, notice: 'Art was successfully created.' }
@@ -49,6 +52,7 @@ class ArtsController < ApplicationController
   # PATCH/PUT /arts/1
   # PATCH/PUT /arts/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @art.update(art_params)
         format.html { redirect_to @art, notice: 'Art was successfully updated.' }

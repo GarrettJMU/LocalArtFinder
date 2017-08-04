@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :arts
+  has_many :artists
+
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -25,6 +27,6 @@ class User < ApplicationRecord
 end
 
   def assign_default_role
-    add_role(:customer)
+    add_role(:artist)
   end
 end
