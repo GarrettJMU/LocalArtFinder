@@ -7,12 +7,15 @@ class ArtistsController < ApplicationController
   # GET /artists.json
   def index
     @ability = Ability.new(current_user)
-    if params[:search].nil? || params[:search].empty?
+    # if params[:search].nil? || params[:search].empty?
       @artists = Artist.all
-      @results = Artist.basic_search(params[:search])
-    else @artists = Artist.basic_search(params[:search])
-      redirect_to "/artists/#{@results.first.id}"
-    end
+    #   @art = Art.all
+    # else
+    #   @artists = Artist.basic_search(params[:search])  @art.basic_search(params[:search])
+    #   @gallery.basic_search(params[:search])
+    #   @event.basic_search(params[:search])
+    #   render "/artists/index.html"
+    # end
   end
 
   # GET /artists/1
