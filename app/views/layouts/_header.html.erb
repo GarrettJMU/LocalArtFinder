@@ -18,7 +18,7 @@
         <a class="nav-link" href="http://localhost:3000/arts">Art</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/arts">Galleries</a>
+        <a class="nav-link" href="http://localhost:3000/galleries">Galleries</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="http://localhost:3000/about/index">About</a>
@@ -28,7 +28,7 @@
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="nav-link" href="http://localhost:3000/devise/sessions/new">Login</a>
+            <a class="nav-link" href="http://localhost:3000/users/sign_in">Log In</a>
             <a class="nav-link" <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
             <a class="dropdown-item" href="#"><p><%= if   !current_user.nil?
                  current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
@@ -39,9 +39,9 @@
       </li>
     </ul>
     <div class="search">
-      <form class="form-inline my-2 my-lg-0" action="galleries" method="get">
+      <form class="form-inline my-2 my-lg-0" action="/search" method="get">
         <input type="text" class="searchTerm form-control mr-sm-2"
-        name = "gallery" placeholder="Search Site">
+        name = "search" placeholder="Search Site">
         <button type="submit"
         class="searchButton btn btn-outline-success my-2 my-sm-0"
         name="button">Submit</button>

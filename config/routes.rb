@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-
-
-  get 'usertypes/index'
-  get 'usertypes/route'
+  get '/search' => 'search#index'
   resources :events
   resources :galleries
   resources :arts
@@ -11,7 +8,7 @@ Rails.application.routes.draw do
   resources :admin
   resources :charges
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "users/omniauth_callbacks"}
 
   devise_scope :user do
     authenticate :user do

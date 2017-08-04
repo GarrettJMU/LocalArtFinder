@@ -1,19 +1,16 @@
 class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
-  # load_and_authorize_resource
-
 
   # GET /galleries
   # GET /galleries.json
   def index
     @ability = Ability.new(current_user)
-    if params[:search].nil? || params[:search].empty?
+    # if params[:search].nil? || params[:search].empty?
       @galleries = Gallery.all
-      @results = Gallery.basic_search(params[:search])
-    else @galleries = Gallery.basic_search(params[:search])
-      redirect_to "/galleries/#{@results.first.id}"
-    end
+    # else @galleries = Gallery.basic_search(params[:search])
+      # render "/galleries/index.html"
+    # end
   end
 
   # GET /galleries/1

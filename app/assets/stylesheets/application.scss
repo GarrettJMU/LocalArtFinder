@@ -19,7 +19,13 @@ $green: #6dcd9a;
 $social-size: 1.2em;
 $social-width: 20%;
 
-
+//Global settings
+html, body {
+  height: 100%;
+  font-family: Raleway, sans-serif;
+  background-color: $clean;
+  // position: relative;
+}
 
 .row > .col-xs-12 > .carousel-inner > .carousel-item > img {
     margin: 0 auto;
@@ -53,18 +59,13 @@ $social-width: 20%;
     border-color: $salmon;
 }
 
-html, body {
-  height: 100%;
-  font-family: Raleway, sans-serif;
-  background-color: $clean;
-}
 .carousel-inner > .carousel-item > img {
     margin: 0 auto;
 }
 * {margin: 0;padding: 0;}
 /*##### Global Classes #####*/
 .footer_wrapper {
-  position: absolute;
+  // position: absolute;
  right: 0;
  bottom: 0;
  left: 0;
