@@ -20,6 +20,7 @@ class ArtsController < ApplicationController
   def show
   end
 
+
   # GET /arts/new
   def new
     @art = Art.new
@@ -86,7 +87,6 @@ class ArtsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_art
       @user = current_user
-      @artist = @user.artists.first.id
       @art = Art.find(params[:id])
     end
 
