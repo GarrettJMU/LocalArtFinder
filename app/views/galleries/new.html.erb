@@ -1,5 +1,38 @@
 <h1>New Gallery</h1>
+<!-- <script type="text/javascript">
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('showmap'), {
+    zoom: 12,
+    center: {lat: 32.70961, lng: -117.1579991}
+  });
 
+var geocoder = new google.maps.Geocoder();
+
+function geocodeme() {
+  geocodeAddress(geocoder, map);
+};
+geocodeme()
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+var address = document.getElementById('address').value;
+geocoder.geocode({'address': address}, function(results, status) {
+  if (status === 'OK') {
+    resultsMap.setCenter(results[0].geometry.location);
+    var marker = new google.maps.Marker({
+      map: resultsMap,
+      position: results[0].geometry.location
+    });
+    var l1 = results[0].geometry.location.lat()
+    var l2 = results[0].geometry.location.lng()
+    console.log(l1);
+    console.log(l2);
+  } else {
+    alert('Geocode was not successful for the following reason: ' + status);
+  }
+});
+}
+</script> -->
 <%= render 'form', gallery: @gallery %>
 
 <%= link_to 'Back', galleries_path %>

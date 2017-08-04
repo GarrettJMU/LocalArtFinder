@@ -19,7 +19,12 @@ $green: #6dcd9a;
 $social-size: 1.2em;
 $social-width: 20%;
 
-
+//Global settings
+html, body {
+  height: 100%;
+  font-family: Raleway, sans-serif;
+  background-color: $clean;
+}
 
 .carousel-inner > .carousel-item > img {
     margin: 0 auto;
@@ -53,11 +58,6 @@ $social-width: 20%;
     border-color: $salmon;
 }
 
-html, body {
-  height: 100%;
-  font-family: Raleway, sans-serif;
-  background-color: $clean;
-}
 .carousel-inner > .carousel-item > img {
     margin: 0 auto;
 }
@@ -177,3 +177,7 @@ a:visited{}
 @media screen and (max-width: 480px) {
 
 }
+#map {
+    height: 50vh;
+    width: 75vw;
+  }

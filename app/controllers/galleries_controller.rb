@@ -1,8 +1,7 @@
 class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   load_and_authorize_resource
-
 
   # GET /galleries
   # GET /galleries.json
@@ -20,7 +19,7 @@ class GalleriesController < ApplicationController
   # GET /galleries/1.json
   def show
   end
-  
+
   # GET /galleries/new
   def new
     @gallery = Gallery.new
