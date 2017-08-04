@@ -30,6 +30,8 @@ class ArtsController < ApplicationController
 
   # GET /arts/1/edit
   def edit
+     @user = current_user
+     @artist = @user.artists.first.id
   end
 
   # POST /arts
