@@ -2,6 +2,14 @@ class Gallery < ApplicationRecord
   # belongs_to :artist
   # belongs_to :art
   # validates :user, presence: true
+  
+  #CHECK ALL OF THESE ONES TOO!!!!!!!!!!!!!!!!
+  
+  
+  
+  
+  
+  
   resourcify
 def self.search(search)
   if search
