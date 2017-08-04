@@ -69,4 +69,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+    <input id="address" type="hidden" value="<%= @gallery.street %>,<%= @gallery.city %>,<%= @gallery.state %>,<%= @gallery.zipcode %>">
 <% end %>

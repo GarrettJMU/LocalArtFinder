@@ -24,6 +24,7 @@ html, body {
   height: 100%;
   font-family: Raleway, sans-serif;
   background-color: $clean;
+  // position: relative;
 }
 
 .carousel-inner > .carousel-item > img {
@@ -64,7 +65,7 @@ html, body {
 * {margin: 0;padding: 0;}
 /*##### Global Classes #####*/
 .footer_wrapper {
-  position: absolute;
+  // position: absolute;
  right: 0;
  bottom: 0;
  left: 0;
@@ -178,6 +179,10 @@ a:visited{}
 
 }
 #map {
+    height: 50vh;
+    width: 75vw;
+  }
+#gmap {
     height: 50vh;
     width: 75vw;
   }
