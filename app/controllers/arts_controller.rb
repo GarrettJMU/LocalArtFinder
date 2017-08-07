@@ -25,7 +25,7 @@ class ArtsController < ApplicationController
   def new
     @art = Art.new
     @user = current_user
-    # @artist = @user.artists.first.id
+    @artist = @user.artists.first.id
   end
 
   # GET /arts/1/edit
