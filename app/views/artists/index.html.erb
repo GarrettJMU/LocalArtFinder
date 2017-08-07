@@ -40,8 +40,10 @@
         <td><%= artist.sales %></td>
         <td><%= artist.phone %></td>
         <td><%= link_to 'Show', artist %></td>
+        <% if can? :update, artist %>
         <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
         <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
 
