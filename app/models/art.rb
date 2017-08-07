@@ -8,12 +8,12 @@ class Art < ApplicationRecord
     size: { in: 0..10.megabytes }
   resourcify
 
-def self.search(search)
-  if search
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-  else
-    find(:all)
-  end
-end
+# def self.search(search)
+#   if search
+#     find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+#   else
+#     find(:all)
+#   end
+# end
 
 end

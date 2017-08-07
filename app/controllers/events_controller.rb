@@ -8,12 +8,11 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @ability = Ability.new(current_user)
-    if params[:search].nil? || params[:search].empty?
+    # if params[:search].nil? || params[:search].empty?
       @events = Event.all
-      @results = Event.basic_search(params[:search])
-    else @events = Event.basic_search(params[:search])
-      redirect_to "/events/#{@results.first.id}"
-    end
+    # else @events = Event.basic_search(params[:search])
+    #   render "/events/index.html"
+    # end
 
   end
 
@@ -35,6 +34,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    # @gallery = @event.gallery.first.address
 
     respond_to do |format|
       if @event.save
@@ -79,6 +79,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:start, :end, :gallery_id, :artist_id, :art_id, :user_id)
+      params.require(:event).permit(:date, :start, :end, :gallery_id, :artist_id, :art_id, :user_id)
     end
 end

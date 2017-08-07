@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get '/search' => 'search#index'
   resources :events
   resources :galleries
   resources :arts
