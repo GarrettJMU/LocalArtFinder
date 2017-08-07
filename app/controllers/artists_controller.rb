@@ -21,6 +21,8 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.json
   def show
+    @arts = Artist.find(params[:id]).arts.all
+    @events = Artist.find(params[:id]).events.all
   end
 
 
