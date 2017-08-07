@@ -10,9 +10,10 @@ class Ability
       can :manage, :all
     else
       can [:read, :create], :all
-      can :manage, Art, user_id: user.id
-      can :manage, Artist, user_id: user.id
-      can :manage, Event, user_id: user.id
+      can [:update, :destroy], Art, :user_id => user.id
+      can [:update, :destroy], Artist, :user_id => user.id
+      can [:update, :destroy], Event, :user_id => user.id
+
     # Define abilities for the passed in user here. For example:
     end
 

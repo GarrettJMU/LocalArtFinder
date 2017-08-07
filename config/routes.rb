@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
   get '/search' => 'search#index'
   resources :events
   resources :galleries
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
   resources :artists
   resources :admin
   resources :charges
+  resources :password_resets
+
 
   get '/about/index'
 
