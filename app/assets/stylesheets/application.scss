@@ -81,9 +81,41 @@ html, body {
 .clr3 {background: $eggplant;  color: #BDC3CF;}
 .clr4 {background: grey; opacity: .5; color: #E3E7F2;}
 
-a {color: #BDC3CF; text-decoration: none;}
-a:hover {color: #ffffff; text-decoration: underline;}
+a {color: #fff; text-decoration: none;}
+a:hover {color: $salmon; text-decoration: underline;}
 a:visited{}
+
+table {
+  // width: 75vw;
+  margin: auto;
+  text-align: center;
+
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  padding: 0.5vw;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.items2 {
+
+  flex-basis: auto;
+}
+
+.items3 {
+  flex-basis: auto;
+}
 
 /*##### Footer Structure #####*/
 .bo-wrap {clear:both; width: auto;}
@@ -186,3 +218,9 @@ a:visited{}
     height: 50vh;
     width: 75vw;
   }
+
+
+
+// .right-div {
+//     margin-left: 108px;
+// }

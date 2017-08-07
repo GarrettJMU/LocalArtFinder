@@ -25,7 +25,7 @@ class ArtsController < ApplicationController
   def new
     @art = Art.new
     @user = current_user
-    @artist = @user.artists.first.id
+    # @artist = @user.artists.first.id
   end
 
   # GET /arts/1/edit
@@ -38,7 +38,7 @@ class ArtsController < ApplicationController
   # POST /arts.json
   def create
     @user = current_user
-    @artist = @user.artists.first.id
+    @artist = @user.id
     @art = Art.new(art_params)
     respond_to do |format|
       if @art.save
