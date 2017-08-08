@@ -130,7 +130,7 @@ td {
   align-items: center;
 }
 
-// CHANGE THIS TO A DIFFERENT CLASS 
+// CHANGE THIS TO A DIFFERENT CLASS
 
 .items2 {
   flex-basis: auto;
@@ -267,14 +267,16 @@ td {
 }
 
 
-
-
 #map {
     height: 50vh;
     width: 75vw;
   }
 #gmap {
     height: 50vh;
+    width: 75vw;
+  }
+
+  #calendar{
     width: 75vw;
   }
 
