@@ -22,7 +22,8 @@ var map;
 var markersArray = [];
 var bounds;
 var infowindow =  new google.maps.InfoWindow({
-    content: ''
+    content: '',
+    maxWidth: 200
 });
 var jsonarray;
 $.getJSON('events.json', function(json) {
@@ -57,7 +58,6 @@ function initialize() {
     });
     plotMarkers();
 }
-console.log(jsonarray);
 function plotMarkers(){
     var i;
     for(i = 0; i < jsonarray.length; i++){
@@ -75,9 +75,10 @@ function codeAddresses(street, city, state, zipcode, descripti, id){
                 // title: markers[0][1]
             });
             google.maps.event.addListener(marker, 'mouseover', function() {
-              // for(i = 0; i < jsonarray.length; i++){
-                // infowindow.setContent('<strong>Address:</strong>' + ' ' + street + ', ' + city + ',' + ' ' + state + ',' + ' ' + zipcode + '<br />' + '<strong>Date:</strong>' + ' ' + date + '<br />' + '<strong>Time:</strong>' + ' ' + time + ' ' + '<br />' +  '<strong>Description:</strong>' + ' ' + description + '<br />' + ' ' + '<a href="' + '../sales/' + id + '">Show</a>' );
-                // infowindow.open(map, this);
+              for(i = 0; i < jsonarray.length; i++){
+                infowindow.setContent('<strong>Address:</strong>' + ' ' + jsonarray[i].gallery.street + ', ' + jsonarray[i].gallery.city + ',' + ' ' + jsonarray[i].gallery.state + ',' + ' ' + jsonarray[i].gallery.zipcode + '<br />' + '<strong>Description:</strong>' + ' ' + jsonarray[i].gallery.description + '<br />' + ' ' + '<a href="' + '../sales/' + id + '">Show</a>' );
+                infowindow.open(map, this);
+              }
             });
             bounds.extend(results[0].geometry.location);
             markersArray.push(marker);
@@ -91,14 +92,9 @@ function codeAddresses(street, city, state, zipcode, descripti, id){
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-
-
   <h1>Events</h1>
 
-
-
-<body>
-  <h3>Events in your area</h3>
+  <h3 class="center">Events in your area</h3>
   <div id="map"></div>
 
   <div id='calendar'></div>
@@ -106,7 +102,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   
   </style>
 
-</body>
 
 <table>
   <thead>

@@ -1,17 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<!-- Using the Google Map API search box (hidden mode) to Pin the gallery on the map -->
 <input id="address" type="hidden" value="<%= @gallery.street %>,<%= @gallery.city %>,<%= @gallery.state %>,<%= @gallery.zipcode %>">
 
-<style>
-  #showmap {
-    height: 50vh;
-  }
-</style>
-
+<!-- Google Map API script -->
 <script>
   function initMap() {
   var map = new google.maps.Map(document.getElementById('showmap'), {
-    zoom: 12,
+    zoom: 15,
     center: {lat: 32.70961, lng: -117.1579991}
   });
 
@@ -34,69 +30,65 @@ function geocodeAddress(geocoder, resultsMap) {
       });
       var l1 = results[0].geometry.location.lat()
       var l2 = results[0].geometry.location.lng()
-      console.log(l1);
-      console.log(l2);
+
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
 }
-
 </script>
+
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH6kpKgMyIrX12CYckcHQt3eEesCTbIlo&callback=initMap">
 </script>
 
-
-
-<div id="showmap">
-
+<div  class="container">
+  <div id="showmap"></div>
+  <div class="item2">
+    <p>
+      <strong>Name:</strong>
+      <%= @gallery.name %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @gallery.description %>
+    </p>
+    <p>
+      <strong>Website:</strong>
+      <a href="<%= @gallery.website %>"><%= @gallery.website %></a>
+    </p>
+    <p>
+      <strong>Phone:</strong>
+      <a href="tel:<%= @gallery.phone %>"><%= @gallery.phone %></a>
+    </p>
+    <p>
+      <strong>Opening:</strong>
+      <%= @gallery.opening.strftime("%H:%M") %>
+    </p>
+    <p>
+      <strong>Closing:</strong>
+      <%= @gallery.closing.strftime("%H:%M") %>
+    </p>
+    <p>
+      <strong>Street:</strong>
+      <%= @gallery.street %>
+    </p>
+    <p>
+      <strong>City:</strong>
+      <%= @gallery.city %>
+    </p>
+    <p>
+      <strong>State:</strong>
+      <%= @gallery.state %>
+    </p>
+    <p>
+      <strong>Zipcode:</strong>
+      <%= @gallery.zipcode %>
+    </p>
+  <!-- End of item2 -->
+  </div>
+<!-- End of container Div -->
 </div>
-<p>
-  <strong>Name:</strong>
-  <%= @gallery.name %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @gallery.website %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @gallery.phone %>
-</p>
-
-<p>
-  <strong>Opening:</strong>
-  <%= @gallery.opening %>
-</p>
-
-<p>
-  <strong>Closing:</strong>
-  <%= @gallery.closing %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @gallery.street %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @gallery.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @gallery.state %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @gallery.zipcode %>
-</p>
-
 
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
 <%= link_to 'Back', galleries_path %>
