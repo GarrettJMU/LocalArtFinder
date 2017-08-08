@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :admin
   resources :charges
   resources :password_resets
+  resources :advanced_searches
 
 
   devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "users/omniauth_callbacks"}
