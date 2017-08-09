@@ -151,6 +151,11 @@ td {
   height: 1.5em;
   }
 
+.datesize {
+  width: 13.5vw;
+  margin: auto;
+}
+
 .textField {
   height: 4.5em;
 }
@@ -303,7 +308,8 @@ td {
   }
 
   #calendar{
-    width: 75vw;
+    width: 50vw;
+    margin: auto;
   }
 
 // .right-div {
