@@ -11,6 +11,8 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
+//= require moment
+//= require fullcalendar
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require_tree .

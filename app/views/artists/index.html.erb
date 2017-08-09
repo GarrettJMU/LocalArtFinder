@@ -31,14 +31,14 @@
         <td><%= artist.alias %></td>
         <td><%= artist.first_name %></td>
         <td><%= artist.last_name %></td>
-        <td><%= artist.email %></td>
+        <td><a href="mailto:<%= artist.email %>"><%= artist.email %></a></td>
         <td><%= artist.street %></td>
         <td><%= artist.city %></td>
         <td><%= artist.state %></td>
         <td><%= artist.zipcode %></td>
-        <td><%= artist.website %></td>
+        <td><a href="<%= artist.website %>"><%= artist.website %></a></td>
         <td><%= artist.sales %></td>
-        <td><%= artist.phone %></td>
+        <td><a href="tel:<%= artist.phone %>"><%= artist.phone %></a></td>
         <td><%= link_to 'Show', artist %></td>
         <% if can? :update, artist %>
         <td><%= link_to 'Edit', edit_artist_path(artist) %></td>

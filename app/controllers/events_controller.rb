@@ -72,6 +72,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def get_cal
+    @events = Event.all
+    events = []
+    @events.each do |event|
+      events << { id: event.id,
+                  title: event.gallery.name,
+                  start: event.date.to_s + " " + event.start.strftime("%H:%M:%S").to_s,
+                  url: Rails.application.routes.url_helpers.event_path(event.id)}
+    end
+    render :json => events.to_json
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

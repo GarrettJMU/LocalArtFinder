@@ -118,6 +118,7 @@ body {
   color: #3a3f46;
   text-decoration: underline;
 }
+
 //navigation bar struction//
 .navbar {
   background-color: $clean;
@@ -174,12 +175,28 @@ td {
 
 // CHANGE THIS TO A DIFFERENT CLASS
 
-.items2 {
+.item2 {
   flex-basis: auto;
+  max-width: 40vw;
 }
 
-.items3 {
-  flex-basis: auto;
+.form-horizontal {
+  width: 10vw;
+  margin: 0 auto;
+}
+
+.form-control {
+  width: 10vw;
+  height: 1.5em;
+  }
+
+.datesize {
+  width: 13.5vw;
+  margin: auto;
+}
+
+.textField {
+  height: 4.5em;
 }
 /*##### Footer Responsive #####*/
 /* for 980px or less */
@@ -270,18 +287,28 @@ td {
 }
 
 
-
-
 #map {
+    margin: auto;
     height: 50vh;
-    width: 75vw;
+    width: 50vw;
   }
+
 #gmap {
+    margin: auto;
     height: 50vh;
-    width: 75vw;
+    width: 50vw;
   }
 
 
+  #showmap {
+    height: 50vh;
+    width: 50vw;
+  }
+
+  #calendar{
+    width: 50vw;
+    margin: auto;
+  }
 
 // .right-div {
 //     margin-left: 108px;
