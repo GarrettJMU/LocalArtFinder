@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808001759) do
+ActiveRecord::Schema.define(version: 20170809164507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "advanced_searches", force: :cascade do |t|
+    t.string "keywords"
+    t.string "artist_name"
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "artist_id"
+    t.string "price"
+    t.index ["artist_id"], name: "index_advanced_searches_on_artist_id"
+  end
+
   create_table "artists", force: :cascade do |t|
-    t.string "alias"
+    t.string "artist_name"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -31,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170808001759) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "price"
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
@@ -64,8 +76,6 @@ ActiveRecord::Schema.define(version: 20170808001759) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -147,10 +157,10 @@ ActiveRecord::Schema.define(version: 20170808001759) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "advanced_searches", "artists"
   add_foreign_key "artists", "users"
   add_foreign_key "arts", "artists"
   add_foreign_key "arts", "users"
-  add_foreign_key "customers", "users"
   add_foreign_key "events", "artists"
   add_foreign_key "events", "arts"
   add_foreign_key "events", "galleries"

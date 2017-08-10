@@ -1,3 +1,6 @@
+
+
+
 <%= form_with(model: artist, local: true) do |form| %>
   <% if artist.errors.any? %>
     <div id="error_explanation">
@@ -10,6 +13,12 @@
       </ul>
     </div>
   <% end %>
+
+
+  <div class="field">
+    <%= form.label :artist_name %>
+    <%= form.text_field :artist_name, id: :artist_artist_name %>
+
 <div class="form-horizontal center">
   <div class="field form-group">
     <%= form.label :alias %>
@@ -66,6 +75,15 @@
   <div class="field form-group">
     <%= form.label :phone_number %>
     <%= form.telephone_field :phone, id: :artist_phone, class: "form-control" %>
+  </div>
+
+  <div class="field">
+  <%= form.label :price, "$" %>
+  <%= form.radio_button :price, "$" %>
+  <%= form.label :price, "$$" %>
+  <%= form.radio_button :price, "$$" %>
+  <%= form.label :price, "$$$" %>
+  <%= form.radio_button :price, "$$$" %>
   </div>
 
   <div class="actions">

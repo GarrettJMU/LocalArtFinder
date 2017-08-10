@@ -2,8 +2,8 @@
 <div class="container">
     <div class="item1">
       <p>
-        <strong>Alias:</strong>
-        <%= @artist.alias %>
+        <strong>Artist Name:</strong>
+        <%= @artist.artist_name %>
       </p>
 
       <p>
@@ -55,6 +55,11 @@
         <strong>Phone:</strong>
         <%= @artist.phone %>
       </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= @artist.price %>
+      </p>
     <!-- End col Div -->
     </div>
     <div class="item2">
@@ -84,7 +89,7 @@
               <td><%= art.length %></td>
               <td><%= art.width %></td>
               <td><%= art.medium %></td>
-              <td><%= art.artist.alias %></td>
+              <td><%= art.artist.artist_name %></td>
               <td><%= link_to 'Show', art %></td>
               <td><%= link_to 'Edit', edit_art_path(art) %></td>
               <td><%= link_to 'Destroy', art, method: :delete, data: { confirm: 'Are you sure?' } %></td>
