@@ -1,0 +1,26 @@
+<h1>Advanced Search</h1>
+
+<%= form_for @ArtSearch do |f| %>
+  <div class="field">
+    <%= f.label :genre, "Genre:" %><br />
+    <%= f.text_field :genre %>
+  </div>
+  <div class="field">
+    <%= f.label :price, "Price:" %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :length, "Length:" %><br />
+    <%= f.text_field :genre %>
+  </div>
+  <div class="field">
+    <%= f.label :width, "Width:" %><br />
+    <%= f.text_field :genre %>
+  </div>
+  <div class="field">
+    <%= f.label :medium, "Medium:" %><br />
+    <%= f.text_field :medium %>
+  </div>
+
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>

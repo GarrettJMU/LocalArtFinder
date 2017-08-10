@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808001759) do
+ActiveRecord::Schema.define(version: 20170808185808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "art_searches", force: :cascade do |t|
+    t.string "genre"
+    t.integer "price"
+    t.decimal "length"
+    t.decimal "width"
+    t.string "medium"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description"
+    t.bigint "art_id"
+    t.index ["art_id"], name: "index_art_searches_on_art_id"
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string "alias"
@@ -147,6 +160,7 @@ ActiveRecord::Schema.define(version: 20170808001759) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "art_searches", "arts"
   add_foreign_key "artists", "users"
   add_foreign_key "arts", "artists"
   add_foreign_key "arts", "users"
