@@ -1,0 +1,13 @@
+Results
+<% if @advanced_search.artists.empty? %>
+<p>No records found</p>
+<% else %>
+<% @advanced_search.artists.each do |x| %>
+<br />
+<div class="div">
+  <p>Artist Name: <%= x.artist_name %></p>
+  <p>Price: <%= x.price %></p>
+
+</div>
+<% end %>
+<% end %>

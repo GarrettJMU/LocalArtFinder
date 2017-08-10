@@ -1,15 +1,14 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
-  load_and_authorize_resource
-
+  before_action :authenticate_user!, except: [:show, :index, :get_cal]
+  skip_load_and_authorize_resource
 
   # GET /events
   # GET /events.json
   def index
     @ability = Ability.new(current_user)
     # if params[:search].nil? || params[:search].empty?
-      @events = Event.all
+    @events = Event.all
     # else @events = Event.basic_search(params[:search])
     #   render "/events/index.html"
     # end
@@ -19,21 +18,23 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-
   end
 
   # GET /events/new
   def new
+    @user = current_user
     @event = Event.new
   end
 
   # GET /events/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /events
   # POST /events.json
   def create
+    @user = current_user
     @event = Event.new(event_params)
     # @gallery = @event.gallery.first.address
 
@@ -51,6 +52,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -65,6 +67,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    @user = current_user
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
@@ -73,6 +76,7 @@ class EventsController < ApplicationController
   end
 
   def get_cal
+    @user = current_user
     @events = Event.all
     events = []
     @events.each do |event|
@@ -90,8 +94,11 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def event_params
+      params.require(:event).permit(:date, :start, :end, :gallery_id, :artist_id, :art_id, :user_id)
+    end
+    def filtering_params
       params.require(:event).permit(:date, :start, :end, :gallery_id, :artist_id, :art_id, :user_id)
     end
 end
