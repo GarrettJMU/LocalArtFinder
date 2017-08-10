@@ -17,8 +17,7 @@ $dk-blue: #1E83AE;
 $blue: #3D5B94;
 $light-blue: #3DACDD;
 $green: #6dcd9a;
-$social-size: 1.2em;
-$social-width: 20%;
+
 
 //GLOBAL SETTINGS
 html {
@@ -58,10 +57,8 @@ body {
   margin-top: 0;
 }
 
-/**
- * Footer Styles
- */
 
+/*##### Footer Structure #####*/
 .footer {
   position: absolute;
   right: 0;
@@ -97,16 +94,6 @@ body {
 .row > .col-xs-12 > .carousel-inner > .carousel-item > img {
     margin: 0 auto;
 }
-.clearfix {clear: both;}
-.center {text-align: center;}
-.left {text-align: left;}
-.right {text-align: right;}
-
-.clr1 {background: $eggplant; color: #333743;}
-.clr2 {background: $eggplant;  color: #8F94A3;}
-.clr3 {background: $eggplant;  color: #BDC3CF;}
-.clr4 {background: grey; opacity: .5; color: #E3E7F2;}
-
 // a {color: #BDC3CF; text-decoration: none;}
 // a:hover {color: #ffffff; text-decoration: underline;}
 // a:visited{}
@@ -119,7 +106,7 @@ body {
   text-decoration: underline;
 }
 
-//navigation bar struction//
+//navigation bar structure//
 .navbar {
   background-color: $clean;
   font-family: 'Roboto Condensed', sans-serif;
@@ -149,7 +136,6 @@ body {
 }
 * {margin: 0;padding: 0;}
 
-/*##### Footer Structure #####*/
 
 table {
   // width: 75vw;
@@ -198,50 +184,6 @@ td {
 .textField {
   height: 4.5em;
 }
-/*##### Footer Responsive #####*/
-/* for 980px or less */
-@media screen and (max-width: 980px) {
-	.bo-footer {
-		width: 95%;
-		padding: 1% 2%;
-	}
-	.bo-footer-smap {
-		width: 46%;
-		padding: 1% 2%;
-	}
-	.bo-footer-uonline {
-		width: 46%;
-		padding: 1% 2%;
-		float: right;
-    text-align: right;
-	}
-	.bo-footer-power {
-		clear: both;
-		padding: 1% 2%;
-		width: auto;
-		float: none;
-    text-align: center;
-	}
-}
-/* for 700px or less */
-@media screen and (max-width: 600px) {
-	.bo-footer-smap {
-		width: auto;
-		float: none;
-    text-align: center;
-	}
-	.bo-footer-uonline {
-		width: auto;
-		float: none;
-    text-align: center;
-	}
-	.bo-footer-power {
-		width: auto;
-		float: none;
-    text-align: center;
-	}
-}
-
 
 //About Page structure//
 #about-background {
@@ -279,11 +221,31 @@ td {
   height: 400px;
   width: 100vw;
 }
+@media screen and (min-width: 950px) {
+	.header-image {
+		background-size: cover;
+    background-size: 100%;
+
+	}
+}
 .leftmost {
   padding-left: 5vw;
 }
 .rightmost  {
   padding-right: 5vw;
+}
+
+//****Modal styling****//
+#myModalLabel {
+  color: $clean;
+  text-align: center;
+  padding-right: 3vw
+}
+.modal-body label  {
+  color: $salmon;
+}
+.modal-body {
+  background-color: #3a3f46;
 }
 
 
@@ -310,6 +272,10 @@ td {
     margin: auto;
   }
 
-// .right-div {
-//     margin-left: 108px;
-// }
+
+  // <% if devise_mapping.rememberable? -%>
+  //   <div class="field">
+  //     <%= f.check_box :remember_me %>
+  //     <%= f.label :remember_me %>
+  //   </div>
+  // <% end -%>
