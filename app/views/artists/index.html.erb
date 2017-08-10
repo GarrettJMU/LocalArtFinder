@@ -1,6 +1,8 @@
 <%= form_tag artists_path, method: :get do %>
+  <%= label_tag :artist_name %>
   <%= text_field_tag :artist_name, params[:artist_name] %>
-  <%= text_field_tag :price, params[:price] %>
+  <%= label_tag :price %>
+  <%= select_tag "price", "<option value='$'>$</option><option value='$$'>$$</option><option value='$$$'>$$$</option>".html_safe%>
   <%= submit_tag "Search", name: nil %>
 <% end %>
 
