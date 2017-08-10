@@ -40,7 +40,7 @@ gem 'omniauth-facebook'
 gem 'pg'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'simple_form', github: 'elsurudo/simple_form', branch: 'rails-5.1.0'
 # Google Map API gem
 gem 'underscore-rails'
 gem 'geocoder'

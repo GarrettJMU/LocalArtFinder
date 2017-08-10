@@ -2,6 +2,7 @@ class Gallery < ApplicationRecord
 
   belongs_to :artist
   belongs_to :art
+  include Filterable
   # validates :user, presence: true
 
   #CHECK ALL OF THESE ONES TOO!!!!!!!!!!!!!!!! Pretty sure it's not needed but still here in case

@@ -1,26 +1,19 @@
 <h1>Advanced Search</h1>
 
-<%= form_for @advanced_search, html: {class: "pure-form"} do |s| %>
+<%= form_for @advanced_search.artists do |f| %>
 
   <div class="field">
-    <%= s.label :keywords %><br />
-    <%= s.text_field :keywords %>
+    <%= f.label :artist_name %><br />
+    <%= f.text_field :artist_name %>
   </div>
 
   <div class="field">
-    <%= s.label :genre %><br>
-    <%= s.text_field :genre %>
-  </div>
-
-  <div class="field">
-    <%= s.label :alias %><br />
-    <%= s.text_field :alias %>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
   </div>
 
   <div class="actions">
-    <%= s.submit "Search" %>
+    <%= f.submit "Search" %>
   </div>
 
 <% end %>
-
-<p><%= link_to 'Back', artists_path %></p>

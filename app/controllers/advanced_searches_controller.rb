@@ -1,10 +1,13 @@
 class AdvancedSearchesController < ApplicationController
+  def index
+  end
+
   def new
     @advanced_search = AdvancedSearch.new
   end
 
   def create
-    @advanced_search = AdvancedSearch.create(advanced_search_params)
+    @advanced_search = AdvancedSearch.create!(params[:search])
     redirect_to @advanced_search
   end
 
@@ -12,9 +15,9 @@ class AdvancedSearchesController < ApplicationController
     @advanced_search = AdvancedSearch.find(params[:id])
   end
 
-  private
 
-  def advanced_search_params
-    params.require(:advanced_search).permit(:keywords, :genre, :alias)
+  def allowed_params
+    params.require(:search).permit!
   end
+  
 end

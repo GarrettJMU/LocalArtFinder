@@ -7,6 +7,7 @@ class AdminController < ApplicationController
 
   def index
     @users = User.all
+    @ability = Ability.new(current_user)
   end
 
   def update

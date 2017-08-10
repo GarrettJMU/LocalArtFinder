@@ -1,14 +1,20 @@
 class ArtistsController < ApplicationController
+  include Filterable
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
+
+
   # GET /artists
   # GET /artists.json
   def index
+    @artists - Artist.all
     @ability = Ability.new(current_user)
-    @artists = Artist.all
+    @results = Artist.filter(params.slice(:artist_name, :price))
   end
+
+
 
   # GET /artists/1
   # GET /artists/1.json
@@ -80,8 +86,12 @@ class ArtistsController < ApplicationController
       @artist = Artist.find(params[:id])
     end
 
+    def filtering_params
+      params.require(:artist).permit(:artist_name, :price)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:alias, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone, :user_id)
+      params.require(:artist).permit(:artist_name, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone, :user_id, :price)
     end
 end
