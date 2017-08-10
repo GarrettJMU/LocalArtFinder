@@ -1,5 +1,4 @@
 class ArtistsController < ApplicationController
-  include Filterable
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
@@ -9,7 +8,6 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    @artists - Artist.all
     @ability = Ability.new(current_user)
     @results = Artist.filter(params.slice(:artist_name, :price))
   end

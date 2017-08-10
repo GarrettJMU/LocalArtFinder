@@ -1,4 +1,4 @@
 class Customer < ApplicationRecord
   # resourcify
-  Include Filterable
+  include Filterable
 end
