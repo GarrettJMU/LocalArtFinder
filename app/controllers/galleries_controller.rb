@@ -78,8 +78,8 @@ class GalleriesController < ApplicationController
     def filtering_params
       params.require(:gallery).permit(:name, :website, :phone, :opening, :closing, :street, :city, :state, :zipcode, :artist_id, :art_id, :user_id)
     end
+
     def gallery_params
       params.require(:gallery).permit(:name, :description, :website, :phone, :opening, :closing, :street, :city, :state, :zipcode, :artist_id, :art_id, :user_id)
-
     end
 end
