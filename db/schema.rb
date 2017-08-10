@@ -148,7 +148,6 @@ ActiveRecord::Schema.define(version: 20170809164507) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  add_foreign_key "art_searches", "arts"
   add_foreign_key "artists", "users"
   add_foreign_key "arts", "artists"
   add_foreign_key "arts", "users"
