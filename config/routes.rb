@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'faq/index'
+
   get 'password_resets/new'
 
   get '/search' => 'search#index'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   resources :admin
   resources :charges
   resources :password_resets
+  resources :faq
 
 
   get '/about/index'
