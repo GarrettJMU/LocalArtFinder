@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 // This is our header font font-family: 'Roboto Condensed', sans-serif;
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 // This is our text fonts font-family: 'Raleway', sans-serif;
@@ -18,16 +20,56 @@ $green: #6dcd9a;
 $social-size: 1.2em;
 $social-width: 20%;
 
-//Global settings
-html, body {
+//GLOBAL SETTINGS
+html {
   height: 100%;
+  box-sizing: border-box;
   font-family: Raleway, sans-serif;
   background-color: $clean;
-  position: relative;
   margin:0;
 }
-body  {
-  // padding-bottom: 10vh;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    background-color: $clean;
+
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+.demo h1 {
+  margin-top: 0;
+}
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
 #container {
    min-height:100%;
@@ -65,13 +107,17 @@ body  {
 .clr3 {background: $eggplant;  color: #BDC3CF;}
 .clr4 {background: grey; opacity: .5; color: #E3E7F2;}
 
-a {color: #fff; text-decoration: none;}
-a:hover {color: $eggplant; text-decoration: underline;}
-a:visited{}
-
-// Change this for the footer
-// -a {color: #BDC3CF; text-decoration: none;}
-// -a:hover {color: #ffffff; text-decoration: underline;}
+// a {color: #BDC3CF; text-decoration: none;}
+// a:hover {color: #ffffff; text-decoration: underline;}
+// a:visited{}
+.black-a  {
+  color: #000000;
+  text-decoration: none;
+}
+.black-a:hover  {
+  color: #3a3f46;
+  text-decoration: underline;
+}
 
 //navigation bar struction//
 .navbar {
@@ -104,18 +150,11 @@ a:visited{}
 * {margin: 0;padding: 0;}
 
 /*##### Footer Structure #####*/
-.footer_wrapper {
- position: relative;
- width: 100%;
- bottom: 0;
- height: 10vh;
-}
 
 table {
   // width: 75vw;
   margin: auto;
   text-align: center;
-
 }
 
 th {
@@ -151,50 +190,14 @@ td {
   height: 1.5em;
   }
 
+.datesize {
+  width: 13.5vw;
+  margin: auto;
+}
+
 .textField {
   height: 4.5em;
 }
-
-
-
-.bo-wrap {clear:both; width: auto;}
-.bo-footer {
-  clear:both;
-  width: auto;
-  padding: 5px;
-  width: 960px;
-	margin: 0 auto;
-}
-
-.bo-footer-social {text-align: center; line-height: 1px;}
-
-.bo-footer-smap {
-	width: 300px;
-	float: left;
-	padding: 5px 10px;
-  text-align: left;
-  font-size: 18px;
-}
-
-.bo-footer-uonline {
-	width: 300px; /* Account for margins + border values */
-	float: left;
-	padding: 5px 10px;
-  text-align: center;
-}
-
-.bo-footer-power {
-	width: 300px;
-	padding: 5px 10px;
-	float: left;
-  text-align: right;
-  font-size: 14px;
-  color: #636A7D;
-  vertical-align: middle;
-}
-
-.bo-footer-copyright {text-align: center; color: #BDC3CF}
-
 /*##### Footer Responsive #####*/
 /* for 980px or less */
 @media screen and (max-width: 980px) {
@@ -263,7 +266,7 @@ td {
   font-family: 'Roboto Condensed', sans-serif;
   // font-weight: bolder;
   font-weight: 900;
-  padding-top: 22vh;
+  padding-top: 10vh;
 }
 .about-text-bottom {
   font-family: 'Roboto Condensed', sans-serif;
@@ -273,7 +276,7 @@ td {
 .header-image {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('meeting-background.jpg');
   background-repeat: no-repeat;
-  height: 60vh;
+  height: 400px;
   width: 100vw;
 }
 .leftmost {
@@ -303,8 +306,56 @@ td {
   }
 
   #calendar{
-    width: 75vw;
+    width: 50vw;
+    margin: auto;
   }
+
+// Search bar
+
+  .wrapper {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 300px;
+  }
+
+  .search {
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+    color: white;
+    background-color: $salmon;
+    line-height: 60px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid white;
+    cursor: pointer;
+    position: relative;
+    bottom: 58px;
+    left: 55px;
+    outline: None;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  }
+
+  .myinput {
+    margin: 0 auto;
+    display: block;
+    height: 48px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid white;
+    outline: none;
+    width: 0;
+    left: 55px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+    position: relative;
+  }
+// end of search bar
 
 // .right-div {
 //     margin-left: 108px;

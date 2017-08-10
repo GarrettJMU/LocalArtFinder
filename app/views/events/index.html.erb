@@ -5,7 +5,7 @@
   <link href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.js"></script>
-  <!-- <link href="~/fullcalendar.print.css" media="print" rel="stylesheet" /> -->
+
 </head>
 <p id="notice"><%= notice %></p>
 <% form_tag galleries_path, :method => 'get' do %>
@@ -95,45 +95,46 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <h1>Events</h1>
 
   <h3 class="center">Events in your area</h3>
+<div class="container">
   <div id="map"></div>
-
-  <div id='calendar'></div>
-  <style media="screen">
-  
-  </style>
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Gallery</th>
-      <th>Artist</th>
-      <th>Art</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Gallery</th>
+        <th>Artist</th>
+        <th>Art</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
       <tr>
         <td><%= event.date.strftime("%m-%d-%Y") %></td>
         <td><%= event.start.strftime("%H:%M") %></td>
         <td><%= event.end.strftime("%H:%M") %></td>
         <td><%= event.gallery.name %></td>
-        <td><%= event.artist.alias %></td>
+        <td><%= event.artist.artist_name %></td>
         <td><%= event.art.description %></td>
         <td><%= link_to 'Show', event %></td>
         <% if can? :update, event %>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br />
+<br />
+  <div id='calendar' class="center"></div>
+
+
+
 
 <br>
 

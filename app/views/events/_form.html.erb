@@ -11,37 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
+
+  <div class="field datesize center form-group">
     <%= form.label :date %>
-    <%= form.date_select :date, id: :event_date %>
-  </div>
+    <%= form.date_select :date, id: :event_date, class: "form-control" %>
 
-  <div class="field">
+</div>
+  <div class="form-horizontal center">
+  <div class="field form-group">
     <%= form.label :start %>
-    <%= form.time_select :start, id: :event_start %>
+    <%= form.time_select :start, id: :event_start, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :end %>
-    <%= form.time_select :end, id: :event_end %>
+    <%= form.time_select :end, id: :event_end, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :gallery_id %>
-    <%= form.text_field :gallery_id, id: :event_gallery_id %>
+    <%= form.text_field :gallery_id, id: :event_gallery_id, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :artist_id %>
-    <%= form.text_field :artist_id, id: :event_artist_id %>
+    <%= form.text_field :artist_id, id: :event_artist_id, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :art_id %>
-    <%= form.text_field :art_id, id: :event_art_id %>
+    <%= form.text_field :art_id, id: :event_art_id, class: "form-control" %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+</div>
 <% end %>

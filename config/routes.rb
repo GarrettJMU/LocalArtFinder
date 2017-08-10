@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'faq/index'
+
   get 'password_resets/new'
 
   get '/search' => 'search#index'
-  resources :events
+  # resources :events
   resources :galleries
   resources :arts
   resources :customers
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   resources :admin
   resources :charges
   resources :password_resets
+  resources :faq
 
 
   get '/about/index'
@@ -25,5 +28,10 @@ Rails.application.routes.draw do
       get 'landing_page/index', as: :unauthenticated_root
     end
   end
+
+  resources :events do
+    get :get_cal, on: :collection
+  end
+
   root 'landing_page#index'
 end

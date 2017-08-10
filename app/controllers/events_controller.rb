@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
-  load_and_authorize_resource
-
+  skip_load_and_authorize_resource :only => :index
+  //DOUBLE CHECK THAT THIS IS NEEDED TO DELETE ONLY YOUR EVENTS
 
   # GET /events
   # GET /events.json
@@ -72,14 +72,17 @@ class EventsController < ApplicationController
     end
   end
 
-  # def get_cal
-  #   @events = Event.all
-  #   events = []
-  #   @sevents.each do |event|
-  #     events << { id: event.id, date: event.date, url: Rails.application.routes.url_helpers.event_path(event.id)}
-  #   end
-  #   render :json => events.to_json
-  # end
+  def get_cal
+    @events = Event.all
+    events = []
+    @events.each do |event|
+      events << { id: event.id,
+                  title: event.gallery.name,
+                  start: event.date.to_s + " " + event.start.strftime("%H:%M:%S").to_s,
+                  url: Rails.application.routes.url_helpers.event_path(event.id)}
+    end
+    render :json => events.to_json
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -88,7 +91,7 @@ class EventsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
+    def filtering_params
       params.require(:event).permit(:date, :start, :end, :gallery_id, :artist_id, :art_id, :user_id)
     end
 end

@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
-  
+
  # UPDATE THIS AND ESNURE THAT WE HAVE AN ARTISTS CONTROLLER STILL pls
-  
+
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   # load_and_authorize_resource
@@ -87,6 +87,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:alias, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone, :user_id)
+      params.require(:artist).permit(:artist_name, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone, :user_id)
     end
 end
