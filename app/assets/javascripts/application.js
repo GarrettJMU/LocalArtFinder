@@ -9,6 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+//= require filterrific/filterrific-jquery
 //= require jquery
 //= require jquery_ujs
 //= require moment
