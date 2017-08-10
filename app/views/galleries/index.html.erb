@@ -70,7 +70,7 @@ function codeAddresses(street, city, state, zipcode, descripti, id){
             });
             google.maps.event.addListener(marker, 'mouseover', function() {
               for(i = 0; i < jsonarray.length; i++){
-                infowindow.setContent('<strong>Address:</strong>' + ' ' + jsonarray[i].street + ', ' + jsonarray[i].city + ',' + ' ' + jsonarray[i].state + ',' + ' ' + jsonarray[i].zipcode + '<br />' + '<strong>Description:</strong>' + ' ' + jsonarray[i].description + '<br />' + ' ' + '<a href="' + '../sales/' + id + '">Show</a>' );
+                infowindow.setContent('<strong>Address:</strong>' + ' ' + jsonarray[i].street + ', ' + jsonarray[i].city + ',' + ' ' + jsonarray[i].state + ',' + ' ' + jsonarray[i].zipcode + '<br />' + '<strong>Description:</strong>' + ' ' + jsonarray[i].description + '<br />' + ' ' + '<a href="' + '../galleries/' + id + '">Show</a>' );
                 infowindow.open(map, this);
               }
             });
