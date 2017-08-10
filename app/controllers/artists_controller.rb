@@ -9,7 +9,7 @@ class ArtistsController < ApplicationController
   # GET /artists.json
   def index
     @ability = Ability.new(current_user)
-    @results = Artist.filter(params.slice(:artist_name, :price))
+    @artists = Artist.filter(params.slice(:artist_name, :price))
   end
 
 

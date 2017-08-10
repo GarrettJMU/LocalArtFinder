@@ -13,68 +13,70 @@
       </ul>
     </div>
   <% end %>
+<<<<<<< HEAD
 
 
   <div class="field">
     <%= form.label :artist_name %>
     <%= form.text_field :artist_name, id: :artist_artist_name %>
+=======
+<div class="form-horizontal center">
+  <div class="field form-group">
+    <%= form.label :alias %>
+    <%= form.text_field :alias, id: :artist_alias, class: "form-control" %>
+>>>>>>> 2770ff2445f7e188b5b657adacef18d7dd37044b
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :artist_first_name %>
+    <%= form.text_field :first_name, id: :artist_first_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :artist_last_name %>
+    <%= form.text_field :last_name, id: :artist_last_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.hidden_field :email, :value => @user.email %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
   <%= form.hidden_field :password, :value => @user.password %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
   <%= form.hidden_field :user_id, :value => @user.id %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :street %>
-    <%= form.text_field :street, id: :artist_street %>
+    <%= form.text_field :street, id: :artist_street, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :city %>
-    <%= form.text_field :city, id: :artist_city %>
+    <%= form.text_field :city, id: :artist_city, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :state %>
-    <%= form.text_field :state, id: :artist_state %>
+    <%= form.text_field :state, id: :artist_state, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :zipcode %>
-    <%= form.text_field :zipcode, id: :artist_zipcode %>
+    <%= form.text_field :zipcode, id: :artist_zipcode, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :website %>
-    <%= form.url_field :website, id: :artist_website %>
+    <%= form.url_field :website, id: :artist_website, class: "form-control" %>
   </div>
 
-  <!-- <div class="field">
-    <%= form.label :sales %>
-    <%= form.text_field :sales, id: :artist_sales %>
-  </div> -->
-
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :phone_number %>
-    <%= form.telephone_field :phone, id: :artist_phone %>
+    <%= form.telephone_field :phone, id: :artist_phone, class: "form-control" %>
   </div>
 
   <div class="field">
@@ -89,4 +91,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
+</div>
 <% end %>

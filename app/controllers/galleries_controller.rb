@@ -74,7 +74,12 @@ class GalleriesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+<<<<<<< HEAD
     def filtering_params
       params.require(:gallery).permit(:name, :website, :phone, :opening, :closing, :street, :city, :state, :zipcode, :artist_id, :art_id, :user_id)
+=======
+    def gallery_params
+      params.require(:gallery).permit(:name, :description, :website, :phone, :opening, :closing, :street, :city, :state, :zipcode, :artist_id, :art_id, :user_id)
+>>>>>>> 2770ff2445f7e188b5b657adacef18d7dd37044b
     end
 end

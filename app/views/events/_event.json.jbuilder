@@ -1,3 +1,4 @@
-json.extract! event, :gallery
 
-json.url event_url(event, format: :json)
+  json.extract! event, :date, :start, :end, :gallery
+
+  json.url event_url(event, format: :json)

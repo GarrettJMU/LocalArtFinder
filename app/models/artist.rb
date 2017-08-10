@@ -1,6 +1,6 @@
 class Artist < ApplicationRecord
   scope :price, -> (price) { where price: price }
-  scope :artist_name, -> (artist_name) { where("artists_name like ?", "#{artist_name}%")}
+  scope :artist_name, -> (artist_name) { where("artist_name like ?", "#{artist_name}%")}
   has_many :arts
   has_many :events
   has_many :advanced_searches

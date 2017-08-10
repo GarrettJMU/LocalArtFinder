@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
-  load_and_authorize_resource
-
+  skip_load_and_authorize_resource :only => :index
+  //DOUBLE CHECK THAT THIS IS NEEDED TO DELETE ONLY YOUR EVENTS
 
   # GET /events
   # GET /events.json
@@ -70,6 +70,18 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def get_cal
+    @events = Event.all
+    events = []
+    @events.each do |event|
+      events << { id: event.id,
+                  title: event.gallery.name,
+                  start: event.date.to_s + " " + event.start.strftime("%H:%M:%S").to_s,
+                  url: Rails.application.routes.url_helpers.event_path(event.id)}
+    end
+    render :json => events.to_json
   end
 
   private

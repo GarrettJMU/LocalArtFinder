@@ -4,7 +4,6 @@ class AdminController < ApplicationController
   load_and_authorize_resource
 
 
-
   def index
     @users = User.all
     @ability = Ability.new(current_user)
