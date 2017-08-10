@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
-  skip_load_and_authorize_resource :only => :index
-  //DOUBLE CHECK THAT THIS IS NEEDED TO DELETE ONLY YOUR EVENTS
+  before_action :authenticate_user!, except: [:show, :index, :get_cal]
+  skip_load_and_authorize_resource
+
 
   # GET /events
   # GET /events.json
