@@ -10,6 +10,21 @@ class ArtistsController < ApplicationController
   def index
     @ability = Ability.new(current_user)
     @artists = Artist.filter(params.slice(:artist_name, :price))
+ #    @filterrific = initialize_filterrific(
+ #   Artist,
+ #   params[:filterrific],
+ #   select_options: {
+ #        sorted_by: Artist.options_for_sorted_by,
+ #     },
+ #     persistence_id: 'shared_key',
+ #     default_filter_params: {},
+ # ) or return
+ #  @artists = @filterrific.find.page(params[:page])
+ #
+ #  respond_to do |format|
+ #    format.html
+ #    format.js
+ #  end
   end
 
 
@@ -18,7 +33,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @arts = Artist.find(params[:id]).arts.all
-    @event = Artist.find(params[:id]).events.all
+    @events = Artist.find(params[:id]).events.all
   end
 
 
