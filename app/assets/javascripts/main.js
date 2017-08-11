@@ -1,8 +1,8 @@
 jQuery(document).ready(function($){
+	//update these values if you change these breakpoints in the style.css file (or _layout.scss if you use SASS)
 	$("#asearch").click(function(){
     $(".advanced-search").toggle(500);
-});
-	//update these values if you change these breakpoints in the style.css file (or _layout.scss if you use SASS)
+	});
 	var MqM= 768,
 		MqL = 1024;
 
@@ -80,11 +80,11 @@ jQuery(document).ready(function($){
 	}
 
 	function updateCategoryPosition() {
-		var top = $('.cd-faq').offset().top
-			height = jQuery('.cd-faq').height() - jQuery('.cd-faq-categories').height()
+		var top = $('.cd-faq').offset().top,
+			height = jQuery('.cd-faq').height() - jQuery('.cd-faq-categories').height(),
 			margin = 20;
 		if( top - margin <= $(window).scrollTop() && top - margin + height > $(window).scrollTop() ) {
-			var leftValue = faqsCategoriesContainer.offset().left
+			var leftValue = faqsCategoriesContainer.offset().left,
 				widthValue = faqsCategoriesContainer.width();
 			faqsCategoriesContainer.addClass('is-fixed').css({
 				'left': leftValue,

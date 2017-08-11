@@ -33,7 +33,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @arts = Artist.find(params[:id]).arts.all
-    @event = Artist.find(params[:id]).events.all
+    @events = Artist.find(params[:id]).events.all
   end
 
 
