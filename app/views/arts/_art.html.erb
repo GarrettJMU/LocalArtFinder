@@ -30,7 +30,7 @@
           <td><%= art.length %></td>
           <td><%= art.width %></td>
           <td><%= art.medium %></td>
-          <td><%= art.artist.alias %></td>
+          <td><%= art.artist.artist_name %></td>
           <td><%= link_to 'Show', art %></td>
             <% if can? :update, art %>
           <td><%= link_to 'Edit', edit_art_path(art) %></td>
