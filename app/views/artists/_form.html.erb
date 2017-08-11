@@ -6,6 +6,7 @@
       <% if artist.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
           <ul>
           <% artist.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -51,25 +52,22 @@
         <%= form.text_field :sales, id: :artist_sales %>
       </div> -->
 
-
       <div class="field">
         <%= form.telephone_field :phone, id: :artist_phone, placeholder: "Phone Number" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :price, "$" %>
+        <%= form.radio_button :price, "$" %>
+        <%= form.label :price, "$$" %>
+        <%= form.radio_button :price, "$$" %>
+        <%= form.label :price, "$$$" %>
+        <%= form.radio_button :price, "$$$" %>
       </div>
 
       <div class="actions">
         <%= form.submit 'Submit', :class => "submit" %>
       </div>
     <% end %>
-  <div class="field">
-  <%= form.label :price, "$" %>
-  <%= form.radio_button :price, "$" %>
-  <%= form.label :price, "$$" %>
-  <%= form.radio_button :price, "$$" %>
-  <%= form.label :price, "$$$" %>
-  <%= form.radio_button :price, "$$$" %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 </div>
