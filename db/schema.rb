@@ -19,7 +19,18 @@ ActiveRecord::Schema.define(version: 20170810220907) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
+
+  create_table "advanced_searches", force: :cascade do |t|
+    t.string "keywords"
+    t.string "artist_name"
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "artist_id"
+    t.string "price"
+    t.index ["artist_id"], name: "index_advanced_searches_on_artist_id"
+  end
+
   create_table "artists", force: :cascade do |t|
     t.string "artist_name"
     t.string "first_name"
