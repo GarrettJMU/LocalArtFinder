@@ -3,7 +3,7 @@
 
 <%= form_tag artists_path, method: :get do %>
   <%= label_tag :artist_name %>
-  <%= text_field_tag :artist_name, params[:artist_name] %>
+  <%= text_field_tag :artist_name, params[:artist_name], onkeyup="doSearch(this.value)" %>
   <%= label_tag :price %>
   <%= select_tag "price", "<option disabled selected value> -- select an option -- </option> <option value='$'>$</option><option value='$$'>$$</option><option value='$$$'>$$$</option>".html_safe%>
   <select class="form-control" name="direction">

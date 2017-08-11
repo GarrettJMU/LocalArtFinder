@@ -3,6 +3,9 @@ jQuery(document).ready(function($){
 	$("#asearch").click(function(){
     $(".advanced-search").toggle(500);
 	});
+
+	var delayTimer; function doSearch(text) { clearTimeout(delayTimer); delayTimer = setTimeout(function() { // Do the ajax stuff }, 1000); // Will do the ajax stuff after 1000 ms, or 1 s }
+	
 	var MqM= 768,
 		MqL = 1024;
 
