@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis:localartfinder.x28flm.ng.0001.usw2.cache.amazonaws.com:6379
   channel_prefix: LocalArtFinder_production
