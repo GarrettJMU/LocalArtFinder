@@ -81,9 +81,14 @@ jQuery(document).ready(function($){
 	}
 
 	function updateCategoryPosition() {
-		var top = $('.cd-faq').offset().top,
+		var el = $('.cd-faq').offset();
+		if (!el){
+			return;
+		}
+		var top = el.top,
 			height = jQuery('.cd-faq').height() - jQuery('.cd-faq-categories').height(),
 			margin = 20;
+
 		if( top - margin <= $(window).scrollTop() && top - margin + height > $(window).scrollTop() ) {
 			var leftValue = faqsCategoriesContainer.offset().left,
 				widthValue = faqsCategoriesContainer.width();
@@ -119,7 +124,7 @@ jQuery(document).ready(function($){
 				margin = parseInt($('.cd-faq-title').eq(1).css('marginTop').replace('px', '')),
 				activeCategory = $('.cd-faq-categories a[href="#'+actual.attr('id')+'"]'),
 				topSection = (activeCategory.parent('li').is(':first-child')) ? 0 : Math.round(actual.offset().top);
-
+				console.log(actual.offset())
 			if ( ( topSection - 20 <= $(window).scrollTop() ) && ( Math.round(actual.offset().top) + actual.height() + margin - 20 > $(window).scrollTop() ) ) {
 				activeCategory.addClass('selected');
 			}else {
