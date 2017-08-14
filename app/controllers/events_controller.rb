@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index, :get_cal]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
   skip_load_and_authorize_resource
 
   # GET /events
@@ -22,8 +22,8 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @user = current_user
     @event = Event.new
+    @user = current_user
   end
 
   # GET /events/1/edit
@@ -91,6 +91,7 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
+      @user = current_user
       @event = Event.find(params[:id])
     end
 
@@ -98,7 +99,5 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:date, :start, :end, :gallery_id, :artist_id, :art_id, :user_id)
     end
-    def filtering_params
-      params.require(:event).permit(:date, :start, :end, :gallery_id, :artist_id, :art_id, :user_id)
-    end
+
 end

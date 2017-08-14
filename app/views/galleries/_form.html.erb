@@ -73,6 +73,18 @@
     <%= form.text_field :art_id, id: :gallery_art_id, class: "form-control col-xs-4" %>
   </div>
 
+  <div class="field">
+    <%= form.hidden_field :email, :value => @user.email %>
+  </div>
+
+  <div class="field">
+  <%= form.hidden_field :password, :value => @user.password %>
+  </div>
+
+  <div class="field">
+  <%= form.hidden_field :user_id, :value => @user.id %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
