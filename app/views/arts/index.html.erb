@@ -10,7 +10,16 @@
       * AJAX spinner while AJAX request is being processed
   * sets form_for options like :url, :method and input name prefix
 %>
-<%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed',
+      placeholder: 'Search Genre/Medium'
+    ) %>
+  </div>
   <div>
     Sorted by
     <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
@@ -21,15 +30,10 @@
       reset_filterrific_url,
     ) %>
   </div>
-  <%# add an automated spinner to your form when the list is refreshed %>
-  <%= f.submit 'Filter' %>
   <%= render_filterrific_spinner %>
 <% end %>
 
-<%= render(
-  partial: 'arts/art',
-  locals: { arts: @arts }
-) %>
+<%= render partial: 'arts/list',locals: { arts: @arts } %>
 
 <br>
 

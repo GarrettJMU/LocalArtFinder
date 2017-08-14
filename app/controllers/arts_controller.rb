@@ -19,7 +19,6 @@ class ArtsController < ApplicationController
         sorted_by: Art.options_for_sorted_by,
      },
      persistence_id: 'shared_key',
-     default_filter_params: {},
  ) or return
   @arts = @filterrific.find.page(params[:page])
 
@@ -37,8 +36,8 @@ class ArtsController < ApplicationController
 end
 
 def edit
-@user = current_user
-@artist = @user.artists.first.id
+  @user = current_user
+  @artist = @user.artists.first.id
 end
 
 def create
