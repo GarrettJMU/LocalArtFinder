@@ -34,18 +34,18 @@ html {
 }
 * {margin: 0;padding: 0;}
 
-// body {
-//   position: relative;
-//   margin: 0;
-//   padding-bottom: 6rem;
-//   min-height: 100%;
-//   font-family: "Helvetica Neue", Arial, sans-serif;
-//     display: flex;
-//     display: -webkit-flex;
-//     flex-direction: column;
-//     -webkit-flex-direction: column;
-//     background-color: $clean;
-// }
+ body {
+   position: relative;
+margin: 0;
+   padding-bottom: 6rem;
+   min-height: 100%;
+   font-family: "Helvetica Neue", Arial, sans-serif;
+     display: flex;
+    display: -webkit-flex;
+     flex-direction: column;
+    -webkit-flex-direction: column;
+    background-color: $clean;
+ }
 
 table {
   margin: auto;
@@ -484,4 +484,3 @@ td {
   margin: auto;
 }
 
-/* End Event Calendar Styling */
