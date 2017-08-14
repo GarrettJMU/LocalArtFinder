@@ -2,7 +2,7 @@
 <div id="filterrific_results">
 
   <div>
-    <%= page_entries_info arts %>
+    <%= page_entries_info @arts, model: 'arts' %>
   </div>
 
   <table>
@@ -39,7 +39,7 @@
         </tr>
       <% end %>
     </tbody>
+    <%= will_paginate %>
   </table>
-</div>
 
-<%= will_paginate arts %>
+</div>
