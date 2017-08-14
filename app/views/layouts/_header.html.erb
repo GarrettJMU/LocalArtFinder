@@ -8,31 +8,33 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" <%= link_to "Home", root_path, method: :get %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/events">Events</a>
+        <a class="nav-link" <%= link_to "Events", events_path, method: :get %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/artists">Artist</a>
+        <a class="nav-link" <%= link_to "Artists", artists_path, method: :get %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/arts">Art</a>
+        <a class="nav-link" <%= link_to "Art", arts_path, method: :get %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/galleries">Galleries</a>
+        <a class="nav-link" <%= link_to "Galleries", galleries_path, method: :get %></a>
+
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/about/index">About</a>
+          <a class="nav-link" <%= link_to "About", about_index_path, method: :get %></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <% if !user_signed_in? %>
-            <a class="nav-link" href="http://localhost:3000/users/sign_in">Log In</a>
+            <a class="nav-link" <%= link_to "Sign In", new_user_session_path, method: :get %></a>
             <% else %>
+          
             <a class="nav-link" <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
             <% end %>
             <a class="dropdown-item" href="#"><p><%= if   !current_user.nil?

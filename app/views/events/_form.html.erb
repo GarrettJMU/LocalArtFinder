@@ -43,6 +43,18 @@
     <%= form.text_field :art_id, id: :event_art_id, class: "form-control" %>
   </div>
 
+  <div class="field">
+    <%= form.hidden_field :email, :value => @user.email %>
+  </div>
+
+  <div class="field">
+  <%= form.hidden_field :password, :value => @user.password %>
+  </div>
+  
+  <div class="field">
+  <%= form.hidden_field :user_id, :value => @user.id %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
