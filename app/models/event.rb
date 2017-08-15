@@ -2,7 +2,9 @@ class Event < ApplicationRecord
   belongs_to :gallery
   belongs_to :artist
   belongs_to :art
-  # validates :user, presence: true
+  include Filterable
+  validates :user, presence: true
+  belongs_to :user, optional: true
   resourcify
 
 # def self.search(search)

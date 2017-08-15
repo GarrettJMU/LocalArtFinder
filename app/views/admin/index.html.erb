@@ -13,8 +13,8 @@
       <td><%= user.email %></td>
       <td><%= user.roles.last.name %></td>
       <td>
-        <%= form_tag("/admin/" + user.id.to_s + "?role=artist", method: :PUT) do %>
-          <input type="submit" value="Make Artist"/>
+        <%= form_tag("/admin/" + user.id.to_s + "?role=admin", method: :PUT) do %>
+          <input type="submit" value="Make Admin"/>
         <% end %>
       </td>
     </tr>

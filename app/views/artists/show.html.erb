@@ -6,8 +6,8 @@
       <br>
       <br>
       <p>
-        <strong>Alias:</strong>
-        <%= @artist.alias %>
+        <strong>Artist Name:</strong>
+        <%= @artist.artist_name %>
       </p>
 
       <p>
@@ -59,6 +59,11 @@
         <strong>Phone:</strong>
         <%= @artist.phone %>
       </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= @artist.price %>
+      </p>
     <!-- End col Div -->
     </div>
     <div class="item2">
@@ -89,7 +94,7 @@
               <td><%= art.length %></td>
               <td><%= art.width %></td>
               <td><%= art.medium %></td>
-              <td><%= art.artist.alias %></td>
+              <td><%= art.artist.artist_name %></td>
               <td><%= link_to 'Show', art %></td>
               <td><%= link_to 'Edit', edit_art_path(art) %></td>
               <td><%= link_to 'Destroy', art, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -121,7 +126,7 @@
             <td><%= event.start.strftime("%H:%M") %></td>
             <td><%= event.end.strftime("%H:%M") %></td>
             <td><%= event.gallery.name %></td>
-            <td><%= event.artist.alias %></td>
+            <td><%= event.artist.artist_name %></td>
             <td><%= event.art.description %></td>
             <td><%= link_to 'Show', event %></td>
             <td><%= link_to 'Edit', edit_event_path(event) %></td>

@@ -13,6 +13,7 @@ class Ability
       can [:update, :destroy], Art, :user_id => user.id
       can [:update, :destroy], Artist, :user_id => user.id
       can [:update, :destroy], Event, :user_id => user.id
+      can [:update, :destroy], Gallery, :user_id => user.id
 
     # Define abilities for the passed in user here. For example:
     end

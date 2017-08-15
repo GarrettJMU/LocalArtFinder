@@ -17,6 +17,38 @@
       <!-- WILL NEED TO CHANGE ARTIST.ALIAS ONCE DB IS UPDATED -->
       <%= link_to image_tag(art.image.url(:small), :class => "art", ), art.image.url(:original), :rel => "lightbox[imagesetname]", data: {lightbox: "pics", title: "#{art.description} #{art.genre} by #{art.artist.alias} $#{art.length} #{link_to "Buy This Piece", art}" }  %>
       <br>
+<%#
+  Filterrific adds the `form_for_filterrific` view helper:
+  * adds dom id 'filterrific_filter'
+  * applies javascript behaviors:
+      * AJAX form submission on change
+      * AJAX spinner while AJAX request is being processed
+  * sets form_for options like :url, :method and input name prefix
+%>
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed',
+      placeholder: 'Search Genre/Medium'
+    ) %>
+  </div>
+  <div>
+    Sorted by
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <%= render_filterrific_spinner %>
+<% end %>
+
+<%= render partial: 'arts/list',locals: { arts: @arts } %>
 
 
     <% end %>

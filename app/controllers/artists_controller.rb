@@ -3,12 +3,39 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
+
+
   # GET /artists
   # GET /artists.json
   def index
     @ability = Ability.new(current_user)
-    @artists = Artist.all
+    if params[:direction] == "asc"
+      @artists = Artist.filter(params.slice(:artist_name, :price)).order("artist_name asc")
+    elsif params[:direction] == "desc"
+      @artists = Artist.filter(params.slice(:artist_name, :price)).order("artist_name desc")
+    else
+    @artists = Artist.filter(params.slice(:artist_name, :price))
   end
+
+
+ #    @filterrific = initialize_filterrific(
+ #   Artist,
+ #   params[:filterrific],
+ #   select_options: {
+ #        sorted_by: Artist.options_for_sorted_by,
+ #     },
+ #     persistence_id: 'shared_key',
+ #     default_filter_params: {},
+ # ) or return
+ #  @artists = @filterrific.find.page(params[:page])
+ #
+ #  respond_to do |format|
+ #    format.html
+ #    format.js
+  end
+
+
+
 
   # GET /artists/1
   # GET /artists/1.json
@@ -74,6 +101,14 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def sort_column
+   Artist.column_names.include?(params[:sort]) ? params[:sort] : "name"
+ end
+
+ def sort_direction
+   %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+ end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_artist
@@ -81,8 +116,14 @@ class ArtistsController < ApplicationController
       @artist = Artist.find(params[:id])
     end
 
+    def filtering_params
+      params.require(:artist).permit(:artist_name, :price)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:alias, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone, :user_id)
+
+      params.require(:artist).permit(:artist_name, :first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :website, :sales, :phone, :user_id, :price, :direction)
+
     end
 end

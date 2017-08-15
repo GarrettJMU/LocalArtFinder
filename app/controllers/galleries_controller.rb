@@ -1,6 +1,7 @@
 class GalleriesController < ApplicationController
-  before_action :set_gallery, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_gallery, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /galleries
   # GET /galleries.json
@@ -20,16 +21,19 @@ class GalleriesController < ApplicationController
 
   # GET /galleries/new
   def new
+    @user = current_user
     @gallery = Gallery.new
   end
 
   # GET /galleries/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /galleries
   # POST /galleries.json
   def create
+    @user = current_user
     @gallery = Gallery.new(gallery_params)
 
     respond_to do |format|
@@ -46,6 +50,7 @@ class GalleriesController < ApplicationController
   # PATCH/PUT /galleries/1
   # PATCH/PUT /galleries/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @gallery.update(gallery_params)
         format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
@@ -60,6 +65,7 @@ class GalleriesController < ApplicationController
   # DELETE /galleries/1
   # DELETE /galleries/1.json
   def destroy
+    @user = current_user
     @gallery.destroy
     respond_to do |format|
       format.html { redirect_to galleries_url, notice: 'Gallery was successfully destroyed.' }
@@ -74,6 +80,11 @@ class GalleriesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+
+    def filtering_params
+      params.require(:gallery).permit(:name, :website, :phone, :opening, :closing, :street, :city, :state, :zipcode, :artist_id, :art_id, :user_id)
+    end
+
     def gallery_params
       params.require(:gallery).permit(:name, :description, :website, :phone, :opening, :closing, :street, :city, :state, :zipcode, :artist_id, :art_id, :user_id)
     end

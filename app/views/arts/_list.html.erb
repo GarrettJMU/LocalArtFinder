@@ -1,0 +1,45 @@
+
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info @arts, model: 'arts' %>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Genre</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Length</th>
+        <th>Width</th>
+        <th>Medium</th>
+        <th>Artist</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @arts.each do |art| %>
+        <tr>
+          <td><%= image_tag art.image.url(:small) %></td>
+          <td><%= art.genre %></td>
+          <td><%= art.description %></td>
+          <td><%= art.price %></td>
+          <td><%= art.length %></td>
+          <td><%= art.width %></td>
+          <td><%= art.medium %></td>
+          <td><%= art.artist.artist_name %></td>
+          <td><%= link_to 'Show', art %></td>
+            <% if can? :update, art %>
+          <td><%= link_to 'Edit', edit_art_path(art) %></td>
+          <td><%= link_to 'Destroy', art, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+    <%= will_paginate %>
+  </table>
+
+</div>

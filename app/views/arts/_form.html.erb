@@ -1,3 +1,5 @@
+<div class="upload-page">
+  <div class="form">
 <%= form_with(model: art, local: true, html: { multipart: true }) do |form| %>
   <% if art.errors.any? %>
     <div id="error_explanation">
@@ -54,6 +56,9 @@
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', :class => "submit" %>
   </div>
+
 <% end %>
+</div>
+</div>
