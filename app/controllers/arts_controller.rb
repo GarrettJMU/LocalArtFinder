@@ -22,6 +22,14 @@ class ArtsController < ApplicationController
  ) or return
   @arts = @filterrific.find.page(params[:page])
 
+  end
+
+  # GET /arts/1
+  # GET /arts/1.json
+  def show
+    @user = current_user
+    @artist = @user.artists.first.id
+  end
 
  respond_to do |format|
    format.html

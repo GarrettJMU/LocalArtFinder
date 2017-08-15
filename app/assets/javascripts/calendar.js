@@ -3,7 +3,7 @@ $(document).ready(function() {
         // put your options and callbacks here
         events:  '/events/get_cal',
 
-     header: {left: 'prev,next', center: 'title', right: 'month,basicWeek,basicDay'},
+     header: {left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
      eventClick: function(event) {
       if (event.url) {
           window.open(event.url);

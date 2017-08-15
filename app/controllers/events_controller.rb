@@ -75,6 +75,7 @@ class EventsController < ApplicationController
     end
   end
 
+#compiles json data for calendar events
   def get_cal
     @user = current_user
     @events = Event.all
@@ -87,6 +88,7 @@ class EventsController < ApplicationController
     end
     render :json => events.to_json
   end
+#end of json data for calendar
 
   private
     # Use callbacks to share common setup or constraints between actions.
