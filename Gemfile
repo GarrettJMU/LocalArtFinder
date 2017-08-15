@@ -32,13 +32,13 @@ gem 'cancancan'
 gem 'rolify'
 gem 'textacular'
 gem 'stripe'
-gem 'paperclip'
 gem 'omniauth-facebook'
 
 gem 'font-awesome-sass'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem 'aws-sdk'
+gem "paperclip", ">= 5.0"
+gem "aws-sdk", ">= 2.0"
 
 
 # Use Redis adapter to run Action Cable in production
