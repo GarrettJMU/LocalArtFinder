@@ -1,3 +1,13 @@
+$clean: #A7D2CB;
+$butter: #F2D388;
+$salmon: #C98474;
+$eggplant: #874C62;
+$beige: #efefdc;
+$dk-blue: #1E83AE;
+$blue: #3D5B94;
+$light-blue: #3DACDD;
+$green: #6dcd9a;
+
 .upload-page {
   width: 360px;
   padding: 8% 0 0;
@@ -96,3 +106,40 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+// #######art show page#######
+.center {
+  text-align: center;
+}
+
+#artpage {
+  background-color: $eggplant;
+  border: 4px solid #000;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+}
+
+
+.art {
+  height: 20vh;
+  padding: 25px;
+  margin-left: 60px;
+}
+// ######new art button on art show#####
+.btn-outline-success {
+    color: $butter;
+    background-image: none;
+    background-color: $blue;
+    border-color: $salmon;
+    border: none;
+    align-self: center;
+    text-align: center;
+}
+.btn-outline-success:hover {
+    color: $butter;
+    background-color: $salmon;
+    border-color: $salmon;
+    text-align: center;
+}
+// ######end art show page######

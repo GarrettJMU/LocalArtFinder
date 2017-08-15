@@ -26,15 +26,15 @@ class ArtsController < ApplicationController
 
   # GET /arts/1
   # GET /arts/1.json
-  def show
-    @user = current_user
-    @artist = @user.artists.first.id
-  end
 
  respond_to do |format|
    format.html
    format.js
  end
+
+ def show
+   @user = current_user
+   @artist = @user.artists.first.id
  end
 
  def new
