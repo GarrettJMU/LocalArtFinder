@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
-  skip_load_and_authorize_resource :only => :index
-  //DOUBLE CHECK THAT THIS IS NEEDED TO DELETE ONLY YOUR EVENTS
+  before_action :authenticate_user!, except: [:show, :index, :get_cal]
+  skip_load_and_authorize_resource
+
 
   # GET /events
   # GET /events.json
@@ -72,6 +72,7 @@ class EventsController < ApplicationController
     end
   end
 
+#compiles json data for calendar events
   def get_cal
     @events = Event.all
     events = []
@@ -83,6 +84,7 @@ class EventsController < ApplicationController
     end
     render :json => events.to_json
   end
+#end of json data for calendar
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -18,6 +18,8 @@ class ArtsController < ApplicationController
   # GET /arts/1
   # GET /arts/1.json
   def show
+    @user = current_user
+    @artist = @user.artists.first.id
   end
 
 

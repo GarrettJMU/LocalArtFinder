@@ -1,43 +1,27 @@
 <p id="notice"><%= notice %></p>
+<!-- render list of art for lightbox-->
+<h1 class="center">Art Page</h1>
+  <!-- <h5 class="center"><%= link_to 'Upload New Art', new_art_path %></h5> -->
+  <!-- <form action="arts/new" class="center btn btn-outline-success my-2 my-sm-0">
+    <buttton type="submit" value="Upload New Art" />
+</form> -->
 
-<h1 class="center">Arts</h1>
+  <form class="center" action="/arts/new" >
+    <button type="submit" class="btn btn-outline-success my-2 my-sm-0"
+    name="button">Upload New Art</button>
+  </form>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Genre</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Length</th>
-      <th>Width</th>
-      <th>Medium</th>
-      <th>Artist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="row" >
+      <div class="row" id="artpage">
     <% @arts.each do |art| %>
-      <tr>
-        <td><%= image_tag art.image.url(:small) %></td>
-        <td><%= art.genre %></td>
-        <td><%= art.description %></td>
-        <td><%= art.price %></td>
-        <td><%= art.length %></td>
-        <td><%= art.width %></td>
-        <td><%= art.medium %></td>
-        <td><%= art.artist.alias %></td>
-        <td><%= link_to 'Show', art %></td>
-          <% if can? :update, art %>
-        <td><%= link_to 'Edit', edit_art_path(art) %></td>
-        <td><%= link_to 'Destroy', art, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+      <!-- WILL NEED TO CHANGE ARTIST.ALIAS ONCE DB IS UPDATED -->
+      <%= link_to image_tag(art.image.url(:small), :class => "art", ), art.image.url(:original), :rel => "lightbox[imagesetname]", data: {lightbox: "pics", title: "#{art.description} #{art.genre} by #{art.artist.alias} $#{art.length} #{link_to "Buy This Piece", art}" }  %>
+      <br>
+
+
     <% end %>
-  </tbody>
-</table>
+      </div>
+</div>
+<!--end of lightbox view -->
 
-<br>
-
-<%= link_to 'New Art', new_art_path %>
+<!-- not going to be used unless we can figur out how turbolinks can be added without messing things up with the map and calendar on events page  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> -->

@@ -15,4 +15,5 @@
 //= require fullcalendar
 //= require bootstrap-sprockets
 //= require rails-ujs
+//= require lightbox
 //= require_tree .

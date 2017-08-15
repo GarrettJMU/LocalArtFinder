@@ -15,6 +15,7 @@ class ArtistsController < ApplicationController
   def show
     @arts = Artist.find(params[:id]).arts.all
     @events = Artist.find(params[:id]).events.all
+    @user = current_user
   end
 
 
