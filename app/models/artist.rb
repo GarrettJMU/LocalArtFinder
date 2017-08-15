@@ -3,16 +3,10 @@ class Artist < ApplicationRecord
   scope :artist_name, -> (artist_name) { where("artist_name like ?", "#{artist_name}%")}
   has_many :arts
   has_many :events
-  has_many :advanced_searches
   validates :user, presence: true
   belongs_to :user, optional: true
   include Filterable
-  filterrific(
-  default_filter_params: { sorted_by: 'artist_name_asc' },
-  available_filters: [
-    :sorted_by
-  ]
-)
+
   # scope :sorted_by, lambda { |sort_option|
   # # extract the sort direction from the param value.
   # direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
