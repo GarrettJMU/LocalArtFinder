@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
     <div class="item1">
+      <h3>Personal Info</h3>
+      <%= link_to 'Edit Info', edit_artist_path(@artist) %>
+      <br>
+      <br>
       <p>
         <strong>Artist Name:</strong>
         <%= @artist.artist_name %>
@@ -64,6 +68,7 @@
     </div>
     <div class="item2">
       <h3>The Art</h3>
+      <%= link_to 'Upload New Art', new_art_path %>
       <table>
         <thead>
           <tr>
@@ -100,6 +105,7 @@
 <br />
 <br />
       <h3>The Events</h3>
+      <%= link_to 'Create New Event', new_event_path %>
       <table>
         <thead>
           <tr>
@@ -134,6 +140,3 @@
 
 <!-- End container Div -->
 </div>
-
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>

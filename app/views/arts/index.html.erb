@@ -1,6 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!-- render list of art for lightbox-->
+  <!-- <h5 class="center"><%= link_to 'Upload New Art', new_art_path %></h5> -->
+  <!-- <form action="arts/new" class="center btn btn-outline-success my-2 my-sm-0">
+    <buttton type="submit" value="Upload New Art" />
+</form> -->
 
-<h1 class="center">Arts</h1>
 
 <%#
   Filterrific adds the `form_for_filterrific` view helper:
@@ -10,7 +13,16 @@
       * AJAX spinner while AJAX request is being processed
   * sets form_for options like :url, :method and input name prefix
 %>
-<%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed',
+      placeholder: 'Search Genre/Medium'
+    ) %>
+  </div>
   <div>
     Sorted by
     <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
@@ -21,16 +33,15 @@
       reset_filterrific_url,
     ) %>
   </div>
-  <%# add an automated spinner to your form when the list is refreshed %>
-  <%= f.submit 'Filter' %>
   <%= render_filterrific_spinner %>
 <% end %>
 
-<%= render(
-  partial: 'arts/art',
-  locals: { arts: @arts }
-) %>
+<p id="notice"><%= notice %></p>
+<h1 class="center">Art Page</h1>
+<%= render partial: 'arts/list',locals: { arts: @arts } %>
 
-<br>
 
-<%= link_to 'New Art', new_art_path %>
+
+<!--end of lightbox view -->
+
+<!-- not going to be used unless we can figur out how turbolinks can be added without messing things up with the map and calendar on events page  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> -->

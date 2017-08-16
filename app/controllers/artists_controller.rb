@@ -2,7 +2,6 @@ class ArtistsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  helper_method :sort_column, :sort_direction
 
 
 
@@ -43,6 +42,7 @@ class ArtistsController < ApplicationController
   def show
     @arts = Artist.find(params[:id]).arts.all
     @events = Artist.find(params[:id]).events.all
+    @user = current_user
   end
 
 

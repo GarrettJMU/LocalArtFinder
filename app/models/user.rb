@@ -7,6 +7,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :arts
   has_many :artists
+  has_many :events
+  has_many :galleries
+
 
 
   def self.new_with_session(params, session)
