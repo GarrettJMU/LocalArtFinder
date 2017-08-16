@@ -1,46 +1,47 @@
-<p id="notice"><%= notice %></p>
-<% form_tag arts_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+<!-- render list of art for lightbox-->
+  <!-- <h5 class="center"><%= link_to 'Upload New Art', new_art_path %></h5> -->
+  <!-- <form action="arts/new" class="center btn btn-outline-success my-2 my-sm-0">
+    <buttton type="submit" value="Upload New Art" />
+</form> -->
+
+
+<%#
+  Filterrific adds the `form_for_filterrific` view helper:
+  * adds dom id 'filterrific_filter'
+  * applies javascript behaviors:
+      * AJAX form submission on change
+      * AJAX spinner while AJAX request is being processed
+  * sets form_for options like :url, :method and input name prefix
+%>
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed',
+      placeholder: 'Search Genre/Medium'
+    ) %>
+  </div>
+  <div>
+    Sorted by
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <%= render_filterrific_spinner %>
 <% end %>
-<h1>Arts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Genre</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Length</th>
-      <th>Width</th>
-      <th>Medium</th>
-      <th>Artist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<p id="notice"><%= notice %></p>
+<h1 class="center">Art Page</h1>
+<%= render partial: 'arts/list',locals: { arts: @arts } %>
 
-  <tbody>
-    <% @arts.each do |art| %>
-      <tr>
-        <td><%= image_tag art.image.url(:small) %></td>
-        <td><%= art.genre %></td>
-        <td><%= art.description %></td>
-        <td><%= art.price %></td>
-        <td><%= art.length %></td>
-        <td><%= art.width %></td>
-        <td><%= art.medium %></td>
-        <td><%= art.artist.alias %></td>
-        <td><%= link_to 'Show', art %></td>
-        <td><%= link_to 'Edit', edit_art_path(art) %></td>
-        <td><%= link_to 'Destroy', art, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Art', new_art_path %>
+<!--end of lightbox view -->
+
+<!-- not going to be used unless we can figur out how turbolinks can be added without messing things up with the map and calendar on events page  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> -->

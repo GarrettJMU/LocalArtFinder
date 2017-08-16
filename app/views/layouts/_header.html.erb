@@ -1,3 +1,5 @@
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+
 <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -6,30 +8,35 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" <%= link_to "Home", root_path, method: :get %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/events">Events</a>
+        <a class="nav-link" <%= link_to "Events", events_path, method: :get %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/artists">Artist</a>
+        <a class="nav-link" <%= link_to "Artists", artists_path, method: :get %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/arts">Art</a>
+        <a class="nav-link" <%= link_to "Art", arts_path, method: :get %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/arts">Galleries</a>
+        <a class="nav-link" <%= link_to "Galleries", galleries_path, method: :get %></a>
+
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/about/index">About</a>
+          <a class="nav-link" <%= link_to "About", about_index_path, method: :get %></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="nav-link" href="http://localhost:3000/devise/sessions/new">Login</a>
+            <% if !user_signed_in? %>
+            <a class="nav-link" <%= link_to "Sign In", new_user_session_path, method: :get %></a>
+            <% else %>
+          
             <a class="nav-link" <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
+            <% end %>
             <a class="dropdown-item" href="#"><p><%= if   !current_user.nil?
                  current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
                    end
@@ -38,14 +45,48 @@
         </div>
       </li>
     </ul>
-    <div class="search">
-      <form class="form-inline my-2 my-lg-0" action="galleries" method="get">
-        <input type="text" class="searchTerm form-control mr-sm-2"
-        name = "gallery" placeholder="Search Site">
-        <button type="submit"
-        class="searchButton btn btn-outline-success my-2 my-sm-0"
-        name="button">Submit</button>
-      </form>
+
+  <!-- code for search bar -->
+    <div class="wrapper">
+    <form action="/search" method="get">
+    <input name = "search" placeholder="Search..." class="myinput"/>
+    <div class="search" onclick="openInput()">
+      <i class="fa fa-search"></i>
+    </form>
     </div>
-  </div>
+    <script>
+    var inputOpened = false;
+
+    function openInput() {
+      if (inputOpened) {
+        TweenMax.to(".myinput", 0.5, {
+          width: 0,left:55
+        });
+        TweenMax.to(".search", 0.5, {
+          rotation: 0,
+          left:55
+        });
+        inputOpened = false;
+      } else {
+        TweenMax.to(".myinput", 0.5, {
+          width: 250,
+          left:0
+        });
+        TweenMax.to(".search", 0.5, {
+          rotation: 360,
+          left:110,
+          onComplete: focusme
+        });
+        inputOpened = true;
+        }
+    }
+
+    function focusme(){
+        document.querySelector('.myinput').focus()
+    }
+   </script>
+   </div>
+<!-- end of search bar -->
+
+ </div>
 </nav>

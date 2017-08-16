@@ -1,0 +1,14 @@
+<form class="center" action="/arts/new" >
+  <button type="submit" class="btn btn-outline-success my-2 my-sm-0"
+  name="button">Upload New Art</button>
+</form>
+
+<div class="row" >
+    <div class="row" id="artpage">
+  <% @arts.each do |art| %>
+    <!-- WILL NEED TO CHANGE ARTIST.ALIAS ONCE DB IS UPDATED -->
+    <%= link_to image_tag(art.image.url(:small), :class => "art", ), art.image.url(:original), :rel => "lightbox[imagesetname]", data: {lightbox: "pics", title: "#{art.description} #{art.genre} by #{art.artist.artist_name} $#{art.length} #{link_to "Buy This Piece", art}" }  %>
+    <br>
+    <% end %>
+  </div>
+</div>

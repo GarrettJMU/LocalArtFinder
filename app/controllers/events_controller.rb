@@ -1,19 +1,17 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index, :get_cal]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
-
+  skip_load_and_authorize_resource
 
   # GET /events
   # GET /events.json
   def index
     @ability = Ability.new(current_user)
-    if params[:search].nil? || params[:search].empty?
-      @events = Event.all
-      @results = Event.basic_search(params[:search])
-    else @events = Event.basic_search(params[:search])
-      redirect_to "/events/#{@results.first.id}"
-    end
+    # if params[:search].nil? || params[:search].empty?
+    @events = Event.all
+    # else @events = Event.basic_search(params[:search])
+    #   render "/events/index.html"
+    # end
 
   end
 
@@ -25,16 +23,20 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @user = current_user
   end
-  
+
   # GET /events/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /events
   # POST /events.json
   def create
+    @user = current_user
     @event = Event.new(event_params)
+    # @gallery = @event.gallery.first.address
 
     respond_to do |format|
       if @event.save
@@ -50,6 +52,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -64,6 +67,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    @user = current_user
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
@@ -71,14 +75,31 @@ class EventsController < ApplicationController
     end
   end
 
+#compiles json data for calendar events
+  def get_cal
+    @user = current_user
+    @events = Event.all
+    events = []
+    @events.each do |event|
+      events << { id: event.id,
+                  title: event.gallery.name,
+                  start: event.date.to_s + " " + event.start.strftime("%H:%M:%S").to_s,
+                  url: Rails.application.routes.url_helpers.event_path(event.id)}
+    end
+    render :json => events.to_json
+  end
+#end of json data for calendar
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
+      @user = current_user
       @event = Event.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def event_params
-      params.require(:event).permit(:start, :end, :gallery_id, :artist_id, :art_id, :user_id)
+      params.require(:event).permit(:date, :start, :end, :gallery_id, :artist_id, :art_id, :user_id)
     end
+
 end

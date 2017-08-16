@@ -6,6 +6,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :arts
+  has_many :artists
+  has_many :events
+  has_many :galleries
+
+
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -25,6 +30,14 @@ class User < ApplicationRecord
 end
 
   def assign_default_role
-    add_role(:customer)
+    add_role(:artist)
   end
+
+  def send_password_reset
+  generate_token(:password_reset_token)
+  self.password_reset_sent_at = Time.zone.now
+  save!
+  UserMailer.password_reset(self).deliver
+  end
+
 end

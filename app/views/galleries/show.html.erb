@@ -1,59 +1,94 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @gallery.name %>
-</p>
+<!-- Using the Google Map API search box (hidden mode) to Pin the gallery on the map -->
+<input id="address" type="hidden" value="<%= @gallery.street %>,<%= @gallery.city %>,<%= @gallery.state %>,<%= @gallery.zipcode %>">
 
-<p>
-  <strong>Website:</strong>
-  <%= @gallery.website %>
-</p>
+<!-- Google Map API script -->
+<script>
+  function initMap() {
+  var map = new google.maps.Map(document.getElementById('showmap'), {
+    zoom: 15,
+    center: {lat: 32.70961, lng: -117.1579991}
+  });
 
-<p>
-  <strong>Phone:</strong>
-  <%= @gallery.phone %>
-</p>
+  var geocoder = new google.maps.Geocoder();
 
-<p>
-  <strong>Opening:</strong>
-  <%= @gallery.opening %>
-</p>
+  function geocodeme() {
+    geocodeAddress(geocoder, map);
+  };
+  geocodeme()
+}
 
-<p>
-  <strong>Closing:</strong>
-  <%= @gallery.closing %>
-</p>
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === 'OK') {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+      var l1 = results[0].geometry.location.lat()
+      var l2 = results[0].geometry.location.lng()
 
-<p>
-  <strong>Street:</strong>
-  <%= @gallery.street %>
-</p>
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+</script>
 
-<p>
-  <strong>City:</strong>
-  <%= @gallery.city %>
-</p>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH6kpKgMyIrX12CYckcHQt3eEesCTbIlo&callback=initMap">
+</script>
 
-<p>
-  <strong>State:</strong>
-  <%= @gallery.state %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @gallery.zipcode %>
-</p>
-
-<p>
-  <strong>Artist:</strong>
-  <%= @gallery.artist %>
-</p>
-
-<p>
-  <strong>Art:</strong>
-  <%= @gallery.art %>
-</p>
+<div  class="container">
+  <div id="showmap"></div>
+  <div class="item2">
+    <p>
+      <strong>Name:</strong>
+      <%= @gallery.name %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @gallery.description %>
+    </p>
+    <p>
+      <strong>Website:</strong>
+      <a href="<%= @gallery.website %>"><%= @gallery.website %></a>
+    </p>
+    <p>
+      <strong>Phone:</strong>
+      <a href="tel:<%= @gallery.phone %>"><%= @gallery.phone %></a>
+    </p>
+    <p>
+      <strong>Opening:</strong>
+      <%= @gallery.opening.strftime("%H:%M") %>
+    </p>
+    <p>
+      <strong>Closing:</strong>
+      <%= @gallery.closing.strftime("%H:%M") %>
+    </p>
+    <p>
+      <strong>Street:</strong>
+      <%= @gallery.street %>
+    </p>
+    <p>
+      <strong>City:</strong>
+      <%= @gallery.city %>
+    </p>
+    <p>
+      <strong>State:</strong>
+      <%= @gallery.state %>
+    </p>
+    <p>
+      <strong>Zipcode:</strong>
+      <%= @gallery.zipcode %>
+    </p>
+  <!-- End of item2 -->
+  </div>
+<!-- End of container Div -->
+</div>
 
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
 <%= link_to 'Back', galleries_path %>

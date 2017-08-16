@@ -1,0 +1,131 @@
+<p> Your Search For <%= @search %> Returned These Results:</p>
+
+<% if @arts.present? %>
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Genre</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Length</th>
+      <th>Width</th>
+      <th>Medium</th>
+      <th>Artist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @arts.each do |art| %>
+      <tr>
+        <td><%= image_tag art.image.url(:small) %></td>
+        <td><%= art.genre %></td>
+        <td><%= art.description %></td>
+        <td><%= art.price %></td>
+        <td><%= art.length %></td>
+        <td><%= art.width %></td>
+        <td><%= art.medium %></td>
+        <td><%= art.artist.artist_name %></td>
+        <td><%= link_to 'Show', art %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @artists.present? %>
+<table>
+  <thead>
+    <tr>
+      <th>Artist Name</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @artists.each do |artist| %>
+      <tr>
+        <td><%= artist.artist_name %></td>
+        <td><%= artist.email %></td>
+        <td><%= artist.website %></td>
+        <td><%= link_to 'Show', artist %></td
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<% end %>
+
+<% if @galleries.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Website</th>
+        <th>Phone</th>
+        <th>Opening</th>
+        <th>Closing</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zipcode</th>
+        <th>Artist</th>
+        <th>Art</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+     <tbody>
+       <% @galleries.each do |gallery| %>
+         <tr>
+            <td><%= gallery.name %></td>
+            <td><%= gallery.website %></td>
+            <td><%= gallery.phone %></td>
+            <td><%= gallery.opening %></td>
+            <td><%= gallery.closing %></td>
+            <td><%= gallery.street %></td>
+            <td><%= gallery.city %></td>
+            <td><%= gallery.state %></td>
+            <td><%= gallery.zipcode %></td>
+            <td><%= gallery.artist %></td>
+            <td><%= gallery.art %></td>
+            <td><%= link_to 'Show', gallery %></td>
+
+         </tr>
+       <% end %>
+      </tbody>
+    </table>
+    <% end %>
+    <% if @events.present? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Starting Time</th>
+          <th>End Time</th>
+          <th>Gallery</th>
+          <th>Artist</th>
+          <th>Art</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+
+            <td><%= event.date %></td>
+            <td><%= event.start %></td>
+            <td><%= event.end %></td>
+            <td><%= event.gallery.name %></td>
+            <td><%= event.artist.artist_name %></td>
+            <td><%= link_to 'Show', event %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>

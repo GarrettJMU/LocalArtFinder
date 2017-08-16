@@ -1,4 +1,4 @@
 class Customer < ApplicationRecord
-  validates :user, presence: true
-  resourcify
+  # resourcify
+  include Filterable
 end

@@ -1,29 +1,37 @@
 Rails.application.routes.draw do
+  get 'faq/index'
 
+  get 'password_resets/new'
 
-  get 'usertypes/index'
-  get 'usertypes/route'
-  resources :events
+  get '/search' => 'search#index'
+  # resources :events
   resources :galleries
   resources :arts
   resources :customers
   resources :artists
   resources :admin
   resources :charges
+  resources :password_resets
+  resources :faq
 
 
+  get '/about/index'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "users/omniauth_callbacks"}
 
   devise_scope :user do
-    authenticated :user do
-      get 'galleries/index', as: :authenticated_root
+    authenticate :user do
+      get 'artists/index', as: :authenticated_root
     end
 
     unauthenticated do
-      get 'devise/sessions/new', as: :unauthenticated_root
+      get 'landing_page/index', as: :unauthenticated_root
     end
   end
-    root 'landing_page#index'
 
+  resources :events do
+    get :get_cal, on: :collection
+  end
+
+  root 'landing_page#index'
 end

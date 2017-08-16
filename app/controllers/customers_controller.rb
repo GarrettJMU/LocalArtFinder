@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  # before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  # load_and_authorize_resource
 
 
   # GET /customers
@@ -71,7 +71,7 @@ class CustomersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def customer_params
+    def filtering_params
       params.require(:customer).permit(:first_name, :last_name, :email, :password, :street, :city, :state, :zipcode, :user_id)
     end
 

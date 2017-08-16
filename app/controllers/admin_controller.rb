@@ -1,9 +1,12 @@
 class AdminController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize
+  load_and_authorize_resource
+
 
   def index
     @users = User.all
+    @ability = Ability.new(current_user)
   end
 
   def update
@@ -19,7 +22,7 @@ class AdminController < ApplicationController
     redirect_to '/admin'
   end
 
-  
+
 
   private
 

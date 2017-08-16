@@ -11,6 +11,10 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
+//= require filterrific/filterrific-jquery
+//= require moment
+//= require fullcalendar
 //= require bootstrap-sprockets
 //= require rails-ujs
+//= require lightbox
 //= require_tree .

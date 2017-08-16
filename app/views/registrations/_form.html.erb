@@ -1,0 +1,162 @@
+<style media="screen">
+  .login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+  }
+  .form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  }
+  .form .submit {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #A7D2CB;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  }
+  .form .submit:hover,.form .submit:active,.form .submit:focus {
+  background: #6c9991;
+  }
+  .form .message {
+  margin: 15px 0 0;
+  color: #6c9991;
+  font-size: 12px;
+  }
+  .form .message a {
+  color: #6c9991;
+  text-decoration: none;
+  }
+  .form .register-form {
+  display: none;
+  }
+  .container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+  }
+  .container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+  }
+  .container .info {
+  margin: 50px auto;
+  text-align: center;
+  }
+  .container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+  }
+  .container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+  }
+  .container .info span a {
+  color: #000000;
+  text-decoration: none;
+  }
+  .container .info span .fa {
+  color: #EF3B3A;
+  }
+  body {
+  background: #A7D2CB; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #A7D2CB, #A7D2CB);
+  background: -moz-linear-gradient(right, #A7D2CB, #A7D2CB);
+  background: -o-linear-gradient(right, #A7D2CB, #A7D2CB);
+  background: linear-gradient(to left, #A7D2CB, #A7D2CB);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+<div class="login-page">
+  <div class="form">
+    <%= form_with(model: artist, local: true) do |form| %>
+      <% if artist.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+          <ul>
+          <% artist.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= form.text_field :alias, id: :artist_alias,placeholder: "Artist Name" %>
+      </div>
+      <div class="field">
+        <%= form.text_field :first_name, id: :artist_first_name, placeholder: "First Name" %>
+      </div>
+      <div class="field">
+        <%= form.text_field :last_name, id: :artist_last_name, placeholder: "Last Name" %>
+      </div>
+      <div class="field">
+        <%= form.hidden_field :email, :value => @user.email %>
+      </div>
+      <div class="field">
+      <%= form.hidden_field :password, :value => @user.password %>
+      </div>
+      <div class="field">
+      <%= form.hidden_field :user_id, :value => @user.id %>
+      </div>
+      <div class="field">
+        <%= form.text_field :street, id: :artist_street, placeholder: Street %>
+      </div>
+      <div class="field">
+        <%= form.text_field :city, id: :artist_city, placeholder: "City" %>
+      </div>
+      <div class="field">
+        <%= form.text_field :state, id: :artist_state, placeholder: "State" %>
+      </div>
+      <div class="field">
+        <%= form.text_field :zipcode, id: :artist_zipcode, placeholder: "Zipcode" %>
+      </div>
+      <div class="field">
+        <%= form.url_field :website, id: :artist_website, placeholder: "Website" %>
+      </div>
+      <!-- <div class="field">
+        <%= form.label :sales %>
+        <%= form.text_field :sales, id: :artist_sales %>
+      </div> -->
+
+      <div class="field">
+        <%= form.telephone_field :phone, id: :artist_phone, placeholder: "Phone Number" %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
