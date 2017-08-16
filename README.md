@@ -1,70 +1,50 @@
-Local Art Finder
+## Local Art Finder
 
-This is an app created to help you find art(s), art galleries, events and/or artists near your location.
+This is an app created to help you discover local artists by displaying their art work, the galleries you can view their work at, and events being held near your location.
 
-Getting Started
+## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+1. Install Rails at the command prompt if you haven't yet:
 
-Prerequisites
+        $ gem install rails
+        
+2. Clone this repository to your computer.
 
-What things you need to install the software and how to install them
+3. Navigate to the application directory in the command prompt.
 
-Give examples
-Installing
+4. Once you are in the directory type:
+        
+        $ bundle
+   Then:
 
-A step by step series of examples that tell you have to get a development env running
+        $ rake db:migrate
 
-Say what the step will be
+5. Then, you will need to run the rails server while still within the app directory:
+        
+        $ rails s
+ 
+ 6. Open your browser and within the address bar type:
+ 
+        localhost:3000
+  
+ 7. Enjoy our app!
+         
 
-Give the example
-And repeat
+## Authors
+ 
+ <b>Team 404_brain_not_found:</b>
+ 
+ Bri Kutauskas-  https://github.com/BriKutauskas<br>
+ Matthieu Trippoli-   https://github.com/tieum27<br>
+ Sandro Hallado-     https://github.com/shallado<br>
+ Garrett Hughes-   https://github.com/GarrettJMU<br>
+ Mark Cento-        https://github.com/Markcento<br>
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
-
-Running the tests
-
-Explain how to run the automated tests for this system
-
-Break down into end to end tests
-
-Explain what these tests test and why
-
-Give an example
-And coding style tests
-
-Explain what these tests test and why
-
-Give an example
-Deployment
-
-Add additional notes about how to deploy this on a live system
-
-Built With
-
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-Versioning
-
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-
-Authors
-
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
-
-License
+## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-Acknowledgments
+## Acknowledgments
 
-Hat tip to anyone who's code was used
-Inspiration
-etc
+Hat tip to anyone who's code was used.<br>
+Thanks to LEARN Academy for getting us to the point where we can make a project like this.
