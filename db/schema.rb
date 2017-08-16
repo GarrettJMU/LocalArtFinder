@@ -10,13 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803182321) do
+ActiveRecord::Schema.define(version: 20170814204339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "advanced_searches", force: :cascade do |t|
+    t.string "keywords"
+    t.string "artist_name"
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "artist_id"
+    t.string "price"
+    t.index ["artist_id"], name: "index_advanced_searches_on_artist_id"
+  end
+
   create_table "artists", force: :cascade do |t|
-    t.string "alias"
+    t.string "artist_name"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -31,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170803182321) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "price"
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
@@ -64,8 +81,6 @@ ActiveRecord::Schema.define(version: 20170803182321) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -77,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170803182321) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.date "date"
     t.index ["art_id"], name: "index_events_on_art_id"
     t.index ["artist_id"], name: "index_events_on_artist_id"
     t.index ["gallery_id"], name: "index_events_on_gallery_id"
@@ -98,6 +114,7 @@ ActiveRecord::Schema.define(version: 20170803182321) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.text "description"
     t.index ["art_id"], name: "index_galleries_on_art_id"
     t.index ["artist_id"], name: "index_galleries_on_artist_id"
     t.index ["user_id"], name: "index_galleries_on_user_id"
@@ -131,8 +148,12 @@ ActiveRecord::Schema.define(version: 20170803182321) do
     t.string "uid"
     t.string "name"
     t.text "image"
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
+    t.bigint "user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["user_id"], name: "index_users_on_user_id"
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
@@ -143,10 +164,10 @@ ActiveRecord::Schema.define(version: 20170803182321) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "advanced_searches", "artists"
   add_foreign_key "artists", "users"
   add_foreign_key "arts", "artists"
   add_foreign_key "arts", "users"
-  add_foreign_key "customers", "users"
   add_foreign_key "events", "artists"
   add_foreign_key "events", "arts"
   add_foreign_key "events", "galleries"
@@ -154,4 +175,5 @@ ActiveRecord::Schema.define(version: 20170803182321) do
   add_foreign_key "galleries", "artists"
   add_foreign_key "galleries", "arts"
   add_foreign_key "galleries", "users"
+  add_foreign_key "users", "users"
 end
