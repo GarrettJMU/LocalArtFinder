@@ -1,0 +1,171 @@
+/* line 11, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.upload-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+/* line 16, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+/* line 26, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* line 37, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.form .submit {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+/* line 51, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.form .submit:hover, .form .submit:active, .form .submit:focus {
+  background: #43A047;
+}
+
+/* line 54, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+/* line 59, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+/* line 63, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.form .upload-form {
+  display: none;
+}
+
+/* line 66, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* line 72, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* line 77, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+
+/* line 81, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+/* line 88, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+
+/* line 92, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* line 96, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.container .info span .fa {
+  color: #EF3B3A;
+}
+
+/* line 99, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+body {
+  background: #A7D2CB;
+  /* fallback for old browsers */
+  background: -webkit-gradient(linear, right top, left top, from(#A7D2CB), to(#A7D2CB));
+  background: linear-gradient(to left, #A7D2CB, #A7D2CB);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 111, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.center {
+  text-align: center;
+}
+
+/* line 115, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+#artpage {
+  background-color: #874C62;
+  border: 4px solid #000;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+}
+
+/* line 124, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.art {
+  height: 20vh;
+  padding: 25px;
+  margin-left: 60px;
+}
+
+/* line 130, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.btn-outline-success {
+  color: #F2D388;
+  background-image: none;
+  background-color: #3D5B94;
+  border-color: #C98474;
+  border: none;
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+/* line 139, /Users/briannakutauskas/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.btn-outline-success:hover {
+  color: #F2D388;
+  background-color: #C98474;
+  border-color: #C98474;
+  text-align: center;
+}
