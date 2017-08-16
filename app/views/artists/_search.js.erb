@@ -1,0 +1,7 @@
+jQuery(document).ready(function($){
+  $(".artist-search").keyup(function(event){
+		$.get("artists", { artist_name: event.value }, function(data){
+			console.log(data)
+		})
+	})
+})

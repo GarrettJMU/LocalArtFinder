@@ -1,9 +1,8 @@
 <button id="asearch" type="button" name="show" >Advanced Search</button>
 <div class="advanced-search">
-
 <%= form_tag artists_path, method: :get do %>
   <%= label_tag :artist_name %>
-  <%= text_field_tag :artist_name, params[:artist_name] %>
+  <%= text_field_tag :artist_name, params[:artist_name], class: "artist-search" %>
   <%= label_tag :price %>
   <%= select_tag "price", "<option disabled selected value> -- select an option -- </option> <option value='$'>$</option><option value='$$'>$$</option><option value='$$$'>$$$</option>".html_safe%>
   <select class="form-control" name="direction">
@@ -69,3 +68,12 @@
 <br>
 
 <%= link_to 'New Artist', new_artist_path %>
+
+<script>
+jQuery(document).ready(function($){
+  $(".artist-search").keyup(function(event){
+		$.get("artists", { artist_name: event.value }, null, 'script');
+    return false
+	})
+})
+</script>
