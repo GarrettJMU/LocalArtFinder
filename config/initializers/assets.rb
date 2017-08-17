@@ -11,6 +11,7 @@ Rails.application.config.assets.precompile += %w( filterrific/filterrific-spinne
 Rails.application.config.assets.precompile += %w( reset.css )
 Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( modernizr.js )
+Rails.application.config.assets.precompile += %w( landing_page.css )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
