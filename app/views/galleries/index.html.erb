@@ -1,7 +1,7 @@
 <head>
   <!-- Scripts for the google Map API -->
-  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-  <script src="http://maps.google.com/maps/api/js?key=AIzaSyDoQxkuNTRyYO6fgdTmZJGz7RWOs1dn-uA&libraries=places" type="text/javascript"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+  <script src="https://maps.google.com/maps/api/js?key=AIzaSyDoQxkuNTRyYO6fgdTmZJGz7RWOs1dn-uA&libraries=places" type="text/javascript"></script>
 
 </head>
 <p id="notice"><%= notice %></p>
@@ -54,25 +54,22 @@ function initialize() {
 }
 
 function plotMarkers(){
-    var i;
-    for(i = 0; i < jsonarray.length; i++){
+    console.log(jsonarray);
+    for(var i = 0; i < jsonarray.length; i++){
         codeAddresses(jsonarray[i].street, jsonarray[i].city,  jsonarray[i].state,  jsonarray[i].zipcode,  jsonarray[i].id );
-        content += jsonarray[i].street
     }
 }
-var content = []
-function codeAddresses(street, city, state, zipcode, descripti, id){
-    geocoder.geocode( { 'address': street + city + zipcode}, function(results, status) {
+
+function codeAddresses(street, city, state, zipcode, description, id){
         if (status == google.maps.GeocoderStatus.OK) {
+          geocoder.geocode({ 'address': street + city + zipcode}, function(results, status))
             marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
             });
             google.maps.event.addListener(marker, 'mouseover', function() {
-              for(i = 0; i < jsonarray.length; i++){
-                infowindow.setContent('<strong>Address:</strong>' + ' ' + jsonarray[i].street + ', ' + jsonarray[i].city + ',' + ' ' + jsonarray[i].state + ',' + ' ' + jsonarray[i].zipcode + '<br />' + '<strong>Description:</strong>' + ' ' + jsonarray[i].description + '<br />' + ' ' + '<a href="' + '../galleries/' + id + '">Show</a>' );
+                infowindow.setContent('<strong>Address:</strong>' + ' ' + street + ', ' + city + ',' + ' ' + state + ',' + ' ' + zipcode + '<br />' + '<strong>Description:</strong>' + ' ' + description + '<br />' + ' ' + '<a href="' + '../galleries/' + id + '">Show</a>' );
                 infowindow.open(map, this);
-              }
             });
             bounds.extend(results[0].geometry.location);
             markersArray.push(marker);
