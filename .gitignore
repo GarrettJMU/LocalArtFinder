@@ -44,11 +44,5 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 
-
 # Ignore the schema between environments
 db/schema.rb
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
