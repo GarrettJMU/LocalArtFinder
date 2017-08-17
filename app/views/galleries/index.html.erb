@@ -62,7 +62,7 @@ function plotMarkers(){
 
 function codeAddresses(street, city, state, zipcode, description, id){
         if (status == google.maps.GeocoderStatus.OK) {
-          geocoder.geocode({ 'address': street + city + zipcode}, function(results, status))
+          geocoder.geocode({ 'address': street + city + zipcode}, function(results, status)
             marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
