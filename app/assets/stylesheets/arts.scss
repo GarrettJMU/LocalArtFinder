@@ -7,7 +7,13 @@ $dk-blue: #1E83AE;
 $blue: #3D5B94;
 $light-blue: #3DACDD;
 $green: #6dcd9a;
-
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 .upload-page {
   width: 360px;
   padding: 8% 0 0;
