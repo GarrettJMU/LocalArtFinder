@@ -25,7 +25,7 @@ function initMap() {
  var latlng = { lat: 32.7096, lng: -117.1588 };
 
  var myOptions = {
-   zoom: 10,
+   zoom: 14,
    center: latlng,
    mapTypeId: google.maps.MapTypeId.TERRAIN
  };
