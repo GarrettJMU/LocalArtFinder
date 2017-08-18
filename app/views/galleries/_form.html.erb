@@ -63,14 +63,8 @@
     <%= form.text_field :zipcode, id: :gallery_zipcode, class: "form-control col-xs-4" %>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :artist_id %>
-    <%= form.text_field :artist_id, id: :gallery_artist_id, class: "form-control col-xs-4" %>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :art_id %>
-    <%= form.text_field :art_id, id: :gallery_art_id, class: "form-control col-xs-4" %>
+  <div class="field">
+  <%= form.hidden_field :artist_id, :value => @artist %>
   </div>
 
   <div class="field">

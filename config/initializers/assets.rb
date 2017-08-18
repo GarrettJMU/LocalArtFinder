@@ -18,6 +18,7 @@ Rails.application.config.assets.precompile += %w( galleries.css )
 Rails.application.config.assets.precompile += %w( about.css )
 Rails.application.config.assets.precompile += %w( landing_page.css )
 Rails.application.config.assets.precompile += %w( devise/sessions.css )
+Rails.application.config.assets.precompile += %w( registrations.css )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

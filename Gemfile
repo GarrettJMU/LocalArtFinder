@@ -36,7 +36,8 @@ gem 'omniauth-facebook'
 gem 'font-awesome-sass'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 2.3'
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 # Use Redis adapter to run Action Cable in production
@@ -68,9 +69,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

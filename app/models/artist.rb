@@ -3,6 +3,7 @@ class Artist < ApplicationRecord
   scope :artist_name, -> (artist_name) { where("artist_name like ?", "#{artist_name}%")}
   has_many :arts
   has_many :events
+  has_many :galleries
   validates :user, presence: true
   belongs_to :user, optional: true
   include Filterable

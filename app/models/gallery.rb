@@ -1,7 +1,5 @@
 class Gallery < ApplicationRecord
-
   belongs_to :artist
-  belongs_to :art
   include Filterable
   validates :user, presence: true
   belongs_to :user, optional: true
