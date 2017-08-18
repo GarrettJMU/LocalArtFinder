@@ -37,6 +37,7 @@ gem 'font-awesome-sass'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'aws-sdk', '~> 2.3'
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 # Use Redis adapter to run Action Cable in production
