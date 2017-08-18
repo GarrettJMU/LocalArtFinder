@@ -16,7 +16,7 @@
 
     <div id="container">
       <div class="container2">
-        <%= render "layouts/header" %>
+        <%= render "layouts/header" unless @disable_nav %>
         <%= yield %>
       </div>
         <!-- <div class="clearfooter"></div> -->
