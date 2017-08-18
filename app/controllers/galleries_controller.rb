@@ -22,19 +22,23 @@ class GalleriesController < ApplicationController
   # GET /galleries/new
   def new
     @user = current_user
+    @artist = @user.artists.first.id
     @gallery = Gallery.new
   end
 
   # GET /galleries/1/edit
   def edit
     @user = current_user
+    @artist = @user.artists.first.id
   end
 
   # POST /galleries
   # POST /galleries.json
   def create
     @user = current_user
+    @artist = @user.artists.first.id
     @gallery = Gallery.new(gallery_params)
+
 
     respond_to do |format|
       if @gallery.save
@@ -51,6 +55,7 @@ class GalleriesController < ApplicationController
   # PATCH/PUT /galleries/1.json
   def update
     @user = current_user
+    @artist = @user.artists.first.id
     respond_to do |format|
       if @gallery.update(gallery_params)
         format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
@@ -66,6 +71,7 @@ class GalleriesController < ApplicationController
   # DELETE /galleries/1.json
   def destroy
     @user = current_user
+    @artist = @user.artists.first.id
     @gallery.destroy
     respond_to do |format|
       format.html { redirect_to galleries_url, notice: 'Gallery was successfully destroyed.' }

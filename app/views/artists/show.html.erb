@@ -2,8 +2,10 @@
 <div class="container">
     <div class="item1">
       <h3>Personal Info</h3>
+      <% if can? :update, @artist %>
       <%= link_to 'Edit Info', edit_artist_path(@artist) %>
       <br>
+      <% end %>
       <br>
       <p>
         <strong>Artist Name:</strong>

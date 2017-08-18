@@ -5,10 +5,7 @@ var map;
 var bounds;
 var infowindow;
 var marker;
-var jsonarray;
-
-// Getting the json file to build the plot markers
-$.getJSON('galleries.json', function (json) { jsonarray = json; });
+var jsonarray = [];
 
 // Initialization of Google Map
 
@@ -35,7 +32,10 @@ function initMap() {
 
  map = new google.maps.Map(document.getElementById('map'), myOptions);
 
- plotMarkers();
+ $.getJSON('galleries.json', function (json) {
+   jsonarray = json;
+   plotMarkers();
+ });
 }
 
 function plotMarkers() {

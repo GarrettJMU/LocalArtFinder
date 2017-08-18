@@ -110,12 +110,10 @@ ActiveRecord::Schema.define(version: 20170814204339) do
     t.string "state"
     t.string "zipcode"
     t.bigint "artist_id"
-    t.bigint "art_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.text "description"
-    t.index ["art_id"], name: "index_galleries_on_art_id"
     t.index ["artist_id"], name: "index_galleries_on_artist_id"
     t.index ["user_id"], name: "index_galleries_on_user_id"
   end
@@ -173,7 +171,6 @@ ActiveRecord::Schema.define(version: 20170814204339) do
   add_foreign_key "events", "galleries"
   add_foreign_key "events", "users"
   add_foreign_key "galleries", "artists"
-  add_foreign_key "galleries", "arts"
   add_foreign_key "galleries", "users"
   add_foreign_key "users", "users"
 end

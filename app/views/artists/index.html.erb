@@ -1,3 +1,5 @@
+<div class="container">
+
 <button id="asearch" type="button" name="show" >Advanced Search</button>
 <div class="advanced-search">
 
@@ -18,54 +20,22 @@
 
 <br>
 
-<%= link_to 'New Artist', new_artist_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Artist Name</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Street</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zipcode</th>
-      <th>Website</th>
-      <th>Sales</th>
-      <th>Phone</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @artists.each do |artist| %>
-      <tr>
-        <td><%= artist.artist_name %></td>
-        <td><%= artist.first_name %></td>
-        <td><%= artist.last_name %></td>
-        <td><a href="mailto:<%= artist.email %>"><%= artist.email %></a></td>
-        <td><%= artist.street %></td>
-        <td><%= artist.city %></td>
-        <td><%= artist.state %></td>
-        <td><%= artist.zipcode %></td>
-        <td><a href="<%= artist.website %>"><%= artist.website %></a></td>
-        <td><%= artist.sales %></td>
-        <td><%= artist.phone %></td>
-        <td><%= artist.price %></td>
-        <td><a href="tel:<%= artist.phone %>"><%= artist.phone %></a></td>
-        <td><%= link_to 'Show', artist %></td>
-        <% if can? :update, artist %>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+        <div class="card" style="width: 20rem;">
+  <img class="card-img-top" src="" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title"><%= artist.artist_name %></h4>
+    <p class="card-text"><%= artist.price %></p>
+    <% if can? :update, artist %>
+    <%= link_to 'Edit', edit_artist_path(artist) %><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <%= link_to 'Show', artist, { :class=>"btn btn-primary" } %>
+  </div>
+</div>
     <% end %>
 
-  </tbody>
-</table>
 
 <br>
-
-<%= link_to 'New Artist', new_artist_path %>
+</div>
