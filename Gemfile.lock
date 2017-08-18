@@ -268,7 +268,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
+  aws-sdk (~> 2.3)
   bootstrap (~> 4.0.0.alpha6)
   byebug
   cancancan

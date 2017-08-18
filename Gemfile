@@ -36,7 +36,7 @@ gem 'omniauth-facebook'
 gem 'font-awesome-sass'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 2.3'
 
 
 # Use Redis adapter to run Action Cable in production
