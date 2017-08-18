@@ -3,13 +3,13 @@
   name="button">Upload New Art</button>
 </form>
 
-<div class=“row” >
- <div class=“row” id=“artpage”>
-   <% @arts.each do |art| %>
-   <div class=“center”>
-     <div class=“artLineup”><!-- wrap in div, adjust width, maybe height, then flexbox -->
-       <%= link_to image_tag(art.image.url(:small), :class => “art”, ), art.image.url(:original), :rel => “lightbox[imagesetname]“, data: {lightbox: “pics”, title: “#{art.description} #{art.genre} by #{art.artist.artist_name} $#{art.length} #{link_to “Buy This Piece”, art}” }  %>
-       <div>
+<div class="row">
+<div class="row" id="artpage">
+  <% @arts.each do |art| %>
+  <div class="center">
+    <div class="artLineup">
+    <%= link_to image_tag(art.image.url(:small), :class => "art", ), art.image.url(:original), :rel => "lightbox[imagesetname]", data: {lightbox: "pics", title: "#{art.description} #{art.genre} by #{art.artist.artist_name} $#{art.length} #{link_to "Buy This Piece", art}" }  %>
+    <div>
          <h5 class=“center”><%= art.description %></h5>
          <h5 class=“center”>By: <%= art.artist.artist_name %></h5>
          <h5 class=“center”>$<%= art.price %></h5>
@@ -19,3 +19,4 @@
    <% end %>
  </div>
 </div>
+<br>
