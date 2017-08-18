@@ -1,4 +1,4 @@
-<div class="container">
+
 
 <button id="asearch" type="button" name="show" >Advanced Search</button>
 <div class="advanced-search">
@@ -19,11 +19,11 @@
 
 
 <br>
-<div class="artists-list">
+<div class="card-deck">
 
   <% @artists.each do |artist| %>
   <div class="card" style="width: 20rem;">
-    <img class="card-img-top" src="" alt="Card image cap">
+    <img class="card-img-top" src=""
     <div class="card-block">
       <h4 class="card-title"><%= artist.artist_name %></h4>
       <p class="card-text"><%= artist.price %></p>
@@ -40,4 +40,3 @@
 
 
 <br>
-</div>
