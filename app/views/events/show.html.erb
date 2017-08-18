@@ -77,10 +77,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH6kpKgMyIrX12CYckcHQt3eE
   <%= @event.artist.artist_name %>
 </p>
 
-<p>
-  <strong>Art:</strong>
-  <%= @event.art.description %>
-</p>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

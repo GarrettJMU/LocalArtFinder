@@ -117,7 +117,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <td><%= event.end.strftime("%H:%M") %></td>
         <td><%= event.gallery.name %></td>
         <td><%= event.artist.artist_name %></td>
-        <td><%= event.art.description %></td>
         <td><%= link_to 'Show', event %></td>
         <% if can? :update, event %>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
