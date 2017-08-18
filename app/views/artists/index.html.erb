@@ -19,22 +19,24 @@
 
 
 <br>
+<div class="artists-list">
 
-
-
-    <% @artists.each do |artist| %>
-        <div class="card" style="width: 20rem;">
-  <img class="card-img-top" src="" alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title"><%= artist.artist_name %></h4>
-    <p class="card-text"><%= artist.price %></p>
-    <% if can? :update, artist %>
-    <%= link_to 'Edit', edit_artist_path(artist) %><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-    <%= link_to 'Show', artist, { :class=>"btn btn-primary" } %>
+  <% @artists.each do |artist| %>
+  <div class="card" style="width: 20rem;">
+    <img class="card-img-top" src="" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title"><%= artist.artist_name %></h4>
+      <p class="card-text"><%= artist.price %></p>
+      <% if can? :update, artist %>
+      <%= link_to 'Edit', edit_artist_path(artist) %><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      <%= link_to 'Show', artist, { :class=>"btn btn-primary" } %>
+    </div>
   </div>
+  <% end %>
 </div>
-    <% end %>
+
+
 
 
 <br>
