@@ -362,17 +362,11 @@ td {
 //**** Maps Styling ****//
 // Event Map //
 #map {
-    margin: auto;
-    height: 50vh;
-    width: 50vw;
-  }
-
-// Gallery Map //
-#gmap {
   margin: auto;
   height: 50vh;
   width: 50vw;
-}
+  min-width: 400px;
+  }
 
 // #####Search bar#######
 // Show Page Map //
@@ -384,20 +378,20 @@ td {
 //**** End Maps Styling ****//
 
 
-  .myinput {
-    margin: 0 auto;
-    display: block;
-    height: 48px;
-    border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid white;
-    outline: none;
-    width: 0;
-    left: 55px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
-    position: relative;
-  }
+.myinput {
+  margin: 0 auto;
+  display: block;
+  height: 48px;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid white;
+  outline: none;
+  width: 0;
+  left: 55px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  position: relative;
+}
 // #######end of search bar#######
 
 

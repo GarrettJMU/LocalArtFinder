@@ -16,23 +16,8 @@ class ArtistsController < ApplicationController
     else
     @artists = Artist.filter(params.slice(:artist_name, :price))
   end
-
-
- #    @filterrific = initialize_filterrific(
- #   Artist,
- #   params[:filterrific],
- #   select_options: {
- #        sorted_by: Artist.options_for_sorted_by,
- #     },
- #     persistence_id: 'shared_key',
- #     default_filter_params: {},
- # ) or return
- #  @artists = @filterrific.find.page(params[:page])
- #
- #  respond_to do |format|
- #    format.html
- #    format.js
-  end
+    @arts = Artist.all
+end
 
 
 
