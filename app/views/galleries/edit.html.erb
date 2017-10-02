@@ -1,6 +1,7 @@
-<h1 class="center">Editing Gallery</h1>
-
-<%= render 'form', gallery: @gallery %>
-
-<%= link_to 'Show', @gallery %> |
-<%= link_to 'Back', galleries_path %>
+<div class="new-gallery-page">
+  <h1>Edit Gallery</h1>
+  <div>
+    <%= render 'form', gallery: @gallery %>
+    <%= link_to 'Back', galleries_path, class: "search-toggle" %>
+  </div>
+</div>

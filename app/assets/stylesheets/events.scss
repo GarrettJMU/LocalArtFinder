@@ -2,6 +2,74 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // @import = 'fullcalendar'
+
+.events-page {
+	font-family: "Roboto", sans-serif;
+  color: #5f5f5f;
+  background: #FFFFFF;
+  padding: 45px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	margin-bottom: 60px;
+	.page-header {
+    margin: 0 auto 50px;
+    h2 {
+      font-weight: 200;
+      display: inline;
+    }
+	}
+	h3 {
+		font-weight: 200;
+		text-align: center;
+	}
+
+	.search-toggle {
+		float: right;
+		text-transform: uppercase;
+		outline: 0;
+		background: #a5637c;
+		// background-color: #a5637c;
+		border: 0;
+		padding: 15px;
+		color: #FFFFFF;
+		font-size: 14px;
+		-webkit-transition: all 0.3 ease;
+		transition: all 0.3 ease;
+		cursor: pointer;
+		-webkit-appearance: none;
+		text-decoration: none;
+	}
+
+	.table-controls {
+		width: 50vw;
+		margin: 15px auto 20px;
+		overflow: hidden;
+	}
+
+	#map {
+		height: 500px;
+	}
+	.event-table {
+		display: none;
+		width: 50vw;
+		margin: 30px auto;
+		table {
+			width: 100%;
+		}
+		thead {
+			th {
+				text-align: center;
+				color: #FFF;
+				background-color: #95bbb5;
+				padding: 10px 15px;
+			}
+		}
+		tbody {
+			:nth-child(odd) tr td {
+				background-color: #f1f1f1;
+			}
+		}
+	}
+}
 .rg-image-wrapper{
 	position:relative;
 	padding:20px 30px;
@@ -106,4 +174,69 @@
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	opacity:0.7;
+}
+
+.new-event-page{
+	width: 500px;
+	margin: auto;
+	text-align: center;
+	background-color: #FFF;
+	padding: 40px;
+	color: #5f5f5f;
+	margin-bottom: 50px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+	.events-form{
+		.create-event{
+			margin: 25px;
+		}
+
+
+	.select-style {
+	    border: 1px solid #ccc;
+	    border-radius: 3px;
+	    overflow: hidden;
+	    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+	}
+
+	.select-style select {
+	    padding: 5px 8px;
+	    border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    background-image: none;
+	    -webkit-appearance: none;
+	}
+
+	.select-style select:focus {
+	    outline: none;
+	}
+
+		.form-horizontal{
+			padding-top: 15px;
+		}
+	}
+
+	h1{
+		margin-bottom: 40px;
+		font-family: "Roboto", sans-serif;
+		font-weight: 200;
+		color: #5f5f5f;
+
+	}
+
+	.search-toggle {
+		text-transform: uppercase;
+		outline: 0;
+		background: #a5637c;
+		border: 0;
+		padding: 15px;
+		color: #FFFFFF;
+		font-size: 14px;
+		-webkit-transition: all 0.3 ease;
+		transition: all 0.3 ease;
+		cursor: pointer;
+		-webkit-appearance: none;
+		text-decoration: none;
+	}
 }

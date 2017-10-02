@@ -1,24 +1,37 @@
 
+<div class="container artists-page">
 
-<button id="asearch" type="button" name="show" >Advanced Search</button>
-<div class="advanced-search">
-
-<%= form_tag artists_path, method: :get do %>
-  <%= label_tag :artist_name %>
-  <%= text_field_tag :artist_name, params[:artist_name] %>
-  <%= label_tag :price %>
-  <%= select_tag "price", "<option disabled selected value> -- select an option -- </option> <option value='$'>$</option><option value='$$'>$$</option><option value='$$$'>$$$</option>".html_safe%>
-  <select class="form-control" name="direction">
-    <option value="asc">Artist Name A-Z</option>
-    <option value="desc">Artist Name Z-A</option>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
-
+<div class="page-header">
+  <h2>ARTISTS</h2>
+  <button id="asearch" class="search-toggle" type="button" name="show" >Advanced Search</button>
 </div>
 
-
-
+<div class="form advanced-search">
+  <%= form_tag artists_path, method: :get do |f| %>
+  <div class="form-components row">
+    <div class="col-12 col-sm-4">
+      <%= label_tag :artist_name %><br>
+      <%= text_field_tag :artist_name, params[:artist_name], onchange: "$(this).closest('form').submit()"%>
+    </div>
+    <div class="col-12 col-sm-4">
+      <%= label_tag :price %><br>
+      <%= select_tag "price", "<option disabled selected value> -- select an option -- </option> <option value='$'>$</option><option value='$$'>$$</option><option value='$$$'>$$$</option>".html_safe, { :class=>"form-control" }%>
+    </div>
+    <div class="col-12 col-sm-4">
+      <label for="sortable">Sort</label><br>
+      <select id="sortable" class="form-control" name="direction">
+        <option value="asc">Artist Name A-Z</option>
+        <option value="desc">Artist Name Z-A</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <%= submit_tag "Search", name: nil, class:"submit"%>
+    </div>
+  </div>
+  <% end %>
+</div>
 <br>
+
 <div class="card-deck">
 
   <% @artists.each do |artist| %>
@@ -30,13 +43,12 @@
       <% if can? :update, artist %>
       <%= link_to 'Edit', edit_artist_path(artist) %><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
-      <%= link_to 'Show', artist, { :class=>"btn btn-primary" } %>
+      <%= link_to 'Show', artist, { :class=>"card-submit" } %>
     </div>
   </div>
   <% end %>
 </div>
 
-
-
+</div>
 
 <br>

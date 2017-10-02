@@ -15,6 +15,7 @@ class ArtistsController < ApplicationController
       @artists = Artist.filter(params.slice(:artist_name, :price)).order("artist_name desc")
     else
     @artists = Artist.filter(params.slice(:artist_name, :price))
+    end
   end
 
 
@@ -32,7 +33,7 @@ class ArtistsController < ApplicationController
  #  respond_to do |format|
  #    format.html
  #    format.js
-  end
+  # end
 
 
 
