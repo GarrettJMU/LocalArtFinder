@@ -1,6 +1,13 @@
 // Place all the styles related to the Artists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -73,7 +80,7 @@ margin: 0 auto;
   max-width: 300px;
   margin: 0 auto;
   align-items: center;
-  
+
 }
 
 

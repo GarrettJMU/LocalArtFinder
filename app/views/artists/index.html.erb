@@ -23,10 +23,6 @@
 
   <% @artists.each do |artist| %>
   <div class="card" style="width: 20rem;">
-    <% @arts.each do |art| %>
-        // this makes listing available so you can use
-        <%= art.image.url(:small) %>
-    <% end %>
     <div class="card-block">
       <h4 class="card-title"><%= artist.artist_name %></h4>
       <p class="card-text"><%= artist.price %></p>
