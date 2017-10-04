@@ -41,7 +41,7 @@
       <h4 class="card-title"><%= artist.artist_name %></h4>
       <p class="card-text"><%= artist.price %></p>
       <% if can? :update, artist %>
-      <%= link_to 'Edit', edit_artist_path(artist) %><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_artist_path(artist) %><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
       <%= link_to 'Show', artist, { :class=>"card-submit" } %>
     </div>

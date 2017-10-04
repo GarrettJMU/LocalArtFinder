@@ -451,3 +451,14 @@ header h1 {
     display: block;
   }
 }
+
+/* Responsive design*/
+@media only screen and (min-width: 576px) {
+    #map {
+        min-width: 360px;
+    }
+
+    .card-block .card {
+        width: 100%;
+    }
+}

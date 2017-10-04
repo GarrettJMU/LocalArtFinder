@@ -19,6 +19,7 @@ class ArtistsController < ApplicationController
   end
 
 
+
  #    @filterrific = initialize_filterrific(
  #   Artist,
  #   params[:filterrific],
@@ -34,6 +35,7 @@ class ArtistsController < ApplicationController
  #    format.html
  #    format.js
   # end
+
 
 
 
