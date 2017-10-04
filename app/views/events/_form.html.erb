@@ -11,52 +11,57 @@
     </div>
   <% end %>
 
+  <div class="events-form">
 
-  <div class="field datesize center form-group">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :event_date, class: "form-control" %>
+    <div class="field datesize center form-group ">
+      <%= form.label :date %>
+      <div class="select-style">
+        <%= form.date_select :date, id: :event_date, class: "form-control " %>
+      </div>
+    </div>
 
-</div>
-  <div class="form-horizontal center">
-  <div class="field form-group">
-    <%= form.label :start %>
-    <%= form.time_select :start, id: :event_start, class: "form-control" %>
+    <div class="form-horizontal center">
+    <div class="field form-group">
+      <%= form.label :start %>
+      <div class="select-style">
+        <%= form.time_select :start, id: :event_start, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :end %>
+      <div class="select-style">
+        <%= form.time_select :end, id: :event_end, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :gallery_id %>
+      <%= form.text_field :gallery_id, id: :event_gallery_id, class: "form-control" %>
+    </div>
+
+    <div class="field">
+    <%= form.hidden_field :artist_id, :value => @artist %>
+    </div>
+
+
+    <div class="field">
+      <%= form.hidden_field :email, :value => @user.email %>
+    </div>
+
+    <div class="field">
+    <%= form.hidden_field :password, :value => @user.password %>
+    </div>
+
+    <div class="field">
+    <%= form.hidden_field :user_id, :value => @user.id %>
+    </div>
+
   </div>
-
-  <div class="field form-group">
-    <%= form.label :end %>
-    <%= form.time_select :end, id: :event_end, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :gallery_id %>
-    <%= form.text_field :gallery_id, id: :event_gallery_id, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :artist_id %>
-    <%= form.text_field :artist_id, id: :event_artist_id, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :art_id %>
-    <%= form.text_field :art_id, id: :event_art_id, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.hidden_field :email, :value => @user.email %>
-  </div>
-
-  <div class="field">
-  <%= form.hidden_field :password, :value => @user.password %>
-  </div>
-  
-  <div class="field">
-  <%= form.hidden_field :user_id, :value => @user.id %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => "search-toggle create-event"%>
   </div>
+
+
 </div>
 <% end %>

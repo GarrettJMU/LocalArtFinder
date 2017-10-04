@@ -11,76 +11,84 @@
     </div>
   <% end %>
 
-<div class="form-horizontal center">
+<div class="gallery-form">
 
-  <div class="field form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :gallery_name, class: "form-control center" %>
-  </div>
+  <div class="form-horizontal center">
 
-  <div class="field form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :gallery_description, class: "form-control textField col-xs-4"%>
-  </div>
+    <div class="field form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :gallery_name, class: "form-control center" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :website %>
-    <%= form.text_field :website, id: :gallery_website, class: "form-control col-xs-4" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :gallery_description, class: "form-control textField col-xs-4"%>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :gallery_phone, class: "form-control col-xs-4" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :website %>
+      <%= form.text_field :website, id: :gallery_website, class: "form-control col-xs-4" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :opening %>
-    <%= form.time_select :opening, id: :gallery_opening, class: "form-control col-xs-4" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, id: :gallery_phone, class: "form-control col-xs-4" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :closing %>
-    <%= form.time_select :closing, id: :gallery_closing, class: "form-control col-xs-4" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :opening %>
+      <div class="select-style">
+        <%= form.time_select :opening, id: :gallery_opening, class: "form-control col-xs-4" %>
+      </div>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :street %>
-    <%= form.text_field :street, id: :gallery_street, class: "form-control col-xs-4" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :closing %>
+      <div class="select-style">
+        <%= form.time_select :closing, id: :gallery_closing, class: "form-control col-xs-4" %>
+      </div>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :city %>
-    <%= form.text_field :city, id: :gallery_city, class: "form-control col-xs-4" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :street %>
+      <%= form.text_field :street, id: :gallery_street, class: "form-control col-xs-4" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :state %>
-    <%= form.text_field :state, id: :gallery_state, class: "form-control col-xs-4" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :city %>
+      <%= form.text_field :city, id: :gallery_city, class: "form-control col-xs-4" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :zipcode %>
-    <%= form.text_field :zipcode, id: :gallery_zipcode, class: "form-control col-xs-4" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :state %>
+      <%= form.text_field :state, id: :gallery_state, class: "form-control col-xs-4" %>
+    </div>
 
-  <div class="field">
-  <%= form.hidden_field :artist_id, :value => @artist %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :zipcode %>
+      <%= form.text_field :zipcode, id: :gallery_zipcode, class: "form-control col-xs-4" %>
+    </div>
 
-  <div class="field">
-    <%= form.hidden_field :email, :value => @user.email %>
-  </div>
+    <div class="field">
+    <%= form.hidden_field :artist_id, :value => @artist %>
+    </div>
 
-  <div class="field">
-  <%= form.hidden_field :password, :value => @user.password %>
-  </div>
+    <div class="field">
+      <%= form.hidden_field :email, :value => @user.email %>
+    </div>
 
-  <div class="field">
-  <%= form.hidden_field :user_id, :value => @user.id %>
+    <div class="field">
+    <%= form.hidden_field :password, :value => @user.password %>
+    </div>
+
+    <div class="field">
+    <%= form.hidden_field :user_id, :value => @user.id %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => "search-toggle create-gallery"%>
   </div>
+
 </div>
 <% end %>

@@ -4,6 +4,10 @@ jQuery(document).ready(function($){
     $(".advanced-search").toggle(500);
 	});
 
+	$("#event-table-toggle").click(function(){
+    $(".event-table").toggle(500);
+	});
+
 	var MqM= 768,
 		MqL = 1024;
 

@@ -24,11 +24,13 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @user = current_user
+    @artist = @user.artists.first.id
   end
 
   # GET /events/1/edit
   def edit
     @user = current_user
+    @artist = @user.artists.first.id
   end
 
   # POST /events
@@ -36,6 +38,7 @@ class EventsController < ApplicationController
   def create
     @user = current_user
     @event = Event.new(event_params)
+    @artist = @user.artists.first.id
     # @gallery = @event.gallery.first.address
 
     respond_to do |format|
@@ -53,6 +56,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     @user = current_user
+    @artist = @user.artists.first.id
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -68,6 +72,7 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @user = current_user
+    @artist = @user.artists.first.id
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
