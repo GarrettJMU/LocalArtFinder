@@ -13,6 +13,9 @@ var marker;
 var week;
 var calShortMonthStart;
 var calShortMonthEnd;
+var calWeek;
+var weekDayStart;
+var weekDayEnd;
 
 // Fetching the json file for the galleries
 $.getJSON('galleries.json', function (json) {
@@ -70,14 +73,17 @@ function plotMarkers() {
 
 // Get the 2 digit month from the calendar
 function calendarMonth() {
+
   // Pulling the name of the month on the calendar title, comparing it with the monthNames array to get the index and add 1 to have the numerical value of the month
   var calMonth = monthNames.indexOf($('#calendar').fullCalendar('getView').title.split(' ')[0]) + 1;
   calMonth = calMonth.toString();
+  console.log("calMonth", calMonth);
   if (calMonth.length === 1) {
     calMonth = "0" + calMonth;
   }
   return calMonth;
 };
+
 
 function calendarShortMonth() {
   calShortMonthStart = monthShortNames.indexOf($('#calendar').fullCalendar('getView').title.split(' ')[0]) + 1;
@@ -95,8 +101,38 @@ function calendarShortMonth() {
   };
 };
 
+function calendarWeek() {
+  // Fetching Week information from Fullcalendar
+  calWeek = $('#calendar').fullCalendar('getView');
 
+  //getting the index at position 1 for the first day of the week
+  weekTitleStart = calWeek.title.split(' ')[1];
 
+  //Verifying if the day is a two digit day, if not add the zero in front
+  if (weekTitleStart.length === 1) {
+      weekDayStart = "0" +  weekTitleStart;
+  } else {
+      weekDayStart = weekTitleStart;
+  };
+
+  // Spliting the week title to pull the specific start and end of the week if it is a split week
+  if ($('#calendar').fullCalendar('getView').title.length == 20) {
+    weekTitleEnd = calWeek.title.split(' ')[4].split(',')[0];
+  } else {
+    weekTitleEnd = calWeek.title.split(' ')[3].split(',')[0];
+  };
+
+  //Verifying if the day is a two digit day, if not add the zero in front
+  if (weekTitleEnd.length === 1) {
+      weekDayEnd = "0" +  weekTitleEnd;
+      console.log("weekDayEnd", weekDayEnd);
+  } else {
+      weekDayEnd = weekTitleEnd;
+      console.log("weekDayEnd else", weekDayEnd);
+  };
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Change Markers if Month view has been clicked on the calendar //
 function month() {
   // Clear the Map of all markers
@@ -110,61 +146,41 @@ function month() {
     }
   }
 };
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Change Markers if week view has been clicked on the calendar //
 function week() {
 
-  console.log("Week Function Entered");
-
   // Clear the Map of all markers
   clearMap();
+  calendarWeek();
+  calendarShortMonth()
 
-  // Fetching Week information from Fullcalendar
-  calWeek = $('#calendar').fullCalendar('getView');
-
-  // Spliting the week title to pull the specific start and end of the week
-  if ($('#calendar').fullCalendar('getView').title.length == 20) {
-    weekTitleEnd = calWeek.title.split(' ')[4].split(',')[0];
-  } else {
-    weekTitleEnd = calWeek.title.split(' ')[3].split(',')[0];
-  }
-
-  //getting the index at position 1 for the first day of the week
-  weekTitleStart = calWeek.title.split(' ')[1];
-
-  //Verifying if the day is a two digit day, if not add the zero in front
-  if (weekTitleStart.length === 1) {
-      var weekDayStart = "0" +  weekTitleStart;
-  } else {
-      var weekDayStart = weekTitleStart;
-  };
-
-  //Verifying if the day is a two digit day, if not add the zero in front
-  if (weekTitleEnd.length === 1) {
-      var weekDayEnd = "0" +  weekTitleEnd;
-  } else {
-      weekDayEnd = weekTitleEnd;
-
-  };
-
-  // Spliting the event date to match it with the calendar
-  for (j = 0; j < eventsJsonArray.length; j++) {
-    var eventDate = eventsJsonArray[j].date.split('-');
-    console.log("-----------------------------------------------------------");
-    // Checking to see if the event date is between the start and the end of the calendar week
-    if ($('#calendar').fullCalendar('getView').title.length == 20){
-      calendarShortMonth()
+  if (calWeek.title.length == 20){
+    for (j = 0; j < eventsJsonArray.length; j++) {
+      var eventDate = eventsJsonArray[j].date.split('-');
       // CHECK FOR THE VALIDITY OF THE DATE (START MONTH, START DATE, END MONTH, END DATE)
       if ((calShortMonthStart == eventDate[1] && 31 >= eventDate[2] >= weekDayStart) || (calShortMonthEnd == eventDate[1] && 1 <= eventDate[2] <= weekDayEnd)) {
+        console.log("If split check");
         codeAddresses(eventsJsonArray[j].gallery.street, eventsJsonArray[j].gallery.city, eventsJsonArray[j].gallery.state, eventsJsonArray[j].gallery.zipcode, eventsJsonArray[j].gallery.description, eventsJsonArray[j].gallery.id);
       }
     }
-    if (eventDate[1] == calendarMonth() + 1 && eventDate[2] >= weekDayStart && eventDate[2] <= weekDayEnd){
-      codeAddresses(eventsJsonArray[j].gallery.street, eventsJsonArray[j].gallery.city, eventsJsonArray[j].gallery.state, eventsJsonArray[j].gallery.zipcode, eventsJsonArray[j].gallery.description, eventsJsonArray[j].gallery.id);
+  }
+  else {
+    for (h = 0; h < eventsJsonArray.length; h++) {
+      var eventDate = eventsJsonArray[h].date.split('-');
+      if (eventDate[1] == calShortMonthStart && weekDayStart <= eventDate[2] && eventDate[2] <= weekDayEnd) {
+        codeAddresses(eventsJsonArray[h].gallery.street, eventsJsonArray[h].gallery.city, eventsJsonArray[h].gallery.state, eventsJsonArray[h].gallery.zipcode, eventsJsonArray[h].gallery.description, eventsJsonArray[h].gallery.id);
+      }
     }
-  };
+  }
+
+  // Spliting the event date to match it with the calendar
+    // Checking to see if the event date is between the start and the end of the calendar week
 };
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Change Markers if Day view has been clicked on the calendar
 function day() {
 
@@ -192,6 +208,10 @@ function day() {
     }
   }
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 function codeAddresses(street, city, state, zipcode, description, id) {
   console.log("codeAddresses Entered");
@@ -243,4 +263,10 @@ $( document ).ready(function() {
     console.log("Day Clicked !!");
     day();
   });
+  // Listen for the click on the previous button in the calendar and run the appropriate function
+  $('.fc-basicDay-button').click(function(){
+    console.log("Day Clicked !!");
+    day();
+  });
+
 });
