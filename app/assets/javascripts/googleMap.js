@@ -1,4 +1,5 @@
 var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+var monthShortNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 var markersArray = [];
 var content = [];
 var eventsJsonArray = [];
@@ -10,23 +11,21 @@ var bounds;
 var infowindow;
 var marker;
 var week;
-console.log(">>>end of Variables<<<");
+var calShortMonthStart;
+var calShortMonthEnd;
 
 // Fetching the json file for the galleries
 $.getJSON('galleries.json', function (json) {
-  console.log("Galleries JSON");
   jsonarray = json;
 });
 
 // Fetching the json file for the events
 $.getJSON('events.json', function (json) {
-  console.log("Events JSON");
   eventsJsonArray = json;
 });
 
 // Initialization of Google Map
 function initMap() {
-console.log("initMap");
 
   // Initializing to the geocoder
   geocoder = new google.maps.Geocoder();
@@ -60,8 +59,6 @@ function clearMap() {
   for (var a = 0; a < markersArray.length; a++ ) {
     markersArray[a].setMap(null);
   }
-  // markersArray.length = 0;
-  console.log("Clear Map");
 }
 
 // Sends the infos from the JSON file to the geocoder thru the codeAddresses function
@@ -73,11 +70,8 @@ function plotMarkers() {
 
 // Get the 2 digit month from the calendar
 function calendarMonth() {
-  console.log("Calender Month entered");
   // Pulling the name of the month on the calendar title, comparing it with the monthNames array to get the index and add 1 to have the numerical value of the month
   var calMonth = monthNames.indexOf($('#calendar').fullCalendar('getView').title.split(' ')[0]) + 1;
-  console.log(calMonth);
-  //
   calMonth = calMonth.toString();
   if (calMonth.length === 1) {
     calMonth = "0" + calMonth;
@@ -85,9 +79,27 @@ function calendarMonth() {
   return calMonth;
 };
 
+function calendarShortMonth() {
+  calShortMonthStart = monthShortNames.indexOf($('#calendar').fullCalendar('getView').title.split(' ')[0]) + 1;
+  calShortMonthStart = calShortMonthStart.toString();
+  if (calShortMonthStart.length === 1) {
+    calShortMonthStart = "0" + calShortMonthStart;
+  };
+  if ($('#calendar').fullCalendar('getView').title.split(' ').length === 6) {
+    calShortMonthEnd = monthShortNames.indexOf($('#calendar').fullCalendar('getView').title.split(' ')[3]) + 1;
+    calShortMonthEnd = calShortMonthEnd.toString();
+
+    if (calShortMonthEnd.length === 1) {
+      calShortMonthEnd = "0" + calShortMonthEnd;
+    }
+  };
+};
+
+
+
 // Change Markers if Month view has been clicked on the calendar //
 function month() {
-  console.log("Month Function Entered");
+  // Clear the Map of all markers
   clearMap();
   for (i = 0; i < eventsJsonArray.length; i++) {
     // Getting the date from the events json and splitting it
@@ -101,12 +113,21 @@ function month() {
 
 // Change Markers if week view has been clicked on the calendar //
 function week() {
+
   console.log("Week Function Entered");
+
+  // Clear the Map of all markers
   clearMap();
+
   // Fetching Week information from Fullcalendar
   calWeek = $('#calendar').fullCalendar('getView');
 
   // Spliting the week title to pull the specific start and end of the week
+  if ($('#calendar').fullCalendar('getView').title.length == 20) {
+    weekTitleEnd = calWeek.title.split(' ')[4].split(',')[0];
+  } else {
+    weekTitleEnd = calWeek.title.split(' ')[3].split(',')[0];
+  }
 
   //getting the index at position 1 for the first day of the week
   weekTitleStart = calWeek.title.split(' ')[1];
@@ -118,25 +139,58 @@ function week() {
       var weekDayStart = weekTitleStart;
   };
 
-  //getting the index at position 3 for the last day of the week
-  weekTitleEnd = calWeek.title.split(' ')[3];
-  
   //Verifying if the day is a two digit day, if not add the zero in front
-  if (weekTitleStart.length === 1) {
+  if (weekTitleEnd.length === 1) {
       var weekDayEnd = "0" +  weekTitleEnd;
   } else {
-      var weekDayEnd = weekTitleEnd;
+      weekDayEnd = weekTitleEnd;
+
   };
 
   // Spliting the event date to match it with the calendar
   for (j = 0; j < eventsJsonArray.length; j++) {
     var eventDate = eventsJsonArray[j].date.split('-');
-
+    console.log("-----------------------------------------------------------");
     // Checking to see if the event date is between the start and the end of the calendar week
-    if (eventDate[1] == curentDate.getMonth() + 1 && eventDate[2] >= weekDayStart && eventDate[2] <= weekDayEnd){
+    if ($('#calendar').fullCalendar('getView').title.length == 20){
+      calendarShortMonth()
+      // CHECK FOR THE VALIDITY OF THE DATE (START MONTH, START DATE, END MONTH, END DATE)
+      if ((calShortMonthStart == eventDate[1] && 31 >= eventDate[2] >= weekDayStart) || (calShortMonthEnd == eventDate[1] && 1 <= eventDate[2] <= weekDayEnd)) {
+        codeAddresses(eventsJsonArray[j].gallery.street, eventsJsonArray[j].gallery.city, eventsJsonArray[j].gallery.state, eventsJsonArray[j].gallery.zipcode, eventsJsonArray[j].gallery.description, eventsJsonArray[j].gallery.id);
+      }
+    }
+    if (eventDate[1] == calendarMonth() + 1 && eventDate[2] >= weekDayStart && eventDate[2] <= weekDayEnd){
       codeAddresses(eventsJsonArray[j].gallery.street, eventsJsonArray[j].gallery.city, eventsJsonArray[j].gallery.state, eventsJsonArray[j].gallery.zipcode, eventsJsonArray[j].gallery.description, eventsJsonArray[j].gallery.id);
     }
   };
+};
+
+// Change Markers if Day view has been clicked on the calendar
+function day() {
+
+  // Clear the Map of all markers
+  clearMap();
+  // Fetching the title of the curent day view of the calendar
+  var calDayTitle = $('#calendar').fullCalendar('getView').title;
+
+  // Splitting the title to get the digital day
+  calDaySplit = calDayTitle.split(' ');
+  var calDay = calDaySplit[1].split(',')[0];
+  //Verifying if the day is a two digit day, if not add the zero in front
+  if (calDay.length === 1) {
+      calDay = "0" +  calDay;
+  };
+
+  // Go thru the eventsJsonArray and match it with the day on the calendar
+  for (i = 0; i < eventsJsonArray.length; i++) {
+    //Split the date in the json array
+    var eventDate = eventsJsonArray[i].date.split('-');
+
+    // Compare the two dates and create the marker
+    if (eventDate[1] == calendarMonth() && eventDate[2] == calDay){
+      codeAddresses(eventsJsonArray[i].gallery.street, eventsJsonArray[i].gallery.city, eventsJsonArray[i].gallery.state, eventsJsonArray[i].gallery.zipcode, eventsJsonArray[i].gallery.description, eventsJsonArray[i].gallery.id);
+    }
+  }
 }
 
 function codeAddresses(street, city, state, zipcode, description, id) {
@@ -163,9 +217,9 @@ function codeAddresses(street, city, state, zipcode, description, id) {
   });
 }
 
+// Waiting for the page to be loaded in order to listen to the different clicks
 $( document ).ready(function() {
-  console.log("Doc Ready Begin");
-
+  // Default view of the markers for the current month, not the month on the calendar
   for (i = 0; i < eventsJsonArray.length; i++) {
     var eventDate = eventsJsonArray[i].date.split('-');
     if (eventDate[1] == curentDate.getMonth() + 1){
@@ -173,143 +227,20 @@ $( document ).ready(function() {
     }
   }
 
+  // Listen for the click on the month button in the calendar and run the month() function
   $('.fc-month-button').click(function(){
     console.log("Month Clicked !!");
     month();
   });
 
+  // Listen for the click on the week button in the calendar and run the week() function
   $('.fc-basicWeek-button').click(function(){
     console.log("Week Clicked !!");
     week();
   });
+  // Listen for the click on the day button in the calendar and run the day() function
+  $('.fc-basicDay-button').click(function(){
+    console.log("Day Clicked !!");
+    day();
+  });
 });
-
-// // Clear the map of all markers
-// function clearMap() {
-//   for (var a = 0; a < markersArray.length; a++ ) {
-//     markersArray[a].setMap(null);
-//   }
-//   markersArray.length = 0;
-//   console.log("Clear Map");
-// }
-
-// // Sends the infos from the JSON file to the geocoder thru the codeAddresses function
-// function plotMarkers() {
-//   for (i = 0; i < jsonarray.length; i++) {
-//     codeAddresses(jsonarray[i].street, jsonarray[i].city, jsonarray[i].state, jsonarray[i].zipcode, jsonarray[i].description, jsonarray[i].id);
-//   }
-// }
-
-// // Get the 2 digit month from the calendar
-// function calendarMonth() {
-//   // Pulling the name of the month on the calendar title, comparing it with the monthNames array to get the index and add 1 to have the numerical value of the month
-//   var calMonth = monthNames.indexOf($('#calendar').fullCalendar('getView').title.split(' ')[0]) + 1;
-//   console.log(calMonth);
-//   //
-//   calMonth = calMonth.toString();
-//   if (calMonth.length === 1) {
-//     calMonth = "0" + calMonth;
-//   }
-//   return calMonth;
-// };
-
-// // Change Markers if Month view has been clicked on the calendar //
-// function month() {
-//   clearMap();
-//   for (i = 0; i < eventsJsonArray.length; i++) {
-//     // Getting the date from the events json and splitting it
-//     var eventDate = eventsJsonArray[i].date.split('-');
-//     // Compare the event month with current month **********Need to make changes for previous and next button************
-//     if (eventDate[1] == calendarMonth()){
-//       codeAddresses(eventsJsonArray[i].gallery.street, eventsJsonArray[i].gallery.city, eventsJsonArray[i].gallery.state, eventsJsonArray[i].gallery.zipcode, eventsJsonArray[i].gallery.description, eventsJsonArray[i].gallery.id);
-//     }
-//   }
-// }
-// Default Month view
-
-
-
-// Change Markers if Week view has been clicked on the calendar
-//   clearMap();
-//
-//   // Fetching Week information from Fullcalendar
-//   week = $('#calendar').fullCalendar('getView');
-//
-//   // Spliting the week title to pull the specific start and end of the week
-//   weekTitleStart = week.title.split(' ')[1];
-//   console.log("type week >>>", typeof weekTitleStart);
-//   if (weekTitleStart.length === 1) {
-//       var weekDayStart = "0" +  weekTitleStart;
-//   } else {
-//       var weekDayStart = weekTitleStart;
-//   };
-//
-//   weekTitleEnd = week.title.split(' ')[3];
-//   if (weekTitleStart.length === 1) {
-//       var weekDayEnd = "0" +  weekTitleEnd;
-//   } else {
-//       var weekDayEnd = weekTitleEnd;
-//   };
-//
-//   // Spliting the event date to match it with the calendar
-//   for (j = 0; j < eventsJsonArray.length; j++) {
-//     var eventDate = eventsJsonArray[j].date.split('-');
-//
-//     // Checking to see if the event date is between the start and the end of the calendar week
-//     if (eventDate[1] == curentDate.getMonth() + 1 && eventDate[2] >= weekDayStart && eventDate[2] <= weekDayEnd){
-//       codeAddresses(eventsJsonArray[j].gallery.street, eventsJsonArray[j].gallery.city, eventsJsonArray[j].gallery.state, eventsJsonArray[j].gallery.zipcode, eventsJsonArray[j].gallery.description, eventsJsonArray[j].gallery.id);
-//     }
-//   };
-// });
-
-                    // Change Markers if Day view has been clicked on the calendar
-                    // $('.fc-basicDay-button').click(function(){
-                    //   clearMap();
-                    //   console.log('day is clicked');
-                    //   console.log($('#calendar').fullCalendar('getView'));
-                    // });
-                    // for (i = 0; i < eventsJsonArray.length; i++) {
-                    //   var eventDate = eventsJsonArray[i].date.split('-');
-                    //   if (eventDate[1] == curentDate.getDay()){
-                    //     codeAddresses(eventsJsonArray[i].gallery.street, eventsJsonArray[i].gallery.city, eventsJsonArray[i].gallery.state, eventsJsonArray[i].gallery.zipcode, eventsJsonArray[i].gallery.description, eventsJsonArray[i].gallery.id);
-                    //   }
-                    // }
-
-// });
-// function codeAddresses(street, city, state, zipcode, description, id) {
-//   console.log("codeAddresses Entered");
-//   geocoder.geocode({ 'address': street + city + zipcode }, function (results, status) {
-//     if (status == google.maps.GeocoderStatus.OK) {
-//       marker = new google.maps.Marker({
-//         map: map,
-//         position: results[0].geometry.location
-//       });
-//       google.maps.event.addListener(marker, 'click', function () {
-//         infowindow.setContent('<strong>Address:</strong>' + ' ' + street + ', ' + city + ',' + ' ' + state + ',' + ' ' + zipcode + '<br />' +
-//         '<strong>Description:</strong>' + ' ' + description + '<br />' + ' ' + '<a href="' + '../galleries/' + id + '">Show</a>');
-//         infowindow.open(map, this);
-//       });
-//
-//       bounds.extend(results[0].geometry.location);
-//       markersArray.push(marker);
-//     } else {
-//       alert('Geocode was not successful for the following reason: ' + status);
-//     }
-//
-//     map.fitBounds(bounds);
-//   });
-// }
-
-// }
-
-
-
-
-
-
-
-
-// Plot the markers for the event page in relation with the view of the calendar
-// function eventPlotMarkers() {
-//
-// var week = document.getElementsByClassName("fc-basicWeek-button");
