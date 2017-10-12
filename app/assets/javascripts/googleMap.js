@@ -264,9 +264,43 @@ $( document ).ready(function() {
     day();
   });
   // Listen for the click on the previous button in the calendar and run the appropriate function
-  $('.fc-basicDay-button').click(function(){
-    console.log("Day Clicked !!");
-    day();
+  $('.fc-prev-button').click(function(){
+    console.log("Previous Clicked !!");
+    if ($('#calendar').fullCalendar('getView').name === 'month') {
+      month();
+    }
+    else if ($('#calendar').fullCalendar('getView').name === 'basicWeek') {
+      week();
+    }
+    else if ($('#calendar').fullCalendar('getView').name === 'basicDay') {
+      day();
+    };
   });
 
+  // Listen for the click on the next button in the calendar and run the appropriate function
+  $('.fc-next-button').click(function(){
+    console.log("Next Clicked !!");
+    if ($('#calendar').fullCalendar('getView').name === 'month') {
+      month();
+    }
+    else if ($('#calendar').fullCalendar('getView').name === 'basicWeek') {
+      week();
+    }
+    else if ($('#calendar').fullCalendar('getView').name === 'basicDay') {
+      day();
+    };
+  });
+  Listen for the click on the next button in the calendar and run the appropriate function
+  $('.fc-today-button').click(function(){
+    console.log("Today Clicked !!");
+    if ($('#calendar').fullCalendar('getView').name === 'month') {
+      month();
+    }
+    else if ($('#calendar').fullCalendar('getView').name === 'basicWeek') {
+      week();
+    }
+    else if ($('#calendar').fullCalendar('getView').name === 'basicDay') {
+      day();
+    };
+  });
 });
