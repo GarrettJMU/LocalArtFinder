@@ -68,6 +68,7 @@ function clearMap() {
   }
 }
 
+
 // Sends the infos from the JSON file to the geocoder thru the codeAddresses function
 function plotMarkers() {
   for (i = 0; i < jsonarray.length; i++) {
@@ -252,8 +253,14 @@ function codeAddresses(street, city, state, zipcode, description, id) {
   });
 }
 
+
 // Waiting for the page to be loaded in order to listen to the different clicks
 $( document ).ready(function() {
+  google.maps.event.addDomListener(window, "resize", function() {
+    var center = map.getCenter();
+    google.maps.event.trigger(map, "resize");
+    map.setCenter(center);
+  });
   // Default view of the markers for the current month, not the month on the calendar
   for (i = 0; i < eventsJsonArray.length; i++) {
     var eventDate = eventsJsonArray[i].date.split('-');
