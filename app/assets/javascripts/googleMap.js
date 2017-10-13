@@ -20,6 +20,9 @@ var weekDayEnd;
 // Fetching the json file for the galleries
 $.getJSON('galleries.json', function (json) {
   jsonarray = json;
+  if ( window.location.pathname != '/events') {
+      plotMarkers();
+  }
 });
 
 // Fetching the json file for the events
