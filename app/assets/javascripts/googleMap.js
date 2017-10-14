@@ -65,15 +65,15 @@ function initMap() {
 function clearMap() {
   for (var a = 0; a < markersArray.length; a++ ) {
     markersArray[a].setMap(null);
-  }
-}
+  };
+};
 
 
 // Sends the infos from the JSON file to the geocoder thru the codeAddresses function
 function plotMarkers() {
   for (i = 0; i < jsonarray.length; i++) {
     codeAddresses(jsonarray[i].street, jsonarray[i].city, jsonarray[i].state, jsonarray[i].zipcode, jsonarray[i].description, jsonarray[i].id);
-  }
+  };
 };
 
 // Get the 2 digit month from the calendar
@@ -85,7 +85,7 @@ function calendarMonth() {
   console.log("calMonth", calMonth);
   if (calMonth.length === 1) {
     calMonth = "0" + calMonth;
-  }
+  };
   return calMonth;
 };
 
@@ -93,17 +93,21 @@ function calendarMonth() {
 function calendarShortMonth() {
   calShortMonthStart = monthShortNames.indexOf($('#calendar').fullCalendar('getView').title.split(' ')[0]) + 1;
   calShortMonthStart = calShortMonthStart.toString();
+
+  // Checking if it is a two digit month if not, add the zero in front
   if (calShortMonthStart.length === 1) {
     calShortMonthStart = "0" + calShortMonthStart;
   };
+
   // Checking to see if it is a split week and get the second month information
   if ($('#calendar').fullCalendar('getView').title.split(' ').length === 6) {
     calShortMonthEnd = monthShortNames.indexOf($('#calendar').fullCalendar('getView').title.split(' ')[3]) + 1;
     calShortMonthEnd = calShortMonthEnd.toString();
 
+    // Checking if it is a two digit month if not, add the zero in front
     if (calShortMonthEnd.length === 1) {
       calShortMonthEnd = "0" + calShortMonthEnd;
-    }
+    };
   };
 };
 
@@ -156,7 +160,7 @@ function month() {
   };
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                          WEEK FUNCTION                                                                        //
+//                                          WEEK FUNCTION                                                                         //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Change Markers if week view has been clicked on the calendar //
 function week() {
@@ -192,7 +196,7 @@ function week() {
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                          DAY FUNCTION                                                                        //
+//                                          DAY FUNCTION                                                                          //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Change Markers if Day view has been clicked on the calendar
 function day() {
