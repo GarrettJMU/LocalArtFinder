@@ -23,21 +23,28 @@ $green: #6dcd9a;
     }
 	}
   .form {
-    overflow: hidden;
+    float: right;
+    height: 51px;
     input {
-      outline: 0;
+      outline: 1;
       background: #f2f2f2;
       border: 0;
-      margin: 0 0 15px;
+      margin-right: 5px;
       padding: 15px;
       box-sizing: border-box;
       font-size: 14px;
+      height: 50px;
+    }
+  }
+  .form-control {
+    .form-control-sm {
+      height:50px;
     }
   }
   .submit {
     text-transform: uppercase;
     outline: 0;
-    background: #A7D2CB;
+    background: #a5637c;
     float: right;
     border: 0;
     padding: 15px;
@@ -46,6 +53,7 @@ $green: #6dcd9a;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
+    margin-left: 5px;
   }
   .filterrific_results {
     width: 100%;
@@ -68,5 +76,53 @@ $green: #6dcd9a;
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .arts-page .submit {
+    margin-bottom: 5px;
+  }
+}
+@media only screen and (max-width: 766px) {
+
+  .arts-page .submit {
+    float: left;
+  }
+  .container3 {
+    margin-top: 60px;
+  }
+  .submit {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .container3 {
+    margin-top: 100px;
+  }
+}
+@media only screen and (max-width: 488px) {
+  .container3 {
+    margin-top: 115px;
+  }
+
+  #filterrific_sorted_by {
+    float: inherit;
+    margin-top: 5px;
+  }
+  .submit {
+    margin-top: 5px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .container3 {
+    margin-top: 140px;
+  }
+}
+@media only screen and (min-width: 0px) {
+  .form-control {
+    width: 205px;
   }
 }

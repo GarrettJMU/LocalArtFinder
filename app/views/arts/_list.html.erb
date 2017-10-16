@@ -1,10 +1,10 @@
 <div class="filterrific_results">
 
-  <form class="center" action="/arts/new" >
-    <button type="submit" class="submit" name="button">Upload New Art</button>
-  </form>
+
 
   <div class="container">
+  <div class="container3">
+
     <div class="card-deck" id="artpage">
       <% @arts.each do |art| %>
       <div class="card art-card">
@@ -22,5 +22,6 @@
        <%= will_paginate %>
      </div>
   </div>
+</div>
 
 </div>
