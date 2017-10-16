@@ -1,6 +1,13 @@
-<h1 class="text-center">Editing Artist</h1>
+<div class="new-artist-page">
 
-<%= render 'form', artist: @artist %>
+  <h1 class="text-center">Editing Artist</h1>
 
-<%= link_to 'Show', @artist %> |
-<%= link_to 'Back', artists_path %>
+  <div>
+    <%= render 'form', artist: @artist %>
+
+    <%= link_to 'Show', @artist %> |
+    <%= link_to 'Back', artists_path %>
+  </div>
+
+
+</div>
