@@ -1,5 +1,12 @@
-<h1>Add Your Artist Profile</h1>
+<div class="new-artist-page">
 
-<%= render 'form', artist: @artist %>
+  <h1>Add Your Artist Profile</h1>
 
-<%= link_to 'Back', artists_path %>
+  <div>
+
+    <%= render 'form', artist: @artist %>
+
+    <%= link_to 'Back', artists_path, class: "search-toggle new-event-back", type: "button" %>
+  </div>
+
+</div>
