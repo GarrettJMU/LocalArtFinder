@@ -37,7 +37,8 @@
 
     <div class="field form-group">
       <%= form.label :gallery_id %>
-      <%= form.text_field :gallery_id, id: :event_gallery_id, class: "form-control" %>
+      <!-- <%= form.text_field :gallery_id, id: :event_gallery_id, class: "form-control" %> -->
+      <%= form.collection_select :gallery_id, @gallery, :id, :name %>
     </div>
 
     <div class="field">

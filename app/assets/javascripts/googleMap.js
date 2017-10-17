@@ -279,18 +279,15 @@ $( document ).ready(function() {
 
   // Listen for the click on the month button in the calendar and run the month() function
   $('.fc-month-button').click(function(){
-    console.log("Month Clicked !!");
     month();
   });
 
   // Listen for the click on the week button in the calendar and run the week() function
   $('.fc-basicWeek-button').click(function(){
-    console.log("Week Clicked !!");
     week();
   });
   // Listen for the click on the day button in the calendar and run the day() function
   $('.fc-basicDay-button').click(function(){
-    console.log("Day Clicked !!");
     day();
   });
   // Listen for the click on the previous button in the calendar and run the appropriate function
