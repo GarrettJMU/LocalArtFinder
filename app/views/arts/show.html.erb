@@ -1,3 +1,5 @@
+<div class="new-art-page">
+
 <p id="notice"><%= notice %></p>
 
 <%= link_to image_tag(@art.image.url(:large)) %>
@@ -25,14 +27,14 @@
 <p>
   <strong>Artist:</strong>
   <%= @art.artist.artist_name %>
-</p>
+
 
 <!-- <form class="checkout" action="charges" method="get">
   <input type="hidden" name="price" value="<%= @art.price %>">
   <input type="hidden" name="id" value="<%= @art.id %>">
   <button type="submit">Buy Now</button>
 </form> -->
-<br>
+
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -47,7 +49,8 @@
       </p></span>
     </label>
   </article>
-
+   <strong>Buy this print:</strong>
+   <p>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Buy This Print"
@@ -59,4 +62,5 @@
 <%= link_to 'Edit', edit_art_path(@art) %> |
 <%= link_to 'To Art Page', arts_path %> |
 <a href="/artists/<%=@artist%>">Return To Your Profile</a>
+</div>
 <%#= link_to 'Back to artist profile', artists_path(@user) %>

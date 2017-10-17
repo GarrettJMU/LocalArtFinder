@@ -1,5 +1,7 @@
-<h1>New Art</h1>
-
-<%= render 'form', art: @art %>
-
-<%= link_to 'Back', arts_path %>
+<div class ="new-art-page">
+  <h1>New Art</h1>
+  <div>
+  <%= render 'form', art: @art %>
+  <%= link_to 'Back', arts_path, class: "search-toggle new-art-back", type: "button" %>
+  </div>
+</div>
