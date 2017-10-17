@@ -31,7 +31,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @user = current_user
-    @artist = @user.artist.first.id
+    @artist = @user.artists.first.id
     @gallery = Gallery.all
   end
 
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   def create
     @user = current_user
     @event = Event.new(event_params)
-    @artist = @user.artist.first.id
+    @artist = @user.artists.first.id
     # @gallery = @event.gallery.first.address
 
     respond_to do |format|
@@ -58,7 +58,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     @user = current_user
-    @artist = @user.artist.first.id
+    @artist = @user.artists.first.id
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
