@@ -98,7 +98,7 @@
   -moz-osx-font-smoothing: grayscale;
   }
 </style>
-<div class="login-page">
+<div class="signup-page">
   <div class="form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
@@ -116,7 +116,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "password" %>
       </div>
       <div class="actions">
-        <%= f.submit "Log in", :class => 'submit' %>
+        <%= f.submit "Sign Up", :class => 'submit' %>
       </div>
     <% end %>
       <div class="message">
