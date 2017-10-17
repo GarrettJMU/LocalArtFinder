@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="events-form">
+  <div class="event-form">
 
     <div class="field datesize center form-group ">
       <%= form.label :date %>
       <div class="select-style">
-        <%= form.date_select :date, id: :event_date, class: "form-control " %>
+        <%= form.date_select :date, id: :event_date, class: "form-control" %>
       </div>
     </div>
 
@@ -38,7 +38,9 @@
     <div class="field form-group">
       <%= form.label :gallery_id %>
       <!-- <%= form.text_field :gallery_id, id: :event_gallery_id, class: "form-control" %> -->
-      <%= form.collection_select :gallery_id, @gallery, :id, :name %>
+      <div class="select-style">
+        <%= form.collection_select :gallery_id, @gallery, :id, :name % >
+      </div>
     </div>
 
     <div class="field">

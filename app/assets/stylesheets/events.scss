@@ -187,7 +187,7 @@
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
 	.event-form{
-		.create-gallery{
+		.create-event{
 			margin: 25px;
 		}
 
@@ -200,7 +200,7 @@
   	    border: 1px solid #ccc;
   	    border-radius: 3px;
   	    overflow: hidden;
-  	    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+  	    background: #fafafa ;
   	}
 
   	.select-style select {
@@ -209,7 +209,6 @@
   	    box-shadow: none;
   	    background: transparent;
   	    background-image: none;
-  	    -webkit-appearance: none;
   	}
 
   	.select-style select:focus {

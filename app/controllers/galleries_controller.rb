@@ -22,14 +22,14 @@ class GalleriesController < ApplicationController
   # GET /galleries/new
   def new
     @user = current_user
-    @artist = @user.id
+    @artist = @user.artist.first.id
     @gallery = Gallery.new
   end
 
   # GET /galleries/1/edit
   def edit
     @user = current_user
-    @artist = @user.id
+    @artist = @user.artist.first.id
   end
 
   # POST /galleries

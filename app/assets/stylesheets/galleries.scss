@@ -112,7 +112,7 @@
   	    border: 1px solid #ccc;
   	    border-radius: 3px;
   	    overflow: hidden;
-  	    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+  	    background: #fafafa;
   	}
 
   	.select-style select {
@@ -121,7 +121,6 @@
   	    box-shadow: none;
   	    background: transparent;
   	    background-image: none;
-  	    -webkit-appearance: none;
   	}
 
   	.select-style select:focus {
