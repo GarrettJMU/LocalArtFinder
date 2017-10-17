@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to image_tag(@art.image.url(:large)) %>
+<%= link_to image_tag(@art.image.url(:large), :class => "art"), @art.image.url(:original), :rel => "lightbox[imagesetname]" %>
 
 <p>
   <strong>Genre:</strong>
