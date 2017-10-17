@@ -3,7 +3,7 @@ var monthShortNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", 
 var markersArray = [];
 var content = [];
 var eventsJsonArray = [];
-var jsonarray = [];
+var galleryJsonArray = [];
 var curentDate = new Date()
 var geocoder;
 var map;
@@ -18,22 +18,23 @@ var weekDayStart;
 var weekDayEnd;
 
 // Fetching the json file for the galleries
-$.getJSON('galleries.json', function (json) {
-  jsonarray = json;
-  if ( window.location.pathname != '/events') {
-      plotMarkers();
-  }
-});
+function retrieveGalleryJson() {
+  $.getJSON('galleries.json', function (json) {
+    galleryJsonArray = json;
+    initMap(json);
+  });
+}
 
 // Fetching the json file for the events
-$.getJSON('events.json', function (json) {
-  eventsJsonArray = json;
-});
-
+function retrieveEventJson() {
+  $.getJSON('events.json', function (json) {
+    eventsJsonArray = json;
+    initMap(json.reduce((addressArray, event) => {return [...addressArray, event.gallery]}, []));
+  });
+}
 
 // Initialization of Google Map
-function initMap() {
-
+function initMap(jsonArray) {
   // Initializing to the geocoder
   geocoder = new google.maps.Geocoder();
 
@@ -59,6 +60,7 @@ function initMap() {
   // Assigning the map to the map <div>
   map = new google.maps.Map(document.getElementById('map'), myOptions);
 
+  plotMarkers(jsonArray);
 } // End of initMap
 
 // Clear the map of all markers
@@ -68,11 +70,10 @@ function clearMap() {
   };
 };
 
-
 // Sends the infos from the JSON file to the geocoder thru the codeAddresses function
-function plotMarkers() {
-  for (i = 0; i < jsonarray.length; i++) {
-    codeAddresses(jsonarray[i].street, jsonarray[i].city, jsonarray[i].state, jsonarray[i].zipcode, jsonarray[i].description, jsonarray[i].id);
+function plotMarkers(jsonArray) {
+  for (var i = 0; i < jsonArray.length; i++) {
+    codeAddresses(jsonArray[i].street, jsonArray[i].city, jsonArray[i].state, jsonArray[i].zipcode, jsonArray[i].description, jsonArray[i].id);
   };
 };
 
@@ -82,7 +83,6 @@ function calendarMonth() {
   // Pulling the name of the month on the calendar title, comparing it with the monthNames array to get the index and add 1 to have the numerical value of the month
   var calMonth = monthNames.indexOf($('#calendar').fullCalendar('getView').title.split(' ')[0]) + 1;
   calMonth = calMonth.toString();
-  console.log("calMonth", calMonth);
   if (calMonth.length === 1) {
     calMonth = "0" + calMonth;
   };
@@ -150,7 +150,8 @@ function month() {
   // Clear the Map of all markers
   clearMap();
   // Going thru the eventsJsonArray to see if any of the events are in the displayed month  r4ew
-  for (i = 0; i < eventsJsonArray.length; i++) {
+  for (var i = 0; i < eventsJsonArray.length; i++) {
+    if (!eventsJsonArray[i].date) { continue }
     // Getting the date from the events json and splitting it
     var eventDate = eventsJsonArray[i].date.split('-');
     // Compare the event month with current month on the calendar
@@ -176,7 +177,8 @@ function week() {
 
   // Checking the week display to see if it is a split week (a week with 2 different months)
   if (calWeek.title.length == 20){
-    for (j = 0; j < eventsJsonArray.length; j++) {
+    for (var j = 0; j < eventsJsonArray.length; j++) {
+      if (!eventsJsonArray[j].date) { continue }
       // Spliting the event date to match it with the calendar
       var eventDate = eventsJsonArray[j].date.split('-');
       // CHECK FOR THE VALIDITY OF THE DATE (START MONTH, START DATE, END MONTH, END DATE)
@@ -185,7 +187,8 @@ function week() {
       };
     };
   } else {
-    for (h = 0; h < eventsJsonArray.length; h++) {
+    for (var h = 0; h < eventsJsonArray.length; h++) {
+      if (!eventsJsonArray[h].date) { continue }
       var eventDate = eventsJsonArray[h].date.split('-');
       // Checking to see if the event date is between the start and the end of the calendar week
       if (eventDate[1] == calShortMonthStart && weekDayStart <= eventDate[2] && eventDate[2] <= weekDayEnd) {
@@ -217,7 +220,8 @@ function day() {
   };
 
   // Go thru the eventsJsonArray and match it with the day on the calendar
-  for (i = 0; i < eventsJsonArray.length; i++) {
+  for (var i = 0; i < eventsJsonArray.length; i++) {
+    if (!eventsJsonArray[i].date) { continue }
     //Split the date in the json array
     var eventDate = eventsJsonArray[i].date.split('-');
 
@@ -266,7 +270,7 @@ $( document ).ready(function() {
     map.setCenter(center);
   });
   // Default view of the markers for the current month, not the month on the calendar
-  for (i = 0; i < eventsJsonArray.length; i++) {
+  for (var i = 0; i < eventsJsonArray.length; i++) {
     var eventDate = eventsJsonArray[i].date.split('-');
     if (eventDate[1] == curentDate.getMonth() + 1){
       codeAddresses(eventsJsonArray[i].gallery.street, eventsJsonArray[i].gallery.city, eventsJsonArray[i].gallery.state, eventsJsonArray[i].gallery.zipcode, eventsJsonArray[i].gallery.description, eventsJsonArray[i].gallery.id);
