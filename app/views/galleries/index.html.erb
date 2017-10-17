@@ -7,21 +7,22 @@
     <%= link_to 'New Gallery', new_gallery_path, :class => "search-toggle"%>
   </div>
 
-  <div class="card-deck container">
-    <div id="map" class="map-card"></div>
-    <% @galleries.each do |gallery| %>
-     <%= link_to gallery do%>
-       <div class="card flex-unordered">
-         <div class="card-block">
-           <h4 class="card-title"><%= gallery.name %></h4>
-           <% end %>
-           <h6 class="card-subtitle mb-2 text-muted">Hours: <%= gallery.opening.strftime("%H:%M") %> - <%= gallery.closing.strftime("%H:%M") %></h6>
-           <p class="card-text"><%= gallery.description %></p>
-           <a href="<%= gallery.website %>"><%= gallery.website %></a><br />
-           <a href="tel:<%= gallery.phone %>"><%= gallery.phone %></a><br />
-         </div>
-       </div>
-   <% end %>
+  <div class="row">
+    <ul>
+      <li class="map-detail">
+        <div id="map"></div>
+      </li>
+      <% @galleries.each do |gallery| %>
+      <%= link_to gallery do%>
+      <li class="gallery-detail">
+        <div class="card-block">
+          <h4 class="card-title"><%= gallery.name %></h4>
+          <% end %>
+          <p class="card-text"><%= gallery.description %></p>
+        </div>
+      </li>
+      <% end %>
+    </ul>
   </div>
   <br>
 
