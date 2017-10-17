@@ -59,8 +59,7 @@
 <% end %>
 <br>
 
-<%= link_to 'Edit', edit_art_path(@art) %> |
-<%= link_to 'To Art Page', arts_path %> |
-<a href="/artists/<%=@artist%>">Return To Your Profile</a>
-</div>
+<%= link_to 'Edit', edit_art_path(@art), class: "search-toggle new-art-edit", type: "button" %>
+<%= link_to 'To Art Page', arts_path, class: "search-toggle new-art-back", type: "button" %>
+<%= link_to 'Profile', artist_path(@artist), class: "search-toggle new-art-back", type: "button" %>
 <%#= link_to 'Back to artist profile', artists_path(@user) %>
