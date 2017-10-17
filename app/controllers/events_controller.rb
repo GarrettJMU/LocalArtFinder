@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @user = current_user
-    @artist = @user.artist.first.id
+    @artist = @user.artists.first.id
     @gallery = Gallery.all
   end
 
