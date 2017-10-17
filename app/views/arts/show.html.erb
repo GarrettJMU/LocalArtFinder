@@ -1,3 +1,25 @@
+<!-- this script overrides the stripe button styling -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".stripe-button-el span").remove();
+            $("button.stripe-button-el").removeAttr('style').css({
+               "font-weight": "600",
+               "border-radius": "0px",
+               "text-transform": "uppercase",
+               "outline": "0",
+                "-webkit-transition": "all 0.3 ease",
+                "transition": "all 0.3 ease",
+                "border":"0",
+                "display":"inline-block",
+                "width":"auto",
+                "padding":"15px",
+                "background":"#a5637c",
+                "color":"white",
+                "font-size":"14px" }).html("Pay with card");
+        });
+</script>
+<!-- end of script that overrides stripe button styling -->
+
 <div class="new-art-page">
 
 <p id="notice"><%= notice %></p>
