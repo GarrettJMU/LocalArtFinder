@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contact/index'
+
   get 'terms/index'
 
   get 'faq/index'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
 
   get '/about/index'
   get '/terms/index'
+  get '/contact/index'
   devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "users/omniauth_callbacks"}
 
   devise_scope :user do
