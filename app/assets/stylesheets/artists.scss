@@ -77,6 +77,37 @@
   // CARDS
   .card-deck {
     margin-bottom: 60px;
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  .card{
+    text-decoration: none;
+    color: #5f5f5f;
+    min-width: 250px;
+    min-height: 270px;
+    margin: 5px;
+    .card-title {
+      display: inline-block;
+    }
+    .card-text {
+      display: inline-block;
+      color: #d2d2d2;
+      float: right;
+    }
+    .card-img {
+      height: auto;
+      max-width: 100%;
+      margin: 10px;
+    }
+    &:hover{
+      color: #5f5f5f;
+      text-decoration: none;
+      border-color: #5f5f5f;
+      .card-text {
+        color: #8ebd82;
+      }
+    }
   }
   .card-submit {
     text-transform: uppercase;
