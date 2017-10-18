@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'terms/index'
+
   get 'faq/index'
 
   get 'password_resets/new'
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   resources :faq
 
   get '/about/index'
-
+  get '/terms/index'
   devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "users/omniauth_callbacks"}
 
   devise_scope :user do
