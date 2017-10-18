@@ -35,17 +35,17 @@
 <div class="card-deck">
 
   <% @artists.each do |artist| %>
-  <div class="card" style="width: 20rem;">
-    <img class="card-img-top" src="" />
-    <div class="card-block">
-      <h4 class="card-title"><%= artist.artist_name %></h4>
-      <p class="card-text"><%= artist.price %></p>
-      <% if can? :update, artist %>
-        <%= link_to 'Edit', edit_artist_path(artist) %><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-      <%= link_to 'Show', artist, { :class=>"card-submit" } %>
-    </div>
-  </div>
+    <%= link_to artist do %>
+      <div class="card">
+        <% if artist.arts.first %>
+          <%= image_tag artist.arts.first.image.url(:large), class: "card-img" %>
+        <% end %>
+        <div class="card-block">
+          <h4 class="card-title"><%= artist.artist_name %></h4>
+          <h4 class="card-text"><%= artist.price %></h4>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
