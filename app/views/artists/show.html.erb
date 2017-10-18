@@ -1,6 +1,20 @@
 <div class="artists-page container">
-<p id="notice"><%= notice %></p>
-    <div class="item1">
+  <p id="notice"><%= notice %></p>
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item artist-tabs">
+        <a href="#item1" class="nav-link active" role="tab" data-toggle="tab">Artist Profile</a>
+      </li>
+      <li class="nav-item artist-tabs">
+        <a href="#item2" class="nav-link" role="tab" data-toggle="tab">Art</a>
+      </li>
+      <li class="nav-item artist-tabs">
+        <a href="#item3" class="nav-link" role="tab" data-toggle="tab">Events</a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content container">
+    <div role="tabpanel" class="tab-pane active" id="item1">
       <h3>Personal Info</h3>
       <% if can? :update, @artist %>
       <%= link_to 'Edit Info', edit_artist_path(@artist) %>
@@ -68,7 +82,7 @@
       </p>
     <!-- End col Div -->
     </div>
-    <div class="item2">
+    <div role="tabpanel" class="tab-pane" id="item2">
       <h3>The Art</h3>
       <%= link_to 'Upload New Art', new_art_path %>
       <table>
@@ -104,8 +118,8 @@
           <% end %>
         </tbody>
       </table>
-<br />
-<br />
+    </div>
+    <div role="tabpanel" class="tab-pane" id="item3">
       <h3>The Events</h3>
       <%= link_to 'Create New Event', new_event_path %>
       <table>
@@ -137,8 +151,7 @@
           <% end %>
         </tbody>
       </table>
+    </div>
   </div>
-
-
 <!-- End container Div -->
 </div>
