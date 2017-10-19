@@ -1,6 +1,8 @@
-<h1>Editing Art</h1>
-
-<%= render 'form', art: @art %>
-
-<%= link_to 'Show', @art %> |
-<%= link_to 'Back', arts_path %>
+<div class="new-art-page">
+  <h1>Editing Art</h1>
+  <div>
+    <%= render 'form', art: @art %>
+    <%= link_to 'Show', @art, class: "search-toggle new-art-show", type: "button"%>
+    <%= link_to 'Back', arts_path, class: "search-toggle new-art-back", type: "button" %>
+  </div>
+</div>

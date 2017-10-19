@@ -103,11 +103,16 @@
 			margin: 25px;
 		}
 
-  	.select-style {
+    .horizontal-center{
+      margin: 10px;
+    }
+
+
+.select-style {
   	    border: 1px solid #ccc;
   	    border-radius: 3px;
   	    overflow: hidden;
-  	    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+  	    background: #fafafa;
   	}
 
   	.select-style select {
@@ -116,7 +121,6 @@
   	    box-shadow: none;
   	    background: transparent;
   	    background-image: none;
-  	    -webkit-appearance: none;
   	}
 
   	.select-style select:focus {
@@ -150,3 +154,12 @@
 		text-decoration: none;
 	}
 }
+.form-horizontal {
+  width: 10vw;
+  margin: 0 auto;
+}
+
+.form-control {
+  width: 10vw;
+  height: 1.5em;
+  }
