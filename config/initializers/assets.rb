@@ -21,6 +21,7 @@ Rails.application.config.assets.precompile += %w( devise/sessions.css )
 Rails.application.config.assets.precompile += %w( registrations.css )
 Rails.application.config.assets.precompile += %w( faq.css )
 Rails.application.config.assets.precompile += %w( admin.css )
+Rails.application.config.assets.precompile += %w( search.css )
 Rails.application.config.assets.precompile += %w( terms.css )
 Rails.application.config.assets.precompile += %w( contact.css )
 # Precompile additional assets.

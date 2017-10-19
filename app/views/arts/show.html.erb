@@ -1,6 +1,30 @@
+<!-- this script overrides the stripe button styling -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".stripe-button-el span").remove();
+            $("button.stripe-button-el").removeAttr('style').css({
+               "font-weight": "600",
+               "border-radius": "0px",
+               "text-transform": "uppercase",
+               "outline": "0",
+                "-webkit-transition": "all 0.3 ease",
+                "transition": "all 0.3 ease",
+                "border":"0",
+                "display":"inline-block",
+                "width":"auto",
+                "padding":"15px",
+                "background":"#a5637c",
+                "color":"white",
+                "font-size":"14px" }).html("Pay with card");
+        });
+</script>
+<!-- end of script that overrides stripe button styling -->
+
+<div class="new-art-page">
+
 <p id="notice"><%= notice %></p>
 
-<%= link_to image_tag(@art.image.url(:large)) %>
+<%= link_to image_tag(@art.image.url(:large), :class => "art"), @art.image.url(:original), :rel => "lightbox[imagesetname]" %>
 
 <p>
   <strong>Genre:</strong>
@@ -25,14 +49,14 @@
 <p>
   <strong>Artist:</strong>
   <%= @art.artist.artist_name %>
-</p>
+
 
 <!-- <form class="checkout" action="charges" method="get">
   <input type="hidden" name="price" value="<%= @art.price %>">
   <input type="hidden" name="id" value="<%= @art.id %>">
   <button type="submit">Buy Now</button>
 </form> -->
-<br>
+
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -47,16 +71,17 @@
       </p></span>
     </label>
   </article>
-
+   <strong>Buy this print:</strong>
+   <p>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
+          data-description="Buy This Print"
+          data-amount="<%= @art.price * 100 %>"
           data-locale="auto"></script>
 <% end %>
 <br>
 
-<%= link_to 'Edit', edit_art_path(@art) %> |
-<%= link_to 'To Art Page', arts_path %> |
-<a href="/artists/<%=@artist%>">Return To Your Profile</a>
+<%= link_to 'Edit', edit_art_path(@art), class: "search-toggle new-art-edit", type: "button" %>
+<%= link_to 'To Art Page', arts_path, class: "search-toggle new-art-back", type: "button" %>
+<%= link_to 'Profile', artist_path(@artist), class: "search-toggle new-art-back", type: "button" %>
 <%#= link_to 'Back to artist profile', artists_path(@user) %>

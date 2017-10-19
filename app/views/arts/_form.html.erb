@@ -1,5 +1,5 @@
-<div class="upload-page">
-  <div class="form">
+<!-- <div class="upload-page">
+  <div class="form"> -->
 <%= form_with(model: art, local: true, html: { multipart: true }) do |form| %>
   <% if art.errors.any? %>
     <div id="error_explanation">
@@ -13,52 +13,51 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.file_field :image %>
-  </div>
+  <div class="art-form">
 
-  <div class="field">
-    <%= form.label :genre %>
-    <%= form.text_field :genre, id: :art_genre %>
-  </div>
+    <div class="form-horizontal center">
+      <%= form.file_field :image %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :art_description %>
-  </div>
+      <div class="field form-group">
+        <%= form.label :genre %>
+        <%= form.text_field :genre, id: :art_genre, class: "form-control col-xs-4" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :art_price %>
-  </div>
+      <div class="field form-group">
+        <%= form.label :description %>
+        <%= form.text_field :description, id: :art_description, class: "form-control col-xs-4" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :length %>
-    <%= form.text_field :length, id: :art_length %>
-  </div>
+      <div class="field form-group">
+        <%= form.label :price %>
+        <%= form.number_field :price, id: :art_price, class: "form-control col-xs-4" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :width %>
-    <%= form.text_field :width, id: :art_width %>
-  </div>
+      <div class="field form-group">
+        <%= form.label :length %>
+        <%= form.text_field :length, id: :art_length, class: "form-control col-xs-4" %>
+      </div>
 
-  <div class="field">
-    <%= form.hidden_field :user_id, :value => @user.id %>
-  </div>
-  <div class="field">
-    <%= form.hidden_field :artist_id, :value => @artist %>
-  </div>
+      <div class="field form-group">
+        <%= form.label :width %>
+        <%= form.text_field :width, id: :art_width, class: "form-control col-xs-4" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :medium %>
-    <%= form.text_field :medium, id: :art_medium %>
+      <div class="field form-group">
+        <%= form.hidden_field :user_id, :value => @user.id %>
+      </div>
+      <div class="field form-group">
+        <%= form.hidden_field :artist_id, :value => @artist %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.label :medium %>
+        <%= form.text_field :medium, id: :art_medium, class: "form-control col-xs-4" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Upload Art', :class => "search-toggle create-art" %>
+    </div>
   </div>
-
-
-  <div class="actions">
-    <%= form.submit 'Submit', :class => "submit" %>
-  </div>
-
 <% end %>
-</div>
-</div>

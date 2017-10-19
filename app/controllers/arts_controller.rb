@@ -99,8 +99,11 @@ def set_art
 end
 
 def art_params
-params.require(:art).permit(:genre, :description, :price, :length, :width, :medium, :artist_id, :user_id, :image)
+params.require(:art).permit(:genre, :description, :price, :length, :width, :medium, :artist_id, :user_id, :image, :id)
 end
 
+def set_cookie
+cookies[:sale] = { :value => params[:id], :expires => Time.now + 3600}
+end 
 
-  end
+end
