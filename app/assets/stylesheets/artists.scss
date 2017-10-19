@@ -4,9 +4,14 @@
 .artists-page {
   font-family: "Roboto", sans-serif;
   color: #5f5f5f;
-  background: #FFFFFF;
+  background: #FFF;
   padding: 45px;
+  margin-bottom: 60px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    h3{
+      margin-top: 50px;
+    }
+
   .page-header {
     margin: 0 auto 50px;
     h2 {
@@ -77,6 +82,37 @@
   // CARDS
   .card-deck {
     margin-bottom: 60px;
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  .card{
+    text-decoration: none;
+    color: #5f5f5f;
+    min-width: 250px;
+    min-height: 270px;
+    margin: 5px;
+    .card-title {
+      display: inline-block;
+    }
+    .card-text {
+      display: inline-block;
+      color: #d2d2d2;
+      float: right;
+    }
+    .card-img {
+      height: auto;
+      max-width: 100%;
+      margin: 10px;
+    }
+    &:hover{
+      color: #5f5f5f;
+      text-decoration: none;
+      border-color: #5f5f5f;
+      .card-text {
+        color: #8ebd82;
+      }
+    }
   }
   .card-submit {
     text-transform: uppercase;
@@ -89,5 +125,124 @@
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
+  }
+  .artist-tabs {
+    margin: 5px 10px;
+    border: 1px solid #5f5f5f;
+    border-radius: 4px;
+    min-width: 70px;
+    text-align: center;
+    background: #a5637c;
+    .nav-link {
+      color: #FFF;
+      border: none;
+      background: transparent;
+      text-decoration: none;
+      &.active{
+        background: #824a60;
+      }
+    }
+    &:hover {
+      background: #824a60;
+    }
+  }
+}
+.new-artist-page{
+	width: 500px;
+	margin: auto;
+	text-align: center;
+	background-color: #FFF;
+	padding: 40px;
+	color: #5f5f5f;
+	margin-bottom: 50px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+	.artists-form{
+		.create-artist{
+			margin: 25px;
+		}
+
+    .field{
+      margin: 20px;
+      input[type=radio]{
+        margin: 0 10px
+      }
+    }
+
+
+	.select-style {
+	    border: 1px solid #ccc;
+	    border-radius: 3px;
+	    overflow: hidden;
+	    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+	}
+
+	.select-style select {
+	    padding: 5px 8px;
+	    border: none;
+	    box-shadow: none;
+	    background: transparent;
+	    background-image: none;
+	    -webkit-appearance: none;
+	}
+
+	.select-style select:focus {
+	    outline: none;
+	}
+
+		.form-horizontal{
+			padding-top: 15px;
+		}
+	}
+
+	h1{
+		margin-bottom: 40px;
+		font-family: "Roboto", sans-serif;
+		font-weight: 200;
+		color: #5f5f5f;
+
+	}
+
+  #item1{
+    padding-top: 50px;
+  }
+
+}
+.search-toggle {
+  text-transform: uppercase;
+  outline: 0;
+  background: #a5637c;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: none;
+}
+
+.artist-table {
+
+  margin: 30px auto;
+  table {
+    width: 100%;
+  }
+  thead {
+    th {
+      text-align: center;
+      color: #FFF;
+      background-color: #95bbb5;
+      padding: 10px 15px;
+    }
+  }
+  tbody {
+    td{
+      text-align: center;
+    }
+    :nth-child(odd) tr td {
+      background-color: #f1f1f1;
+    }
   }
 }

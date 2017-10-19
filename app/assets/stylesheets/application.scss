@@ -86,6 +86,9 @@ html {
 
 
 //**** Navigation Bar Structure ****//
+#navbarNav{
+  padding-left: 175px;
+}
 .navbar {
   background-color: $clean;
   font-family: 'Roboto Condensed', sans-serif;
@@ -154,15 +157,15 @@ td {
 
 //**** Form Partial Styling ***///
 // Events and Galleries
-.form-horizontal {
-  width: 10vw;
-  margin: 0 auto;
-}
-
-.form-control {
-  width: 10vw;
-  height: 1.5em;
-  }
+// .form-horizontal {
+//   width: 10vw;
+//   margin: 0 auto;
+// }
+//
+// .form-control {
+//   width: 10vw;
+//   height: 1.5em;
+//   }
 
 //Events
 .datesize {

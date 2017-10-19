@@ -25,12 +25,14 @@ class EventsController < ApplicationController
     @event = Event.new
     @user = current_user
     @artist = @user.artists.first.id
+    @gallery = Gallery.all
   end
 
   # GET /events/1/edit
   def edit
     @user = current_user
     @artist = @user.artists.first.id
+    @gallery = Gallery.all
   end
 
   # POST /events

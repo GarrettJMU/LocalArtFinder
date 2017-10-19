@@ -1,6 +1,4 @@
 
-<div class="login-page">
-  <div class="form">
     <%= form_with(model: artist, local: true) do |form| %>
       <% if artist.errors.any? %>
         <div id="error_explanation">
@@ -13,61 +11,64 @@
           </ul>
         </div>
       <% end %>
-      <div class="field">
-        <%= form.text_field :artist_name, id: :artist_artist_name, placeholder: "Artist Name" %>
-      </div>
-      <div class="field">
-        <%= form.text_field :first_name, id: :artist_first_name, placeholder: "First Name" %>
-      </div>
-      <div class="field">
-        <%= form.text_field :last_name, id: :artist_last_name, placeholder: "Last Name" %>
-      </div>
-      <div class="field">
-        <%= form.hidden_field :email, :value => @user.email %>
-      </div>
-      <div class="field">
-      <%= form.hidden_field :password, :value => @user.password %>
-      </div>
-      <div class="field">
-      <%= form.hidden_field :user_id, :value => @user.id %>
-      </div>
-      <div class="field">
-        <%= form.text_field :street, id: :artist_street, placeholder: "Street" %>
-      </div>
-      <div class="field">
-        <%= form.text_field :city, id: :artist_city, placeholder: "City" %>
-      </div>
-      <div class="field">
-        <%= form.text_field :state, id: :artist_state, placeholder: "State" %>
-      </div>
-      <div class="field">
-        <%= form.text_field :zipcode, id: :artist_zipcode, placeholder: "Zipcode" %>
-      </div>
-      <div class="field">
-        <%= form.url_field :website, id: :artist_website, placeholder: "Website" %>
-      </div>
-      <!-- <div class="field">
-        <%= form.label :sales %>
-        <%= form.text_field :sales, id: :artist_sales %>
-      </div> -->
 
-      <div class="field">
-        <%= form.telephone_field :phone, id: :artist_phone, placeholder: "Phone Number" %>
-      </div>
+    <div class="artists-form">
+      <div class="horizontal-center">
 
-      <div class="field">
-        <%= form.label :price, "$" %>
-        <%= form.radio_button :price, "$" %>
-        <%= form.label :price, "$$" %>
-        <%= form.radio_button :price, "$$" %>
-        <%= form.label :price, "$$$" %>
-        <%= form.radio_button :price, "$$$" %>
-      </div>
+        <div class="field">
+          <%= form.text_field :artist_name, id: :artist_artist_name, placeholder: "Artist Name" %>
+        </div>
+        <div class="field">
+          <%= form.text_field :first_name, id: :artist_first_name, placeholder: "First Name" %>
+        </div>
+        <div class="field">
+          <%= form.text_field :last_name, id: :artist_last_name, placeholder: "Last Name" %>
+        </div>
+        <div class="field">
+          <%= form.hidden_field :email, :value => @user.email %>
+        </div>
+        <div class="field">
+        <%= form.hidden_field :password, :value => @user.password %>
+        </div>
+        <div class="field">
+        <%= form.hidden_field :user_id, :value => @user.id %>
+        </div>
+        <div class="field">
+          <%= form.text_field :street, id: :artist_street, placeholder: "Street" %>
+        </div>
+        <div class="field">
+          <%= form.text_field :city, id: :artist_city, placeholder: "City" %>
+        </div>
+        <div class="field">
+          <%= form.text_field :state, id: :artist_state, placeholder: "State" %>
+        </div>
+        <div class="field">
+          <%= form.text_field :zipcode, id: :artist_zipcode, placeholder: "Zipcode" %>
+        </div>
+        <div class="field">
+          <%= form.url_field :website, id: :artist_website, placeholder: "Website" %>
+        </div>
+        <!-- <div class="field">
+          <%= form.label :sales %>
+          <%= form.text_field :sales, id: :artist_sales %>
+        </div> -->
 
-      <div class="actions">
-        <%= form.submit 'Submit', :class => "Submit" %>
-      </div>
+        <div class="field">
+          <%= form.telephone_field :phone, id: :artist_phone, placeholder: "Phone Number" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :price, "$" %>
+          <%= form.radio_button :price, "$" %>
+          <%= form.label :price, "$$" %>
+          <%= form.radio_button :price, "$$" %>
+          <%= form.label :price, "$$$" %>
+          <%= form.radio_button :price, "$$$" %>
+        </div>
+
+    </div>
+    <div class="actions">
+      <%= form.submit :class => "search-toggle create-artist"%>
+    </div>
     <% end %>
-
   </div>
-</div>
