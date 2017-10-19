@@ -2,24 +2,23 @@
 
 
 
-  <div class="container">
-  <div class="container3">
+  <!-- <div class="container">
+  <div class="container3"> -->
 
-    <div class="card-deck" id="artpage">
-      <% @arts.each do |art| %>
-      <div class="card art-card">
-        <div class="art-image">
-        <%= link_to image_tag(art.image.url(:small), :class => "art", ), art.image.url(:original), :rel => "lightbox[imagesetname]", data: {lightbox: "pics", title: "#{art.description} #{art.genre} by #{art.artist.artist_name} $#{art.length} #{link_to "Buy This Piece", art}" }  %>
+  <div class="card-deck">
+    <% @arts.each do |art| %>
+      <%= link_to art do %>
+        <div class="card">
+          <%= image_tag art.image.url(:large), class: "card-img" %>
+          <div class="card-block">
+            <h5 class="card-title">Artist: <%= art.artist.artist_name %></h5>
+          </div>
         </div>
-        <div class="art-details">
-           <h5>Artist: <%= art.artist.artist_name %></h5>
-           <h5>Title: <%= art.description %></h5>
-        </div>
-       </div>
-       <% end %>
-       <%= will_paginate %>
-     </div>
+      <% end %>
+    <% end %>
+    <%= will_paginate %>
   </div>
-</div>
+  <!-- </div>
+</div> -->
 
 </div>

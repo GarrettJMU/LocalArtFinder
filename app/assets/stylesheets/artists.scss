@@ -3,11 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .artists-page {
   font-family: "Roboto", sans-serif;
-  // color: #5f5f5f;
-  background: #A7D2CB;
+  color: #5f5f5f;
+  background: #FFF;
   padding: 45px;
   margin-bottom: 60px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    h3{
+      margin-top: 50px;
+    }
   .page-header {
     margin: 0 auto 50px;
     h2 {
@@ -199,18 +202,46 @@
 
 	}
 
-	.search-toggle {
-		text-transform: uppercase;
-		outline: 0;
-		background: #a5637c;
-		border: 0;
-		padding: 15px;
-		color: #FFFFFF;
-		font-size: 14px;
-		-webkit-transition: all 0.3 ease;
-		transition: all 0.3 ease;
-		cursor: pointer;
-		-webkit-appearance: none;
-		text-decoration: none;
-	}
+  #item1{
+    padding-top: 50px;
+  }
+
+}
+.search-toggle {
+  text-transform: uppercase;
+  outline: 0;
+  background: #a5637c;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: none;
+}
+
+.artist-table {
+
+  margin: 30px auto;
+  table {
+    width: 100%;
+  }
+  thead {
+    th {
+      text-align: center;
+      color: #FFF;
+      background-color: #95bbb5;
+      padding: 10px 15px;
+    }
+  }
+  tbody {
+    td{
+      text-align: center;
+    }
+    :nth-child(odd) tr td {
+      background-color: #f1f1f1;
+    }
+  }
 }
