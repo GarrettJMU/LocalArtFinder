@@ -19,28 +19,6 @@ class ArtistsController < ApplicationController
   end
 
 
-
- #    @filterrific = initialize_filterrific(
- #   Artist,
- #   params[:filterrific],
- #   select_options: {
- #        sorted_by: Artist.options_for_sorted_by,
- #     },
- #     persistence_id: 'shared_key',
- #     default_filter_params: {},
- # ) or return
- #  @artists = @filterrific.find.page(params[:page])
- #
- #  respond_to do |format|
- #    format.html
- #    format.js
-  # end
-
-
-
-
-
-  # GET /artists/1
   # GET /artists/1.json
   def show
     @arts = Artist.find(params[:id]).arts.all
@@ -53,7 +31,6 @@ class ArtistsController < ApplicationController
   def new
     @artist = Artist.new
     @user = current_user
-    # @artist = current_user.Artist.build
   end
 
   # GET /artists/1/edit
@@ -65,7 +42,6 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @user = current_user
-    # @artist = current_user.artists.build(artist_params)
     @artist = Artist.new(artist_params)
     respond_to do |format|
       if @artist.save
