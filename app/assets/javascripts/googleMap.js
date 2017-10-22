@@ -135,10 +135,8 @@ function calendarWeek() {
   //Verifying if the day is a two digit day, if not add the zero in front
   if (weekTitleEnd.length === 1) {
       weekDayEnd = "0" +  weekTitleEnd;
-      console.log("weekDayEnd", weekDayEnd);
   } else {
       weekDayEnd = weekTitleEnd;
-      console.log("weekDayEnd else", weekDayEnd);
   };
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

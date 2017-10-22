@@ -24,14 +24,14 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @user = current_user
-    @artist = @user.artists.first.id
+    @artist = @user.id
     @gallery = Gallery.all
   end
 
   # GET /events/1/edit
   def edit
     @user = current_user
-    @artist = @user.artists.first.id
+    @artist = @user.id
     @gallery = Gallery.all
   end
 
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   def create
     @user = current_user
     @event = Event.new(event_params)
-    @artist = @user.artists.first.id
+    @artist = @user.id
     # @gallery = @event.gallery.first.address
 
     respond_to do |format|
