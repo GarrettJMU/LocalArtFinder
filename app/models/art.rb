@@ -70,7 +70,8 @@ scope :search_query, lambda { |query|
     ['Width (longest-shortest)', 'width_desc'],
     ['Width (shortest-longest)', 'width_asc'],
     ['Price (most-least)', 'price_desc'],
-    ['Price (least-most)', 'price_asc']
+    ['Price (least-most)', 'price_asc'],
+    ['Sort By:', 'price_asc']
 
   ]
 end

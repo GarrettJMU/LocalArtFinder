@@ -12,6 +12,8 @@
           <%= image_tag art.image.url(:large), class: "card-img" %>
           <div class="card-block">
             <h5 class="card-title">Artist: <%= art.artist.artist_name %></h5>
+            </br>
+            <h5 class="card-title">Title: <%= art.description %></h5>
           </div>
         </div>
       <% end %>
