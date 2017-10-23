@@ -1,6 +1,13 @@
+<div class="container search-page">
+  <div class="page-header">
+    <h2> Search For "<%= @search %>" Returned These Results:</h2>
+  </div>
+
 <!-- render search results -->
 <% if @arts.present? || @artists.present? || @galleries.present?  || @events.present? %>
   <%= render '/search/results' %>
 <% else %>
   <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
 <% end %>
+
+</div>
