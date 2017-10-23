@@ -1,0 +1,77 @@
+/* line 5, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/faq.scss */
+.image-center {
+  display: block;
+  margin: auto;
+}
+
+/* line 10, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/faq.scss */
+.faq-nav {
+  margin: auto;
+  width: 600px;
+  padding: 10px;
+}
+
+/* line 16, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/faq.scss */
+.accordion-container {
+  width: 75%;
+  margin: auto;
+  font-size: 13px;
+  background: #ffffff;
+  padding: 5px 10px 10px 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 15px #cccccc;
+  box-shadow: 0 5px 15px #cccccc;
+}
+
+/* line 31, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/faq.scss */
+.accordion-header {
+  font-size: 16px;
+  background: #ebebeb;
+  margin: 5px 0 0 0;
+  padding: 5px 20px;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  color: #666666;
+  border-radius: 5px;
+}
+
+/* line 44, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/faq.scss */
+.active-header {
+  border-radius: 5px 5px 0 0;
+  background: url(images/active-header.gif) #cef98d;
+  background-repeat: no-repeat;
+  background-position: right 50%;
+}
+
+/* line 53, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/faq.scss */
+.active-header:hover {
+  background: url(images/active-header.gif) #c6f089;
+  background-repeat: no-repeat;
+  background-position: right 50%;
+}
+
+/* line 59, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/faq.scss */
+.inactive-header {
+  background: url(images/inactive-header.gif) #ebebeb;
+  background-repeat: no-repeat;
+  background-position: right 50%;
+}
+
+/* line 65, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/faq.scss */
+.inactive-header:hover {
+  background: url(images/inactive-header.gif) #f5f5f5;
+  background-repeat: no-repeat;
+  background-position: right 50%;
+}
+
+/* line 71, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/faq.scss */
+.accordion-content {
+  max-width: 100%;
+  display: none;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+}
