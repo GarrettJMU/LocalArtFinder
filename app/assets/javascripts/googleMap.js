@@ -10,6 +10,7 @@ var map;
 var bounds;
 var infowindow;
 var marker;
+var calYear;
 var week;
 var calShortMonthStart;
 var calShortMonthEnd;
@@ -135,10 +136,8 @@ function calendarWeek() {
   //Verifying if the day is a two digit day, if not add the zero in front
   if (weekTitleEnd.length === 1) {
       weekDayEnd = "0" +  weekTitleEnd;
-      console.log("weekDayEnd", weekDayEnd);
   } else {
       weekDayEnd = weekTitleEnd;
-      console.log("weekDayEnd else", weekDayEnd);
   };
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -149,13 +148,15 @@ function calendarWeek() {
 function month() {
   // Clear the Map of all markers
   clearMap();
+
   // Going thru the eventsJsonArray to see if any of the events are in the displayed month  r4ew
   for (var i = 0; i < eventsJsonArray.length; i++) {
     if (!eventsJsonArray[i].date) { continue }
     // Getting the date from the events json and splitting it
     var eventDate = eventsJsonArray[i].date.split('-');
-    // Compare the event month with current month on the calendar
-    if (eventDate[1] == calendarMonth()){
+    // Compare the event month, year with current month, year on the calendar
+    calYear = $('#calendar').fullCalendar('getView').title.split(' ')[1];
+    if (eventDate[1] == calendarMonth() && eventDate[0] == calYear){
       codeAddresses(eventsJsonArray[i].gallery.street, eventsJsonArray[i].gallery.city, eventsJsonArray[i].gallery.state, eventsJsonArray[i].gallery.zipcode, eventsJsonArray[i].gallery.description, eventsJsonArray[i].gallery.id);
     };
   };
@@ -169,6 +170,9 @@ function week() {
   // Clear the Map of all markers
   clearMap();
 
+  // Getting the displayed Year info
+  calYear = $('#calendar').fullCalendar('getView').title.split(' ')[1];
+
   // Getting the displayed Week info
   calendarWeek();
 
@@ -177,21 +181,23 @@ function week() {
 
   // Checking the week display to see if it is a split week (a week with 2 different months)
   if (calWeek.title.length == 20){
+    calYear = $('#calendar').fullCalendar('getView').title.split(' ')[5];
     for (var j = 0; j < eventsJsonArray.length; j++) {
       if (!eventsJsonArray[j].date) { continue }
       // Spliting the event date to match it with the calendar
       var eventDate = eventsJsonArray[j].date.split('-');
       // CHECK FOR THE VALIDITY OF THE DATE (START MONTH, START DATE, END MONTH, END DATE)
-      if ((calShortMonthStart == eventDate[1] && 31 >= eventDate[2] >= weekDayStart) || (calShortMonthEnd == eventDate[1] && 1 <= eventDate[2] <= weekDayEnd)) {
+      if ((calShortMonthStart == eventDate[1] && 31 >= eventDate[2] >= weekDayStart) || (calShortMonthEnd == eventDate[1] && 1 <= eventDate[2] <= weekDayEnd) && eventDate[0] == calYear) {
         codeAddresses(eventsJsonArray[j].gallery.street, eventsJsonArray[j].gallery.city, eventsJsonArray[j].gallery.state, eventsJsonArray[j].gallery.zipcode, eventsJsonArray[j].gallery.description, eventsJsonArray[j].gallery.id);
       };
     };
   } else {
+    calYear = $('#calendar').fullCalendar('getView').title.split(' ')[4];
     for (var h = 0; h < eventsJsonArray.length; h++) {
       if (!eventsJsonArray[h].date) { continue }
       var eventDate = eventsJsonArray[h].date.split('-');
       // Checking to see if the event date is between the start and the end of the calendar week
-      if (eventDate[1] == calShortMonthStart && weekDayStart <= eventDate[2] && eventDate[2] <= weekDayEnd) {
+      if (eventDate[1] == calShortMonthStart && weekDayStart <= eventDate[2] && eventDate[2] <= weekDayEnd && eventDate[0] == calYear) {
         codeAddresses(eventsJsonArray[h].gallery.street, eventsJsonArray[h].gallery.city, eventsJsonArray[h].gallery.state, eventsJsonArray[h].gallery.zipcode, eventsJsonArray[h].gallery.description, eventsJsonArray[h].gallery.id);
       };
     };
@@ -212,6 +218,7 @@ function day() {
 
   // Splitting the title to get the digital day
   calDaySplit = calDayTitle.split(' ');
+  calYear = calDayTitle.split(' ')[2];
   var calDay = calDaySplit[1].split(',')[0];
 
   //Verifying if the day is a two digit day, if not add the zero in front
@@ -226,7 +233,7 @@ function day() {
     var eventDate = eventsJsonArray[i].date.split('-');
 
     // Compare the two dates and create the marker
-    if (eventDate[1] == calendarMonth() && eventDate[2] == calDay){
+    if (eventDate[1] == calendarMonth() && eventDate[2] == calDay && eventDate[0] == calYear){
       codeAddresses(eventsJsonArray[i].gallery.street, eventsJsonArray[i].gallery.city, eventsJsonArray[i].gallery.state, eventsJsonArray[i].gallery.zipcode, eventsJsonArray[i].gallery.description, eventsJsonArray[i].gallery.id);
     };
   };
