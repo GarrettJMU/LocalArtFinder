@@ -21,7 +21,7 @@
 
 #contact .container form input:focus,
 #contact .container form textarea:focus {
-	border:2px solid #dd4545;
+	border:2px solid #a5637c;
 	color:#999;}
 
 #contact .container form textarea {
@@ -32,12 +32,12 @@
 	padding:5px 10px;
 	font-size: 12px;
 	letter-spacing:1px;
-	background:#dd4545;
+	background:#a5637c;
 	height:40px;
 	text-transform:uppercase;
 	letter-spacing:1px;
 	color:#FFF;
-	border:2px solid #b43838;
+	border:2px solid #a5637c;
   -webkit-transition:all .1s ease-in-out;
 	-moz-transition:all .1s ease-in-out;
 	-ms-transition:all .1s ease-in-out;
@@ -46,9 +46,9 @@
 
 #contact .container form .submit:hover {
 	color:#FFF;
-	border:2px solid #dd4545;
-	background: #b43838;
+	border:2px solid #a5637c;
+	background: #a5637c;
 	cursor:pointer;}
 
 #contact .container form .required {
-	color:#b43838;}
+	color:#a5637c;}
