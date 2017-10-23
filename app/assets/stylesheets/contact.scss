@@ -1,3 +1,31 @@
+h1 {
+	text-align:center;
+}
+
+h2 {
+	text-align:center;
+	padding-bottom: 5%;
+	font-size: 16pt;
+	color: #808080;
+}
+
+h4 {
+	padding-top: 2%;
+	color: grey;
+	font-size: 12pt;
+	padding-bottom: 5%;
+}
+
+a {
+	padding-top: 2%;
+	color: #a5637c;
+	text-decoration: none;
+}
+
+a h2 {
+	padding-bottom: 10%;
+}
+
 #contact {width:100%; margin: 0 auto; background: #DDD; }
 
 .container {width:960px; height:auto; margin: 0 auto; padding: 50px 0;}
@@ -52,3 +80,24 @@
 
 #contact .container form .required {
 	color:#a5637c;}
+
+
+
+.tandc {
+	padding-left:10vw;
+	padding-right: 10vw;
+	padding-bottom: 10vh;
+}
+
+.tandd {
+	background: #fff;
+	padding-top:4vh;
+	padding-left:2vw;
+	padding-right: 2vw;
+	padding-bottom: 4vh;
+}
+
+.col-sm-12 {
+	text-align: center;
+	padding-top: 5%;
+}

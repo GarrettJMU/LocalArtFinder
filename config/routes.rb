@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get '/about/index'
   get '/terms/index'
   get '/contact/index'
+
+  get 'contact-me', to: 'messages#new', as: 'new_message'
+  post 'contact-me', to: 'messages#create', as: 'create_message'
+  
   devise_for :users, :controllers => { registrations: "registrations", :omniauth_callbacks => "users/omniauth_callbacks"}
 
   devise_scope :user do
