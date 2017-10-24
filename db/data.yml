@@ -1,0 +1,586 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2017-10-24 03:48:34.500586'
+    - '2017-10-24 03:48:34.500586'
+
+---
+artists:
+  columns:
+  - id
+  - artist_name
+  - first_name
+  - last_name
+  - email
+  - password
+  - street
+  - city
+  - state
+  - zipcode
+  - website
+  - sales
+  - phone
+  - created_at
+  - updated_at
+  - user_id
+  - price
+  records: 
+  - - 1
+    - Edgar Degas
+    - Edgar
+    - Degas
+    - edgardegas@yahoo.com
+    - password
+    - 2625 Ashcraft
+    - San Diego
+    - CA
+    - '92103'
+    - www.edgardegas.com
+    - 
+    - "(760)210-1326"
+    - '2017-10-24 03:48:35.158525'
+    - '2017-10-24 03:48:35.158525'
+    - 1
+    - "$"
+  - - 2
+    - Camille Pissaro
+    - Camille
+    - Pissaro
+    - camillepissaro@gmail.com
+    - password
+    - 2575 Willison Street
+    - San Diego
+    - CA
+    - '92111'
+    - www.camillepissaro.com
+    - 
+    - "(858)352-0001"
+    - '2017-10-24 03:48:35.165969'
+    - '2017-10-24 03:48:35.165969'
+    - 1
+    - "$$$"
+  - - 3
+    - Marc Chagall
+    - Marc
+    - Chagall
+    - marcchagall@yahoo.com
+    - password
+    - 3484 Coleman Avenue
+    - San Diego
+    - CA
+    - '92103'
+    - www.marcchagall.com
+    - 
+    - "(858)541-6026"
+    - '2017-10-24 03:48:35.171172'
+    - '2017-10-24 03:48:35.171172'
+    - 1
+    - "$"
+  - - 4
+    - Mary Cassatt
+    - Mary
+    - Cassatt
+    - marycassatt@gmail.com
+    - password
+    - 4003 Poplar Avenue
+    - San Diego
+    - CA
+    - '92111'
+    - www.marycassatt.com
+    - 
+    - "(760)522-5363"
+    - '2017-10-24 03:48:35.175774'
+    - '2017-10-24 03:48:35.175774'
+    - 1
+    - "$$$"
+  - - 5
+    - Paul Gauguin
+    - Paul
+    - Gauguin
+    - paulgauguin@yahoo.com
+    - password
+    - 480 Poplar Avenue
+    - San Diego
+    - CA
+    - '92103'
+    - www.paulgauguin.com
+    - 
+    - "(619)515-5115"
+    - '2017-10-24 03:48:35.178957'
+    - '2017-10-24 03:48:35.178957'
+    - 1
+    - "$$"
+
+---
+arts:
+  columns:
+  - id
+  - genre
+  - description
+  - price
+  - length
+  - width
+  - medium
+  - artist_id
+  - created_at
+  - updated_at
+  - user_id
+  - image_file_name
+  - image_content_type
+  - image_file_size
+  - image_updated_at
+  - title
+  records: 
+  - - 1
+    - Interior
+    - Interior paintings/drawings typically exclude or de-emphasize the presence of
+      people or pets.
+    - 200
+    - '30.0'
+    - '40.0'
+    - Oil
+    - 1
+    - '2017-10-24 03:48:35.61938'
+    - '2017-10-24 03:48:35.61938'
+    - 1
+    - artistOne.jpg
+    - image/jpeg
+    - 57503
+    - '2017-10-24 03:48:35.319311'
+    - Landscaping
+  - - 2
+    - Still Life
+    - 'Still lifes can be highly arranged sets of objects, casual arrangements, haphazard
+      groupings, or, as in trompe l''oeil still lifes, some sort of planar surface
+      is convincingly painted facing the viewer, and objects are carefully rendered
+      as if they are attached to or suspended from this surface.
+
+'
+    - 250
+    - '20.0'
+    - '24.0'
+    - Oil
+    - 1
+    - '2017-10-24 03:48:37.454183'
+    - '2017-10-24 03:48:37.454183'
+    - 1
+    - artistOnes.jpg
+    - image/jpeg
+    - 24927
+    - '2017-10-24 03:48:37.219546'
+    - Scenic River
+  - - 3
+    - Portrait
+    - 'Portraiture seeks to capture the essential identity of each character that
+      is shown. Among other variations, portraits can be head studies, head and shoulders,
+      head/shoulders/hands, or full body. With the focus on the character(s), any
+      objects or settings shown in the painting/drawing might be seen as symbolic
+      of the character(s) or perhaps providing context for the character(s).
+
+'
+    - 500
+    - '30.0'
+    - '40.0'
+    - Gouache
+    - 2
+    - '2017-10-24 03:48:38.412365'
+    - '2017-10-24 03:48:38.412365'
+    - 1
+    - artistTwo.jpg
+    - image/jpeg
+    - 27364
+    - '2017-10-24 03:48:38.168503'
+    - portrait of a girl
+  - - 4
+    - Figurative
+    - 'In figurative painting/drawings, character(s) are depicted in a context that
+      removes the focus from capturing the essence of those portrayed. Character(s)
+      can be real or imaginary, human or animal. As opposed to portraiture, heads
+      might be turned away, faces might be de-emphasized, the figure might be painted
+      within a scene that shares equal attention, the painting/drawing might portray
+      characters as allegorical representations of an idea, or the characters might
+      be treated as replaceable actors within a drama.
+
+'
+    - 1000
+    - '36.0'
+    - '48.0'
+    - Gouache
+    - 2
+    - '2017-10-24 03:48:39.430703'
+    - '2017-10-24 03:48:39.430703'
+    - 1
+    - artistTwos.jpg
+    - image/jpeg
+    - 100890
+    - '2017-10-24 03:48:39.18966'
+    - Allegory
+  - - 5
+    - Landscape
+    - 'Landscapes focus on natural scenes, from close-ups of plants in their natural
+      setting, to trees on a hill, to farmland, to broad vistas and the skies above.
+      Any architecture present is de-emphasized.
+
+'
+    - 80
+    - '18.0'
+    - '24.0'
+    - Tempera
+    - 3
+    - '2017-10-24 03:48:40.571277'
+    - '2017-10-24 03:48:40.571277'
+    - 1
+    - artistThree.jpg
+    - image/jpeg
+    - 37274
+    - '2017-10-24 03:48:40.327761'
+    - Trees on a hill
+  - - 6
+    - Structures
+    - 'Painting/drawings that show towns, cities, homes, farms, emphasizing architecture
+      and/or the functional/recreational spaces between buildings.
+
+'
+    - 750
+    - '36.0'
+    - '48.0'
+    - Tempera
+    - 3
+    - '2017-10-24 03:48:41.480999'
+    - '2017-10-24 03:48:41.480999'
+    - 1
+    - artistThrees.jpg
+    - image/jpeg
+    - 55272
+    - '2017-10-24 03:48:41.238817'
+    - cityscape
+  - - 7
+    - Impressionism
+    - A central figure of the Impressionist circle, Berthe Morisot is known for both
+      her compelling portraits and her poignant landscapes.
+    - 240
+    - '20.0'
+    - '24.0'
+    - Fresco Painting
+    - 4
+    - '2017-10-24 03:48:42.510304'
+    - '2017-10-24 03:48:42.510304'
+    - 1
+    - artistFour.jpg
+    - image/jpeg
+    - 34364
+    - '2017-10-24 03:48:42.251543'
+    - Fresco Painting
+  - - 8
+    - Impresionism
+    - While the work of Gustave Caillebotte adheres to a distinctly realistic aesthetic
+      that differs from most impressionistic renderings, his paintings reflect a similar
+      concern with subjects of modern life.
+    - 350
+    - '24.0'
+    - '36.0'
+    - Fresco Painting
+    - 4
+    - '2017-10-24 03:48:43.580108'
+    - '2017-10-24 03:48:43.580108'
+    - 1
+    - artistFours.jpg
+    - image/jpeg
+    - 52688
+    - '2017-10-24 03:48:43.312903'
+    - All the Colors
+  - - 9
+    - Realism
+    - At the same Salon of 1850-51 where he made waves with A Burial at Ornans, Courbet
+      also exhibited The Stone Breakers. In the painting, which shows two workers,
+      one young, one old, Courbet presented both a Realist snapshot of everyday life
+      and an allegory on the nature of poverty.
+    - 645
+    - '18.0'
+    - '24.0'
+    - Oil
+    - 5
+    - '2017-10-24 03:48:44.632327'
+    - '2017-10-24 03:48:44.632327'
+    - 1
+    - artistFive.jpg
+    - image/jpeg
+    - 97266
+    - '2017-10-24 03:48:44.374311'
+    - everyday life
+  - - 10
+    - Realism
+    - Part of a 'trilogy' of paintings celebrating France's rural denizens, The Gleaners
+      serves as something of a feminine pendant to Courbet's The Stone Breakers (1849-50).
+    - 890
+    - '30.0'
+    - '40.0'
+    - Oil
+    - 5
+    - '2017-10-24 03:48:46.020178'
+    - '2017-10-24 03:48:46.020178'
+    - 1
+    - artistFives.jpg
+    - image/jpeg
+    - 44727
+    - '2017-10-24 03:48:45.776183'
+    - The Divine Feminine
+
+---
+events:
+  columns:
+  - id
+  - start
+  - end
+  - gallery_id
+  - artist_id
+  - art_id
+  - created_at
+  - updated_at
+  - user_id
+  - date
+  records: 
+  - - 1
+    - '18:00:00'
+    - '21:00:00'
+    - 1
+    - 1
+    - 
+    - '2017-10-24 03:48:46.782098'
+    - '2017-10-24 03:48:46.782098'
+    - 1
+    - '2017-10-28'
+  - - 2
+    - '19:00:00'
+    - '22:00:00'
+    - 2
+    - 2
+    - 
+    - '2017-10-24 03:48:46.795898'
+    - '2017-10-24 03:48:46.795898'
+    - 1
+    - '2017-10-17'
+  - - 3
+    - '18:00:00'
+    - '21:00:00'
+    - 3
+    - 3
+    - 
+    - '2017-10-24 03:48:46.800407'
+    - '2017-10-24 03:48:46.800407'
+    - 1
+    - '2017-11-05'
+  - - 4
+    - '19:00:00'
+    - '22:00:00'
+    - 4
+    - 4
+    - 
+    - '2017-10-24 03:48:46.805793'
+    - '2017-10-24 03:48:46.805793'
+    - 1
+    - '2017-11-28'
+  - - 5
+    - '18:00:00'
+    - '21:00:00'
+    - 5
+    - 5
+    - 
+    - '2017-10-24 03:48:46.810786'
+    - '2017-10-24 03:48:46.810786'
+    - 1
+    - '2017-10-27'
+
+---
+galleries:
+  columns:
+  - id
+  - name
+  - website
+  - phone
+  - opening
+  - closing
+  - street
+  - city
+  - state
+  - zipcode
+  - artist_id
+  - art_id
+  - created_at
+  - updated_at
+  - user_id
+  - description
+  records: 
+  - - 1
+    - Exhibition of Art
+    - www.ExhibitionOfArt.com
+    - "(619)264-8402"
+    - '10:00:00'
+    - '18:00:00'
+    - 325 15th Street
+    - San Diego
+    - CA
+    - '92101'
+    - 1
+    - 
+    - '2017-10-24 03:48:35.229636'
+    - '2017-10-24 03:48:35.229636'
+    - 1
+    - 
+  - - 2
+    - Art Hall
+    - www.arthall.com
+    - "(760)271-1231"
+    - '09:00:00'
+    - '17:00:00'
+    - 1500 El Prado
+    - San Diego
+    - CA
+    - '92101'
+    - 2
+    - 
+    - '2017-10-24 03:48:35.237354'
+    - '2017-10-24 03:48:35.237354'
+    - 1
+    - 
+  - - 3
+    - 'Vault of Glass
+
+'
+    - www.VaultOfGlass.com
+    - "(619)602-5960"
+    - '10:00:00'
+    - '18:00:00'
+    - 1827 5th Ave
+    - San Diego
+    - CA
+    - '92101'
+    - 3
+    - 
+    - '2017-10-24 03:48:35.243043'
+    - '2017-10-24 03:48:35.243043'
+    - 1
+    - 
+  - - 4
+    - 'Creativity Centre
+
+'
+    - www.CreativityCentre.com
+    - "(619)264-8402"
+    - '09:00:00'
+    - '17:00:00'
+    - 1040 7th Avenue
+    - San Diego
+    - CA
+    - '92101'
+    - 4
+    - 
+    - '2017-10-24 03:48:35.247458'
+    - '2017-10-24 03:48:35.247458'
+    - 1
+    - 
+  - - 5
+    - 'Expedition Gallery
+
+'
+    - www.expeditiongallery.com
+    - "(858)472-2248"
+    - '09:00:00'
+    - '17:00:00'
+    - 1550 S El Camino Real
+    - Encinitas
+    - CA
+    - '92024'
+    - 5
+    - 
+    - '2017-10-24 03:48:35.251415'
+    - '2017-10-24 03:48:35.251415'
+    - 1
+    - 
+
+---
+roles:
+  columns:
+  - id
+  - name
+  - resource_type
+  - resource_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - artist
+    - 
+    - 
+    - '2017-10-24 03:48:35.028129'
+    - '2017-10-24 03:48:35.028129'
+  - - 2
+    - admin
+    - 
+    - 
+    - '2017-10-24 03:48:35.093334'
+    - '2017-10-24 03:48:35.093334'
+
+---
+users:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - created_at
+  - updated_at
+  - provider
+  - uid
+  - name
+  - image
+  - password_reset_token
+  - password_reset_sent_at
+  - user_id
+  records: 
+  - - 1
+    - administrator@gmail.com
+    - "$2a$11$3YTrjzxsT9nQP3VbNgqS/e/A.tFIiPHFE5eBd2se09ONdf3X4D5KK"
+    - 
+    - 
+    - 
+    - 2
+    - '2017-10-24 04:36:55.23011'
+    - '2017-10-24 03:57:47.487345'
+    - 127.0.0.1
+    - 127.0.0.1
+    - '2017-10-24 03:48:35.001487'
+    - '2017-10-24 04:36:55.231474'
+    - 
+    - 
+    - Bobby Joe
+    - 
+    - 
+    - 
+    - 
+
+---
+users_roles:
+  columns:
+  - user_id
+  - role_id
+  records: 
+  - - 1
+    - 1
+  - - 1
+    - 2

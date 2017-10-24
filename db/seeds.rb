@@ -1,6 +1,6 @@
 
 
-user = User.create! :name => 'Bobby Joe', :email => 'Administrator@gmail.com', :password => 'password', :password_confirmation => 'password'
+user = User.create! :name => 'Bobby Joe', :email => 'Administration@gmail.com', :password => 'password', :password_confirmation => 'password'
 user.grant(:admin)
 
 artistOne = user.artists.create!(artist_name: 'Edgar Degas', first_name: 'Edgar', last_name: 'Degas', email: 'edgardegas@yahoo.com', password: 'password', street: '2625 Ashcraft', city: 'San Diego',state: 'CA',zipcode: '92103',website: 'www.edgardegas.com',price: '$', phone: '(760)210-1326')
