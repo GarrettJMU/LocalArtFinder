@@ -1,40 +1,35 @@
-<div class="tandc" style=" padding-left:10vw; padding-right: 10vw; padding-bottom: 10vh;">
-  <div class="" style="background: white; padding-top:4vh; padding-left:2vw; padding-right: 2vw; padding-bottom: 4vh;">
-    <h1 style="text-align:center;">Want to contact LocalArtFinder?</h1>
-    <h2 style="text-align:center; padding-top: 2%; font-size: 16pt; color: grey;">Here are a few ways to get in touch with us</h2>
+<div class="tandc">
+  <div class="tandd">
+    <h1>Want to contact LocalArtFinder?</h1>
+    <h2>Here are a few ways to get in touch with us</h2>
     <div class="row">
+      <div class="col col-md-6 col-sm-12">
+        <h3>Feeling Formal?</h3>
+        <h4>Then fill this out and we'll get back to you!</h4>
+        <section id="contact">
+          <div class="container">
+            <%= form_for @message, name: "htmlform", url: create_message_url do |f| %>
+              <%= notice %>
+              <%= @message.errors.full_messages.join(', ') %>
 
-    <div class="col col-md-6 col-sm-12" style="text-align: center; padding-top: 5%">
-      <h3>Feeling Formal?</h3>
-      <h4 style="padding-top: 2%; color: grey; font-size: 12pt; padding-bottom: 5%">Then fill this out and we'll get back to you!</h4>
-      <section id="contact">
-
-      <div class="container">
-        <form name="htmlform" method="post" action="">
-          <label>Name</label>
-        <input type="text" name="first_name" placeholder="John Doe" required>
-        <label>Email</label>
-        <input  type="email" name="email" placeholder="example@gmail.com" required>
-        <label>Message</label>
-        <textarea name="comments" placeholder="Put message here" required ></textarea>
-        <button name="send" type="submit" class="submit">SEND</button>
-      </form>
-
+              <%= f.text_field :name, placeholder: 'name', :required => true %>
+              <%= f.email_field :email, placeholder: 'email', :required => true %>
+              <%= f.text_area :body, placeholder: 'Put message here', :required => true %>
+              <%= f.submit 'Send', class:  "submit"%>
+            <% end %>
+          </div>
+        </section>
+      </div>
+      <div class="col col-md-6 col-sm-12">
+        <h3>Prefer Other Methods?</h3>
+        <h4>(We have those too)</h4>
+        <h5>Phone</h5>
+        <a href="tel:111111111" id="phone"><h2>111-111-1111</h2></a>
+        <h5>Email</h5>
+        <a href="mail:info@localartfinder.com"><h2>info@localartfinder.com</h2></a>
+        <h5>Address</h5>
+        <a href="geo:37.786971,-122.399677;u=35"><h2>704 J Street, San Diego, CA 92054</h2></a>
+      </div>
     </div>
-  </section>
-    </div>
-    <div class="col col-md-6 col-sm-12" style="text-align: center; padding-top: 5%">
-      <h3>Prefer Other Methods?</h3>
-      <h4 style="padding-top: 2%; color: grey; font-size: 12pt; padding-bottom: 5%">(We have those too)</h4>
-      <h5 style="padding-bottom: 5%">Phone</h5>
-      <a href="tel:111111111" style="text-decoration: none; color: black;"><h2 style="padding-bottom: 5%; color: #a5637c">111-111-1111</h2></a>
-      <h5 style="padding-bottom: 5%">Email</h5>
-      <a href="mail:info@localartfinder.com" style="padding-bottom: 5%; color: #a5637c; text-decoration: none;"><h2 style="padding-bottom: 5%;">info@localartfinder.com</h2></a>
-      <h5 style="padding-bottom: 5%">Address</h5>
-      <a href="geo:37.786971,-122.399677;u=35" style="padding-bottom: 5%; color: #a5637c; text-decoration: none;"><h2>704 J Street, San Diego, CA 92054</h2></a>
-
-    </div>
-  </div>
-
   </div>
 </div>

@@ -197,6 +197,7 @@
 
 
 .select-style {
+				min-width: 100px;
   	    border: 1px solid #ccc;
   	    border-radius: 3px;
   	    overflow: hidden;
@@ -249,6 +250,7 @@
 }
 
 .form-control {
+	min-width: 100px;
   width: 10vw;
   height: 1.5em;
 }
