@@ -48,13 +48,15 @@
     float: right;
     width: 500px;
     display: inline-block;
-    border-left: 8px solid #e0e0e0;
+    border-left: 4px solid #e0e0e0;
     padding-left: 8px;
     .detail{
       width: 100%;
+      margin: 4px 0;
       p{
         display: block;
         float: right;
+        margin: 0;
       }
     }
 

@@ -9,6 +9,7 @@ class ArtsController < ApplicationController
   def index
     @ability = Ability.new(current_user)
     @arts = Art.all
+    @artists = Artist.all
     @filterrific = initialize_filterrific(
     Art,
     params[:filterrific],
@@ -31,12 +32,14 @@ class ArtsController < ApplicationController
 
   def show
    @user = current_user
-   @artist = @user.artists.first.id
+   @artists = Artist.all
+   @artist = @artists.first.id
   end
 
   def new
     @art = Art.new
     @user = current_user
+    @artists = Artist.all
     @artist = @user.artists.first.id
   end
 

@@ -1,23 +1,16 @@
 <!-- this script overrides the stripe button styling -->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".stripe-button-el span").removeClass();
-            $("button.stripe-button-el").removeAttr('style').css({
-               "font-weight": "600",
-               "border-radius": "0px",
-               "text-transform": "uppercase",
-               "outline": "0",
-                "-webkit-transition": "all 0.3 ease",
-                "transition": "all 0.3 ease",
-                "border":"0",
-                "display":"inline-block",
-                "width":"auto",
-                "padding":"15px",
-                "background":"#a5637c",
-                "color":"white",
-                "font-size":"14px" }).html("Pay with card");
-        });
-</script>
+<!-- <script type="text/javascript">
+$(".stripe-button-el span").remove();
+    $("button.stripe-button-el").removeAttr('style').css({
+        "display":"inline-block",
+        "width":"100%",
+        "padding":"15px",
+        "background":"#3fb0ac",
+        "color":"white",
+        "font-size":"1.3em" }).html("Sign Me Up!");
+});
+</script> -->
+
 <!-- end of script that overrides stripe button styling -->
 
 <div class="new-art-page">
@@ -29,6 +22,11 @@
 <p>
   <strong>Genre:</strong>
   <%= @art.genre %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @art.title %>
 </p>
 
 <p>
@@ -82,6 +80,8 @@
 <br>
 
 <%= link_to 'Edit', edit_art_path(@art), class: "search-toggle new-art-edit", type: "button" %>
-<%= link_to 'To Art Page', arts_path, class: "search-toggle new-art-back", type: "button" %>
-<%= link_to 'Profile', artist_path(@artist), class: "search-toggle new-art-back", type: "button" %>
+<%= link_to 'Back', arts_path, class: "search-toggle new-art-back", type: "button" %>
+<%= link_to 'Artist Profile', artist_path(@artist), class: "search-toggle new-art-back", type: "button" %>
 <%#= link_to 'Back to artist profile', artists_path(@user) %>
+
+</div>
