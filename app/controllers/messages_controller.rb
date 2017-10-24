@@ -1,5 +1,6 @@
-class ContactController < ApplicationController
-  def index
+class MessagesController < ApplicationController
+  protect_from_forgery
+  def new
     @message = Message.new
   end
 
@@ -19,4 +20,6 @@ class ContactController < ApplicationController
   def message_params
     params.require(:message).permit(:name, :email, :body)
   end
+
+
 end
