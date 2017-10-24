@@ -10,43 +10,60 @@
 
   <div class="page-header">
     <h2>ART</h2>
-    <form class="center" action="/arts/new" >
-      <button type="submit" class="submit" name="button">Upload New Art</button>
-    </form>
-    <div class="form">
-      <%= form_for_filterrific @filterrific, :html => {:class => 'form-inline pull-right'} do |f| %>
-        <div>
-          <!-- <h3>Search</h3> -->
-          <%= f.text_field(
-            :search_query,
-            class: 'filterrific-periodically-observed form2-control form2-control-md',
-            placeholder: 'Search Genre/Medium'
-          ) %>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <form action="/arts/new" >
+            <button type="submit" class="submit pull-right" name="button">Upload New Art</button>
+          </form>
+          <button id="asearch" class="search-toggle" type="button" name="show" >Advanced Search</button>
         </div>
-        <div>
-          <%= f.select(
-          :sorted_by,
-          @filterrific.select_options[:sorted_by],
-          {},
-          class: 'form'
-          ) %>
-        </div>
-        <div>
-          <%= link_to(
-            'Reset filters',
-            reset_filterrific_url,
-            class: 'submit'
-          ) %>
-
-        </div>
-        <%= render_filterrific_spinner %>
-      <% end %>
+      </div>
     </div>
-
   </div>
-  <br>
-  <br>
+
+  <div class="form advanced-search">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <%= form_for_filterrific @filterrific, :html => {:class => 'form-inline pull-right'} do |f| %>
+            <div>
+              <!-- <h3>Search</h3> -->
+              <%= f.text_field(
+                :search_query,
+                class: 'filterrific-periodically-observed form2-control form2-control-md',
+                placeholder: 'Search Genre/Medium'
+              ) %>
+            </div>
+            <div>
+              <%= f.select(
+              :sorted_by,
+              @filterrific.select_options[:sorted_by],
+              {},
+              ) %>
+            </div>
+            <div>
+              <%= link_to(
+                'Reset filters',
+                reset_filterrific_url,
+                class: 'submit'
+              ) %>
+
+            </div>
+            <%= render_filterrific_spinner %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <p id="notice"><%= notice %></p>
+
   <%= render partial: 'arts/list',locals: { arts: @arts } %>
 
 </div>
+<script>
+	$("#asearch").click(function(){
+    $(".advanced-search").toggle(500);
+	});
+</script>
