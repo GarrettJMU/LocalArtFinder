@@ -1,0 +1,275 @@
+/* line 11, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page {
+  font-family: "Roboto", sans-serif;
+  color: #5f5f5f;
+  background: #FFFFFF;
+  padding: 45px;
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-bottom: 60px;
+}
+/* line 18, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .page-header {
+  margin: 0 auto 50px;
+}
+/* line 20, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .page-header h2 {
+  font-weight: 200;
+  display: inline;
+}
+/* line 25, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .search-toggle {
+  float: right;
+  text-transform: uppercase;
+  outline: 0;
+  background: #a5637c;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: none;
+}
+/* line 41, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  margin: 30px auto 30px;
+  padding: 20px 45px;
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+/* line 48, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .form input {
+  outline: 1;
+  background: #f2f2f2;
+  border: 0;
+  margin-right: 5px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 14px;
+  height: 50px;
+}
+/* line 60, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .form2-control .form2-control-sm {
+  height: 50px;
+}
+/* line 64, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .advanced-search {
+  display: none;
+}
+/* line 66, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .advanced-search .advanced-search-row {
+  margin-bottom: 20px;
+}
+/* line 68, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .advanced-search .advanced-search-row form {
+  width: 100%;
+}
+/* line 73, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .advanced-search .form input {
+  outline: 0;
+  background: #f2f2f2;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 14px;
+}
+/* line 83, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .advanced-search .submit {
+  text-transform: uppercase;
+  outline: 0;
+  background: #A7D2CB;
+  float: right;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+/* line 96, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .advanced-search .submit:hover, .arts-page .advanced-search .form .submit:active, .arts-page .advanced-search .form .submit:focus {
+  background: #6c9991;
+}
+/* line 100, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .submit {
+  text-transform: uppercase;
+  outline: 0;
+  background: #a5637c;
+  float: right;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-left: 5px;
+}
+/* line 114, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .filterrific_results {
+  width: 100%;
+  overflow: hidden;
+}
+/* line 117, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .filterrific_results .art-card {
+  min-width: 200px;
+  padding: 0 30px 20px;
+}
+/* line 120, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .filterrific_results .art-card .art-image {
+  width: 100%;
+}
+/* line 122, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .filterrific_results .art-card .art-image img {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+/* line 128, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .filterrific_results .art-card .art-details {
+  text-align: center;
+}
+/* line 130, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .filterrific_results .art-card .art-details .art-description {
+  font-weight: 200;
+}
+/* line 136, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .card-deck {
+  margin-bottom: 60px;
+}
+/* line 138, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .card-deck a:hover {
+  text-decoration: none;
+}
+/* line 141, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .card-deck .card {
+  text-decoration: none;
+  color: #5f5f5f;
+  min-width: 250px;
+  min-height: 270px;
+  margin: 5px;
+}
+/* line 147, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .card-deck .card .card-title {
+  display: inline-block;
+}
+/* line 150, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .card-deck .card .card-text {
+  display: inline-block;
+  color: #d2d2d2;
+  float: right;
+}
+/* line 155, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .card-deck .card .card-img {
+  height: auto;
+  max-width: 100%;
+  margin: 10px;
+}
+/* line 160, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .card-deck .card:hover {
+  color: #5f5f5f;
+  text-decoration: none;
+  border-color: #5f5f5f;
+}
+/* line 164, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.arts-page .card-deck .card:hover .card-text {
+  color: #8ebd82;
+}
+
+/* line 172, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  background-color: #FFF;
+  padding: 40px;
+  color: #5f5f5f;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+/* line 183, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page .art-form .create-art {
+  margin: 25px;
+}
+/* line 187, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page .art-form .select-style {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+}
+/* line 194, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page .art-form .select-style select {
+  padding: 5px 8px;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+}
+/* line 203, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page .art-form .select-style select:focus {
+  outline: none;
+}
+/* line 207, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page .art-form .form-horizontal {
+  padding-top: 15px;
+}
+/* line 212, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page h1 {
+  margin-bottom: 40px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  color: #5f5f5f;
+}
+/* line 219, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page .search-toggle {
+  text-transform: uppercase;
+  outline: 0;
+  background: #a5637c;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: none;
+}
+/* line 233, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page .stripe-button-el {
+  background-image: none;
+  text-transform: uppercase;
+  outline: 0;
+  background: #a5637c;
+  border: none;
+  border-radius: 0;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: none;
+}
+/* line 245, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.new-art-page .stripe-button-el span {
+  background-color: transparent;
+  background-image: none;
+}
+
+/* line 252, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/arts.scss */
+.actions {
+  margin-bottom: 25px;
+}

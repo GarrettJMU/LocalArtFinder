@@ -1,0 +1,126 @@
+/* line 1, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+h1 {
+  text-align: center;
+}
+
+/* line 5, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+h2 {
+  text-align: center;
+  padding-bottom: 5%;
+  font-size: 16pt;
+  color: #808080;
+}
+
+/* line 12, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+h4 {
+  padding-top: 2%;
+  color: grey;
+  font-size: 12pt;
+  padding-bottom: 5%;
+}
+
+/* line 19, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+a {
+  padding-top: 2%;
+  color: #a5637c;
+  text-decoration: none;
+}
+
+/* line 25, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+a h2 {
+  padding-bottom: 10%;
+}
+
+/* line 29, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+#contact {
+  width: 100%;
+  margin: 0 auto;
+  background: #DDD;
+}
+
+/* line 31, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+.container {
+  width: 960px;
+  height: auto;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+/* line 33, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+#contact .container form input,
+#contact .container form textarea {
+  width: 97.4%;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 1px;
+  background: #FFF;
+  border: 2px solid #FFF;
+  margin-bottom: 25px;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+/* line 50, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+#contact .container form input:focus,
+#contact .container form textarea:focus {
+  border: 2px solid #a5637c;
+  color: #999;
+}
+
+/* line 55, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+#contact .container form textarea {
+  height: 150px;
+}
+
+/* line 58, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+#contact .container form .submit {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  background: #a5637c;
+  height: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #FFF;
+  border: 2px solid #a5637c;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+/* line 75, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+#contact .container form .submit:hover {
+  color: #FFF;
+  border: 2px solid #a5637c;
+  background: #a5637c;
+  cursor: pointer;
+}
+
+/* line 81, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+#contact .container form .required {
+  color: #a5637c;
+}
+
+/* line 86, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+.tandc {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-bottom: 10vh;
+}
+
+/* line 92, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+.tandd {
+  background: #fff;
+  padding-top: 4vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 4vh;
+}
+
+/* line 100, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/contact.scss */
+.col-sm-12 {
+  text-align: center;
+  padding-top: 5%;
+}

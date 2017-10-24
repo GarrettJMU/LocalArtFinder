@@ -1,0 +1,271 @@
+/* line 6, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page {
+  font-family: "Roboto", sans-serif;
+  color: #5f5f5f;
+  background: #FFFFFF;
+  padding: 45px;
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-bottom: 60px;
+}
+/* line 13, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page .page-header {
+  margin: 0 auto 50px;
+}
+/* line 15, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page .page-header h2 {
+  font-weight: 200;
+  display: inline;
+}
+/* line 20, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page h3 {
+  font-weight: 200;
+  text-align: center;
+}
+/* line 25, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page .search-toggle {
+  float: right;
+  text-transform: uppercase;
+  outline: 0;
+  background: #a5637c;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: none;
+}
+/* line 42, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page .table-controls {
+  width: 50vw;
+  margin: 15px auto 20px;
+  overflow: hidden;
+}
+/* line 48, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page #map {
+  height: 500px;
+}
+/* line 51, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page .event-table {
+  display: none;
+  width: 50vw;
+  margin: 30px auto;
+}
+/* line 55, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page .event-table table {
+  width: 100%;
+}
+/* line 59, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page .event-table thead th {
+  text-align: center;
+  color: #FFF;
+  background-color: #95bbb5;
+  padding: 10px 15px;
+}
+/* line 67, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.events-page .event-table tbody :nth-child(odd) tr td {
+  background-color: #f1f1f1;
+}
+
+/* line 73, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-image-wrapper {
+  position: relative;
+  padding: 20px 30px;
+  background: transparent url(../images/black.png) repeat top left;
+  border-radius: 10px;
+  min-height: 20px;
+}
+
+/* line 83, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-image {
+  position: relative;
+  text-align: center;
+  line-height: 0px;
+}
+
+/* line 89, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-image img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* line 94, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-image-nav a {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #000 url(../images/nav.png) no-repeat -20% 50%;
+  width: 28px;
+  height: 100%;
+  text-indent: -9000px;
+  cursor: pointer;
+  opacity: 0.3;
+  outline: none;
+  border-radius: 10px 0px 0px 10px;
+}
+
+/* line 110, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-image-nav a.rg-image-nav-next {
+  right: 0px;
+  left: auto;
+  background-position: 115% 50%;
+  border-radius: 0px 10px 10px 0px;
+}
+
+/* line 119, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-image-nav a:hover {
+  opacity: 0.8;
+}
+
+/* line 123, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-caption {
+  text-align: center;
+  margin-top: 15px;
+  position: relative;
+}
+
+/* line 128, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-caption p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-family: 'Trebuchet MS', 'Myriad Pro', Arial, sans-serif;
+  line-height: 16px;
+  padding: 0 15px;
+  text-transform: uppercase;
+}
+
+/* line 137, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-view {
+  height: 30px;
+}
+
+/* line 140, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-view a {
+  display: block;
+  float: right;
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  background: #464646 url(../images/views.png) no-repeat top left;
+  border: 3px solid #464646;
+  opacity: 0.8;
+}
+
+/* line 150, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-view a:hover {
+  opacity: 1.0;
+}
+
+/* line 153, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-view a.rg-view-full {
+  background-position: 0px 0px;
+}
+
+/* line 156, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-view a.rg-view-selected {
+  background-color: #6f6f6f;
+  border-color: #6f6f6f;
+}
+
+/* line 160, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-view a.rg-view-thumbs {
+  background-position: 0px -16px;
+}
+
+/* line 164, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.rg-loading {
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #000 url(../images/ajax-loader.gif) no-repeat center center;
+  margin: -23px 0px 0px -23px;
+  z-index: 100;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+/* line 179, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.new-event-page {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  background-color: #FFF;
+  padding: 40px;
+  color: #5f5f5f;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+/* line 190, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.new-event-page .event-form .create-event {
+  margin: 25px;
+}
+/* line 194, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.new-event-page .event-form .horizontal-center {
+  margin: 10px;
+}
+/* line 199, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.new-event-page .event-form .select-style {
+  min-width: 100px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fafafa;
+}
+/* line 207, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.new-event-page .event-form .select-style select {
+  padding: 5px 8px;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: transparent;
+  background-image: none;
+}
+/* line 215, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.new-event-page .event-form .select-style select:focus {
+  outline: none;
+}
+/* line 219, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.new-event-page .event-form .form-horizontal {
+  padding-top: 15px;
+}
+/* line 224, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.new-event-page h1 {
+  margin-bottom: 40px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  color: #5f5f5f;
+}
+/* line 231, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.new-event-page .search-toggle {
+  text-transform: uppercase;
+  outline: 0;
+  background: #a5637c;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: none;
+}
+
+/* line 247, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.form-horizontal {
+  width: 11vw;
+  margin: 0 auto;
+}
+
+/* line 252, /Users/briannakutauskas/iCloud Drive (Archive)/Documents/github/LocalArtFinder/app/assets/stylesheets/events.scss */
+.form-control {
+  min-width: 100px;
+  width: 10vw;
+  height: 1.5em;
+}
